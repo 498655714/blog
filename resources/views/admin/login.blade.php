@@ -90,7 +90,7 @@
 															<input type="text" placeholder="ValidateCode" />
 															<i class="icon-edit"></i>
 														</span>
-                                                <img src="{{url('admin/validatecode')}}" onclick="javascript:this.src='{{url('admin/validatecode?tm='+Math.random())}}';" />
+                                                <img src="{{url('admin/validatecode')}}" onclick="javascript:this.src='admin/validatecode?tm='+Math.random();" />
                                             </label>
 
                                             <div class="space"></div>
