@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\CommonController;
-require_once 'resources/org/ValidateCode.class.php';
+require_once ROOT_PATH.'/../resources/org/ValidateCode.class.php';
 class AuthController extends CommonController
 {
     //登录界面
