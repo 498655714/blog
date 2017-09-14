@@ -3,38 +3,37 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\CommonController;
-require_once 'resourse/org/ValidateCode.class.php';  //ÏÈ°ÑÀà°üº¬½øÀ´£¬Êµ¼ÊÂ·¾¶¸ù¾ÝÊµ¼ÊÇé¿ö½øÐÐÐÞ¸Ä¡£
 class AuthController extends CommonController
 {
-    //µÇÂ¼½çÃæ
+    //ç™»å½•ç•Œé¢
     public function  getLogin(){
         return view('admin/login');
     }
-    //µÇÂ¼²Ù×÷
+    //ç™»å½•æ“ä½œ
     public function postLogin(){
 
     }
-    //ÍË³öµÇÂ¼
+    //é€€å‡ºç™»å½•
     public function getLogout(){
 
     }
-    //×¢²á½çÃæ
+    //æ³¨å†Œç•Œé¢
     public function getRegister(){
 
     }
-    //×¢²á²Ù×÷
+    //æ³¨å†Œæ“ä½œ
     public function postRegister(){
 
     }
 
-    //Éú³ÉÑéÖ¤Âë
+    //ç”ŸæˆéªŒè¯ç 
     public function code(){
-        $_vc = new \ValidateCode();      //ÊµÀý»¯Ò»¸ö¶ÔÏó
+        $_vc = new \ValidateCode();      //å®žä¾‹åŒ–ä¸€ä¸ªå¯¹è±¡
         $_vc->doimg();
-        $_SESSION['code'] = $_vc->getCode();//ÑéÖ¤Âë±£´æµ½SESSIONÖÐ
+        $_SESSION['code'] = $_vc->getCode();//éªŒè¯ç ä¿å­˜åˆ°SESSIONä¸­
     }
 
-    //Ð£ÑéÑéÖ¤Âë
+    //æ ¡éªŒéªŒè¯ç 
     public function checkCode(){
         $_SESSION['code'];
     }
