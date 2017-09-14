@@ -39,7 +39,6 @@
     <script src="{{asset('assets/js/html5shiv.js')}}"></script>
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
-    </script>
 </head>
 
 <body class="login-layout">
