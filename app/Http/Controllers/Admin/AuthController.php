@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\CommonController;
 
-class AuthController extends ControllerController
+class AuthController extends CommonController
 {
     //µÇÂ¼½çÃæ
     public function  getLogin(){
