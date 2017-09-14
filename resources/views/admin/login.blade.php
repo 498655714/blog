@@ -89,8 +89,8 @@
 														<span class="block input-icon input-icon-right">
 															<input type="text" placeholder="ValidateCode" />
 															<i class="icon-edit"></i>
-                                                            <img src="{{url('admin/validateCode')}}" onclick="javascript:this.src='admin/validateCode?tm='+Math.random();" />
 														</span>
+                                                <img src="{{url('admin/validatecode')}}" onclick="javascript:this.src='{{url('admin/validatecode?tm='+Math.random())}}';" />
                                             </label>
 
                                             <div class="space"></div>
