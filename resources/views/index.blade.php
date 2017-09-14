@@ -82,15 +82,13 @@
 
     <div class="navbar-container" id="navbar-container">
         <div class="navbar-header pull-left">
-            <a class="navbar-header pull-left" href="#">
+            <a href="#" class="navbar-brand">
                 <small>
-                    <i class="icon-leaf">
-                        ::before
-                    </i>
-                    博客后台管理系统
+                    <i class="icon-leaf"></i>
+                    后台管理系统
                 </small>
-            </a>
-        </div><!-- /.navbar-header -->
+            </a><!-- /.brand -->
+        </div>
         <div class="navbar-header pull-right" role="navigation">
             <ul class="nav ace-nav">
                 <li class="grey">
