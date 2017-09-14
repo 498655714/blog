@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('hello',function(){
-    return 'Hello, welcome to git push upadte dsafds,ceshiyixia ';
+Route::get('login',function(){
+    return view('login');
 });
