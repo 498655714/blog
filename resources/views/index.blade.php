@@ -82,7 +82,14 @@
 
     <div class="navbar-container" id="navbar-container">
         <div class="navbar-header pull-left">
-            <span style="margin-top:8px;">博客后台管理系统</span>
+            <a class="navbar-header pull-left" href="#">
+                <small>
+                    <i class="icon-leaf">
+                        ::before
+                    </i>
+                    博客后台管理系统
+                </small>
+            </a>
         </div><!-- /.navbar-header -->
         <div class="navbar-header pull-right" role="navigation">
             <ul class="nav ace-nav">
@@ -353,7 +360,7 @@
 
             <div class="sidebar-shortcuts" id="sidebar-shortcuts">
                 <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                    <!-- <button class="btn btn-success">
+                     <button class="btn btn-success">
                          <i class="icon-signal"></i>
                      </button>
 
@@ -367,7 +374,7 @@
 
                      <button class="btn btn-danger">
                          <i class="icon-cogs"></i>
-                     </button>-->
+                     </button>
                 </div>
 
                 <!--<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
