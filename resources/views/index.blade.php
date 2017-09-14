@@ -300,7 +300,7 @@
                         <img class="nav-user-photo" src="/static/avatars/user.jpg" alt="Jason's Photo" />
                                 <span class="user-info">
                                     <small>Welcome,</small>
-                                    <?php echo $userName; ?>
+                                    Admin
                                 </span>
 
                         <i class="icon-caret-down"></i>
@@ -381,51 +381,51 @@
                 </div>-->
             </div><!-- #sidebar-shortcuts -->
 
-            <ul class="nav nav-list">
-                <?php foreach($left as $ak=>$aval){?>
-                <?php $keyarr = explode("_",$ak);?>
-                <li class="remark">
-                    <a href="#" class="dropdown-toggle">
-                        <i class=<?php echo $keyarr[1]?>></i>
-                        <!--标题-->
-                        <span class="menu-text"><?php echo $keyarr[0];?></span>
-                        <b class="arrow icon-angle-down"></b>
-                    </a>
-                    <ul class="submenu">
+            {{--<ul class="nav nav-list">--}}
+                {{--<?php foreach($left as $ak=>$aval){?>--}}
+                {{--<?php $keyarr = explode("_",$ak);?>--}}
+                {{--<li class="remark">--}}
+                    {{--<a href="#" class="dropdown-toggle">--}}
+                        {{--<i class=<?php echo $keyarr[1]?>></i>--}}
+                        {{--<!--标题-->--}}
+                        {{--<span class="menu-text"><?php echo $keyarr[0];?></span>--}}
+                        {{--<b class="arrow icon-angle-down"></b>--}}
+                    {{--</a>--}}
+                    {{--<ul class="submenu">--}}
 
-                        <?php foreach($aval as $nk=>$nval){?>
-                        <?php if(!is_numeric($nk)){?>
-                        <li>
-                            <a href="#" class="dropdown-toggle">
-                                <i class="icon-double-angle-right"></i>
-                                <?php echo $nk;?>
-                                <b class="arrow icon-angle-down"></b>
-                            </a>
-                            <ul class="submenu">
-                                <?php foreach($nval as $fk=>$fval){?>
-                                <li>
-                                    <a class="gaoliang" href="javascript:;" onClick="createurl('','<?php echo $fval['url'];?>','<?php echo $fval['title'];?>')">
-                                        <i class="icon-double-angle-right"></i>
-                                        <?php echo $fval['title'];?>
-                                    </a>
-                                </li>
-                                <?php }?>
-                            </ul>
-                        </li>
-                        <?php }else{?>
-                        <li>
-                            <a class="gaoliang" href="javascript:;" onClick="createurl('','<?php echo $nval['url'];?>','<?php echo $nval['title'];?>')">
-                                <i class="icon-double-angle-right"></i>
-                                <?php echo $nval['title'];?>
-                            </a>
-                        </li>
-                        <?php }?>
-                        <?php }?>
-                    </ul>
+                        {{--<?php foreach($aval as $nk=>$nval){?>--}}
+                        {{--<?php if(!is_numeric($nk)){?>--}}
+                        {{--<li>--}}
+                            {{--<a href="#" class="dropdown-toggle">--}}
+                                {{--<i class="icon-double-angle-right"></i>--}}
+                                {{--<?php echo $nk;?>--}}
+                                {{--<b class="arrow icon-angle-down"></b>--}}
+                            {{--</a>--}}
+                            {{--<ul class="submenu">--}}
+                                {{--<?php foreach($nval as $fk=>$fval){?>--}}
+                                {{--<li>--}}
+                                    {{--<a class="gaoliang" href="javascript:;" onClick="createurl('','<?php echo $fval['url'];?>','<?php echo $fval['title'];?>')">--}}
+                                        {{--<i class="icon-double-angle-right"></i>--}}
+                                        {{--<?php echo $fval['title'];?>--}}
+                                    {{--</a>--}}
+                                {{--</li>--}}
+                                {{--<?php }?>--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
+                        {{--<?php }else{?>--}}
+                        {{--<li>--}}
+                            {{--<a class="gaoliang" href="javascript:;" onClick="createurl('','<?php echo $nval['url'];?>','<?php echo $nval['title'];?>')">--}}
+                                {{--<i class="icon-double-angle-right"></i>--}}
+                                {{--<?php echo $nval['title'];?>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<?php }?>--}}
+                        {{--<?php }?>--}}
+                    {{--</ul>--}}
 
-                </li>
-                <?php }?>
-            </ul><!-- /.nav-list -->
+                {{--</li>--}}
+                {{--<?php }?>--}}
+            {{--</ul><!-- /.nav-list -->--}}
 
             <div class="sidebar-collapse" id="sidebar-collapse">
                 <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
