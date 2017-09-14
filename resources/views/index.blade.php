@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>²©¿ÍºóÌ¨¹ÜÀíÏµÍ³</title>
+    <title>åšå®¢åå°ç®¡ç†ç³»ç»Ÿ</title>
 
     <meta name="description" content="overview &amp; stats" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,7 +53,7 @@
         {
             window.setInterval("reinitIframe()", 200);
         }
-        function reinitIframe() //Õë¶Ôopera safari
+        function reinitIframe() //é’ˆå¯¹opera safari
         {
             var iframe = document.getElementByIdx_x_x_x("PandL");
             try {
@@ -71,7 +71,7 @@
             {
                 if (!iframeObj)
                     return;
-                iframeObj.height = (iframeObj.Document ? iframeObj.Document.body.scrollHeight : iframeObj.contentDocument.body.offsetHeight) + 30;//ÕâÀï+30ÊÇÓĞÄ¿µÄµÄ£¬±ÈÈçieÏÂ»áÉÙÄÇÃ´Ò»Ğ©ÏñËØ
+                iframeObj.height = (iframeObj.Document ? iframeObj.Document.body.scrollHeight : iframeObj.contentDocument.body.offsetHeight) + 30;//è¿™é‡Œ+30æ˜¯æœ‰ç›®çš„çš„ï¼Œæ¯”å¦‚ieä¸‹ä¼šå°‘é‚£ä¹ˆä¸€äº›åƒç´ 
             }, 200)
         }
     </script>
@@ -82,7 +82,7 @@
 
     <div class="navbar-container" id="navbar-container">
         <div class="navbar-header pull-left">
-            <span style="margin-top:8px;"><img src="/static/avatars/zhengshi.png" style="height:35px; margin-top:5px;" class="msg-photo" alt="ÕıÊ±Æû³µ"/></span>
+            <span style="margin-top:8px;"><img src="/static/avatars/zhengshi.png" style="height:35px; margin-top:5px;" class="msg-photo" alt="æ­£æ—¶æ±½è½¦"/></span>
         </div><!-- /.navbar-header -->
         <div class="navbar-header pull-right" role="navigation">
             <ul class="nav ace-nav">
@@ -310,14 +310,14 @@
                         <li>
                             <a href="#">
                                 <i class="icon-cog"></i>
-                                ÏµÍ³ÉèÖÃ
+                                ç³»ç»Ÿè®¾ç½®
                             </a>
                         </li>
 
                         <li>
-                            <a class="gaoliang" href="javascript:;" onClick="createurl('personal','/index/user/personcenter?userId=<?php echo $_SESSION['userId'];?>','¸öÈËÖĞĞÄ')">
+                            <a class="gaoliang" href="javascript:;" onClick="createurl('personal','/index/user/personcenter?userId=','ä¸ªäººä¸­å¿ƒ')">
                                 <i class="icon-user"></i>
-                                ¸öÈËÖĞĞÄ
+                                ä¸ªäººä¸­å¿ƒ
                             </a>
                         </li>
 
@@ -326,7 +326,7 @@
                         <li>
                             <a href="user/loginout">
                                 <i class="icon-off"></i>
-                                ÍË³ö
+                                é€€å‡º
                             </a>
                         </li>
                     </ul>
@@ -387,7 +387,7 @@
                 {{--<li class="remark">--}}
                     {{--<a href="#" class="dropdown-toggle">--}}
                         {{--<i class=<?php echo $keyarr[1]?>></i>--}}
-                        {{--<!--±êÌâ-->--}}
+                        {{--<!--æ ‡é¢˜-->--}}
                         {{--<span class="menu-text"><?php echo $keyarr[0];?></span>--}}
                         {{--<b class="arrow icon-angle-down"></b>--}}
                     {{--</a>--}}
@@ -435,7 +435,7 @@
         <div class="main-content">
             <!--  tab -->
             <div id="tt">
-                <div title="Ö÷Ò³">
+                <div title="ä¸»é¡µ">
                     <iframe name="mainFrame"  frameborder="0" src="/home/index/index" width="100%" height="100%" onLoad="javascript:iframeAutoFit(this);" scrolling="auto"></iframe>
                 </div>
             </div>
