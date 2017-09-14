@@ -9,26 +9,26 @@
 
     <!-- basic styles -->
 
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+    <link href="{{asset('static/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('static/css/font-awesome.min.css')}}" />
 
     <!--[if IE 7]>
-    <link rel="stylesheet" href="/static/css/font-awesome-ie7.min.css" />
+    <link rel="stylesheet" href="{{asset('static/css/font-awesome-ie7.min.css')}}" />
     <![endif]-->
 
     <!-- page specific plugin styles -->
 
     <!-- fonts -->
 
-    <link rel="stylesheet" href="/static/css/ace-fonts.css" />
+    <link rel="stylesheet" href="{{asset('static/css/ace-fonts.css')}}" />
 
     <!-- ace styles -->
 
-    <link rel="stylesheet" href="/static/css/ace.min.css" />
-    <link rel="stylesheet" href="/static/css/ace-rtl.min.css" />
-    <link rel="stylesheet" href="/static/css/ace-skins.min.css" />
-    <link rel="stylesheet" href="/static/css/easyui.css" />
-    <link rel="stylesheet" href="/static/css/icon.css" />
+    <link rel="stylesheet" href="{{asset('static/css/ace.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('static/css/ace-rtl.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('static/css/ace-skins.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('static/css/easyui.css')}}" />
+    <link rel="stylesheet" href="{{asset('static/css/icon.css')}}" />
     <style type="text/css">
         .intro
         {
@@ -38,7 +38,7 @@
     </style>
 
 
-    <script src="/static/js/ace-extra.min.js"></script>
+    <script src="{{asset('static/js/ace-extra.min.js')}}"></script>
     <script type="text/javascript">
         var Sys = {};
         var ua = navigator.userAgent.toLowerCase();
@@ -82,7 +82,7 @@
 
     <div class="navbar-container" id="navbar-container">
         <div class="navbar-header pull-left">
-            <span style="margin-top:8px;"><img src="/static/avatars/zhengshi.png" style="height:35px; margin-top:5px;" class="msg-photo" alt="正时汽车"/></span>
+            <span style="margin-top:8px;">博客后台管理系统</span>
         </div><!-- /.navbar-header -->
         <div class="navbar-header pull-right" role="navigation">
             <ul class="nav ace-nav">
@@ -237,7 +237,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="/static/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+                                <img src="{{asset('static/avatars/avatar.png')}}" class="msg-photo" alt="Alex's Avatar" />
                                         <span class="msg-body">
                                             <span class="msg-title">
                                                 <span class="blue">Alex:</span>
@@ -254,7 +254,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="/static/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+                                <img src="{{asset('static/avatars/avatar3.png')}}" class="msg-photo" alt="Susan's Avatar" />
                                         <span class="msg-body">
                                             <span class="msg-title">
                                                 <span class="blue">Susan:</span>
@@ -271,7 +271,7 @@
 
                         <li>
                             <a href="#">
-                                <img src="/static/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+                                <img src="{{asset('static/avatars/avatar4.png')}}" class="msg-photo" alt="Bob's Avatar" />
                                         <span class="msg-body">
                                             <span class="msg-title">
                                                 <span class="blue">Bob:</span>
@@ -297,7 +297,7 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="/static/avatars/user.jpg" alt="Jason's Photo" />
+                        <img class="nav-user-photo" src="{{asset('static/avatars/user.jpg')}}" alt="Jason's Photo" />
                                 <span class="user-info">
                                     <small>Welcome,</small>
                                     Admin
@@ -454,44 +454,44 @@
 <!--[if !IE]> -->
 
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='/static/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    window.jQuery || document.write("<script src={{asset('static/js/jquery-2.0.3.min.js')}}>" + "<" + "/script>");
 </script>
 
 <!-- <![endif]-->
 
 <!--[if IE]>
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='/static/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+    window.jQuery || document.write("<script src={{asset('static/js/jquery-1.10.2.min.js')}}>"+"<"+"/script>");
 </script>
 <![endif]-->
 
 <script type="text/javascript">
     if ("ontouchend" in document)
-        document.write("<script src='/static/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+        document.write("<script src={{asset('static/js/jquery.mobile.custom.min.js')}}>" + "<" + "/script>");
 </script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/typeahead-bs2.min.js"></script>
+<script src={{asset("static/js/bootstrap.min.js")}}></script>
+<script src={{asset("static/js/typeahead-bs2.min.js")}}></script>
 
 <!-- page specific plugin scripts -->
 
 <!--[if lte IE 8]>
-<script src="/static/js/excanvas.min.js"></script>
+<script src={{asset("static/js/excanvas.min.js")}}></script>
 <![endif]-->
 
-<script src="/static/js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="/static/js/jquery.ui.touch-punch.min.js"></script>
-<script src="/static/js/jquery.slimscroll.min.js"></script>
-<script src="/static/js/jquery.easy-pie-chart.min.js"></script>
-<script src="/static/js/jquery.sparkline.min.js"></script>
-<script src="/static/js/flot/jquery.flot.min.js"></script>
-<script src="/static/js/flot/jquery.flot.pie.min.js"></script>
-<script src="/static/js/flot/jquery.flot.resize.min.js"></script>
+<script src={{asset("static/js/jquery-ui-1.10.3.custom.min.js")}}></script>
+<script src={{asset("static/js/jquery.ui.touch-punch.min.js")}}></script>
+<script src={{asset("static/js/jquery.slimscroll.min.js")}}></script>
+<script src={{asset("static/js/jquery.easy-pie-chart.min.js")}}></script>
+<script src={{asset("static/js/jquery.sparkline.min.js")}}></script>
+<script src={{asset("static/js/flot/jquery.flot.min.js")}}></script>
+<script src={{asset("static/js/flot/jquery.flot.pie.min.js")}}></script>
+<script src={{asset("static/js/flot/jquery.flot.resize.min.js")}}></script>
 
 <!-- ace scripts -->
 
-<script src="/static/js/ace-elements.min.js"></script>
-<script src="/static/js/ace.min.js"></script>
-<script src="/static/js/jquery.easyui.min.js"></script>
+<script src={{asset("static/js/ace-elements.min.js")}}></script>
+<script src={{asset("static/js/ace.min.js")}}></script>
+<script src={{asset("static/js/jquery.easyui.min.js")}}></script>
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
     function createurl(a, b, c) {
