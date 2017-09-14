@@ -90,7 +90,7 @@
 															<input type="text" placeholder="ValidateCode" />
 															<i class="icon-edit"></i>
 														</span>
-                                                <img src="{{url('admin/validatecode')}}" onclick="this.src='{{url('admin/validatecode?tm='+Math.random())}}'" />
+                                                <img src="{{url('admin/validatecode')}}" onclick="validatecode()" />
                                             </label>
 
                                             <div class="space"></div>
@@ -296,6 +296,10 @@
     function show_box(id) {
         jQuery('.widget-box.visible').removeClass('visible');
         jQuery('#'+id).addClass('visible');
+    }
+
+    function validatecode(){
+        this.src='{{url("admin/validatecode?tm="+Math.random())}}';
     }
 </script>
 </body>
