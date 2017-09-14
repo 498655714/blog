@@ -39,6 +39,11 @@
     <script src="{{asset('assets/js/html5shiv.js')}}"></script>
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
+    <script>
+        $('#validatecode').click(function(){
+            $(this).attr('src',"{{url('admin/validatecode?tm='.mt_rand())}}");
+        });
+    </script>
 </head>
 
 <body class="login-layout">
@@ -88,7 +93,7 @@
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 															<input type="text" placeholder="ValidateCode" />
-                                                            <img src="{{url('admin/validatecode')}}" onclick="this.src='{{url("admin/validatecode?tm=".mt_rand())}}'" />
+                                                            <img src="{{url('admin/validatecode')}}" id='validatecode'/>
 														</span>
 
                                             </label>
