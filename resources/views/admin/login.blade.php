@@ -299,7 +299,7 @@
     }
 
     function validatecode(){
-        this.src='{{url("admin/validatecode?tm="+Math.random())}}';
+        this.src='{{url("admin/validatecode?tm=".mt_rand())}}';
     }
 </script>
 </body>
