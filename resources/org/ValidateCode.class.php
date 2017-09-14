@@ -13,7 +13,7 @@ class ValidateCode {
 
     //构造方法初始化
     public function __construct() {
-        $this->font = ROOT_PATH.'/assets/font/elephant.ttf';
+        $this->font = ROOT_PATH.'/assets/font/Elephant.ttf';
     }
 
     //生成随机码
