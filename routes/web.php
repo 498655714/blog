@@ -21,4 +21,4 @@ Route::get('admin/logout', 'Admin\AuthController@getLogout');
 // ×¢²áÂ·ÓÉ...
 Route::get('admin/register', 'Admin\AuthController@getRegister');
 Route::post('admin/register', 'Admin\AuthController@postRegister');
-Route::get('admin/validateCode', 'Admin\AuthController@code');
+Route::get('admin/validatecode', 'Admin\AuthController@code');

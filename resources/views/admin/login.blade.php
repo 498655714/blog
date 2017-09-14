@@ -87,8 +87,8 @@
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="ValidateCode" />
-															<i class="icon-lock"></i>
+															<input type="text" placeholder="ValidateCode" />
+															<i class="icon-edit"></i>
                                                             <img src="{{url('admin/validateCode')}}" onclick="javascript:this.src='admin/validateCode?tm='+Math.random();" />
 														</span>
                                             </label>
