@@ -12,9 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('admin/login');
 });
-
-Route::get('login',function(){
-    return view('login');
-});
+// 认证路由...
+Route::get('admin/login', 'Admin\AuthController@getLogin');
+Route::post('admin/login', 'Admin\AuthController@postLogin');
+Route::get('admin/logout', 'Admin\AuthController@getLogout');
+// 注册路由...
+Route::get('admin/register', 'Admin\AuthController@getRegister');
+Route::post('admin/register', 'Admin\AuthController@postRegister');

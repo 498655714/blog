@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Admin\CommonController;
+
+class AuthController extends ControllerController
+{
+    //µÇÂ¼½çÃæ
+    public function  getLogin(){
+        return view('admin/login');
+    }
+    //µÇÂ¼²Ù×÷
+    public function postLogin(){
+
+    }
+    //ÍË³öµÇÂ¼
+    public function getLogout(){
+
+    }
+    //×¢²á½çÃæ
+    public function getRegister(){
+
+    }
+    //×¢²á²Ù×÷
+    public function postRegister(){
+
+    }
+}
