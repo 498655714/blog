@@ -39,6 +39,13 @@
     <script src="{{asset('assets/js/html5shiv.js')}}"></script>
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
+    <script>
+        $(function(){
+            function validatecode(){
+                this.src='{{url("admin/validatecode?tm=".mt_rand())}}';
+            }
+        })
+    </script>
 </head>
 
 <body class="login-layout">
@@ -89,8 +96,9 @@
 														<span class="block input-icon input-icon-right">
 															<input type="text" placeholder="ValidateCode" />
 															<i class="icon-edit"></i>
+                                                            <img src="{{url('admin/validatecode')}}" onclick="validatecode()" />
 														</span>
-                                                <img src="{{url('admin/validatecode')}}" onclick="validatecode()" />
+
                                             </label>
 
                                             <div class="space"></div>
@@ -296,10 +304,6 @@
     function show_box(id) {
         jQuery('.widget-box.visible').removeClass('visible');
         jQuery('#'+id).addClass('visible');
-    }
-
-    function validatecode(){
-        this.src='{{url("admin/validatecode?tm=".mt_rand())}}';
     }
 </script>
 </body>
