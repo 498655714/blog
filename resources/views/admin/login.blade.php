@@ -41,7 +41,7 @@
     <![endif]-->
     <script type="text/javascript" src="{{asset('assets/js/jquery-1.10.2.min.js')}}">
         $('#validatecode').click(function(){
-            $(this).attr('src',"{{url('admin/validatecode?tm='+Math.random())}}");
+            $(this).attr('src',"{{url('admin/validatecode?tm=')}}+Math.random()");
         });
     </script>
 </head>
