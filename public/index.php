@@ -8,7 +8,8 @@
  */
 
 define('LARAVEL_START', microtime(true));
-
+define('ROOT_PATH',__DIR__);
+session_start();
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
