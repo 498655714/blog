@@ -112,7 +112,7 @@ class AuthController extends CommonController
                 ->with('clip','forgot');
         }
         $userinfo = new Users();
-        $ret = $userinfo->where('email',$info['email'])->get()-toArray();
+        $ret = $userinfo->where('email',$info['email'])->get()->toArray();
         if(empty($ret[0])){
             return back()->with('msg','您输入的电子邮件地址的博客用户不存在')
                 ->with('clip','forgot');
