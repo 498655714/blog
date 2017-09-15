@@ -39,6 +39,13 @@
     <script src="{{asset('assets/js/html5shiv.js')}}"></script>
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#loginbut').click(function(){
+                alert(1111);
+            });
+        });
+    </script>
 </head>
 
 <body class="login-layout">
@@ -69,7 +76,8 @@
 
                                     <div class="space-6"></div>
 
-                                    <form>
+                                    <form action="" method="post">
+                                        {{csrf_field()}}
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
@@ -101,7 +109,7 @@
                                                     <span class="lbl"> Remember Me</span>
                                                 </label>
 
-                                                <button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+                                                <button type="button" id="loginbut" class="width-35 pull-right btn btn-sm btn-primary">
                                                     <i class="icon-key"></i>
                                                     Login
                                                 </button>
