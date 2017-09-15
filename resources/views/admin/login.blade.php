@@ -61,7 +61,9 @@
                 $('#registform').submit();
             });
             $('#accept').click(function(){
+                alert();
                 if($(this).prop('checked')){
+                    alert();
                     $('#register').addClass('disabled');
                 }else{
                     $('#register').removeClass('disabled');
