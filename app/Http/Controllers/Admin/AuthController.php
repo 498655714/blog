@@ -10,7 +10,7 @@ class AuthController extends CommonController
 {
     //登录界面
     public function  getLogin(){
-        return view('admin/login');
+        return view('admin/login')->with('clip','login');
     }
     //登录操作
     public function postLogin(Request $request){
@@ -25,7 +25,7 @@ class AuthController extends CommonController
             return back()->with('msg','密码不能为空')->with('clip','login');
         }
         $userinfo = new Users();
-        $userinfo = $userinfo->where(['name'=>$info['name'],'password'=>$info['password']])->get()->toArray();
+        $userinfo = $userinfo->where(['name'=>$info['name'],'password'=>md5($info['password'])])->get()->toArray();
         if(empty($userinfo)){
             return back()->with('msg','用户名或密码错误')->with('clip','login');
         }
@@ -63,7 +63,7 @@ class AuthController extends CommonController
         $userinfo->updated_at = time();
         $userinfo->save();
 
-        return view('admin/login');
+        return view('admin/login')->with('clip','login');
     }
 
     //生成验证码
