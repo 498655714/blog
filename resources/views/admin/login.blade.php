@@ -183,17 +183,18 @@
                                         Enter your email and to receive instructions
                                     </p>
 
-                                    <form>
+                                    <form id="sendform" action="" method="post">
+                                        {{csrf_field()}}
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
+															<input type="email" name="email" class="form-control" placeholder="Email" />
 															<i class="icon-envelope"></i>
 														</span>
                                             </label>
 
                                             <div class="clearfix">
-                                                <button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+                                                <button type="button" id="sendme" class="width-35 pull-right btn btn-sm btn-danger">
                                                     <i class="icon-lightbulb"></i>
                                                     Send Me!
                                                 </button>
@@ -229,6 +230,7 @@
                                     </p>
 
                                     <form id="registform" action="{{url('admin/register')}}" method="post">
+                                        {{csrf_field()}}
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
