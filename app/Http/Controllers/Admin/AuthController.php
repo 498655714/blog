@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\CommonController;
+use Illuminate\Http\Request;
 require_once ROOT_PATH.'/../resources/org/ValidateCode.class.php';
 class AuthController extends CommonController
 {
@@ -11,8 +12,8 @@ class AuthController extends CommonController
         return view('admin/login');
     }
     //登录操作
-    public function postLogin(){
-        $info = Input::all();
+    public function postLogin(Request $request){
+        $info = $request->all();
         dd($info);
     }
     //退出登录
