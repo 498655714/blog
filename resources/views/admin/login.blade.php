@@ -45,6 +45,12 @@
             $('#loginbut').click(function(){
                 $('#loginform').submit();
             });
+            $('#reset').click(function(){
+                $('#registform').reset();
+            });
+            $('#register').click(function(){
+                $('#registform').submit();
+            });
         });
     </script>
 </head>
@@ -214,34 +220,40 @@
                                     </h4>
 
                                     <div class="space-6"></div>
-                                    <p> Enter your details to begin: </p>
+                                    <p class="red">
+                                        @if(session('msg'))
+                                            {{session('msg')}}
+                                        @elseif
+                                            Enter your details to begin:
+                                        @endif
+                                    </p>
 
-                                    <form>
+                                    <form id="registform" action="{{url('admin/register')}}" method="post">
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
+															<input type="email" name="email" class="form-control" placeholder="Email" />
 															<i class="icon-envelope"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="text" name="name" class="form-control" placeholder="Username" />
 															<i class="icon-user"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password"  name="password"  class="form-control" placeholder="Password" />
 															<i class="icon-lock"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Repeat password" />
+															<input type="password"  name="repassword"  class="form-control" placeholder="Repeat password" />
 															<i class="icon-retweet"></i>
 														</span>
                                             </label>
@@ -257,12 +269,12 @@
                                             <div class="space-24"></div>
 
                                             <div class="clearfix">
-                                                <button type="reset" class="width-30 pull-left btn btn-sm">
+                                                <button type="reset" id="reset" class="width-30 pull-left btn btn-sm">
                                                     <i class="icon-refresh"></i>
                                                     Reset
                                                 </button>
 
-                                                <button type="button" class="width-65 pull-right btn btn-sm btn-success">
+                                                <button type="button" id="register" class="width-65 pull-right btn btn-sm btn-success">
                                                     Register
                                                     <i class="icon-arrow-right icon-on-right"></i>
                                                 </button>

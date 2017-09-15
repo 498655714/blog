@@ -18,7 +18,6 @@ Route::get('/', function () {
 Route::get('admin/login', 'Admin\AuthController@getLogin');
 Route::post('admin/login', 'Admin\AuthController@postLogin');
 Route::get('admin/logout', 'Admin\AuthController@getLogout');
-// 注册路由...
-Route::get('admin/register', 'Admin\AuthController@getRegister');
-Route::post('admin/register', 'Admin\AuthController@postRegister');
 Route::get('admin/validatecode', 'Admin\AuthController@code');
+// 注册路由...
+Route::post('admin/register', 'Admin\AuthController@postRegister');

@@ -36,13 +36,24 @@ class AuthController extends CommonController
     public function getLogout(){
 
     }
-    //注册界面
-    public function getRegister(){
 
-    }
     //注册操作
-    public function postRegister(){
-
+    public function postRegister(Request $request){
+        $info = $request->all();
+        $pattern = "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i";
+        if( !preg_match( $pattern, $info['email'] ) || is_null($info['email'])){
+            return back()->with('msg','您输入的电子邮件地址不合法');
+        }
+        if( is_null($info['name'])){
+            return back()->with('msg','用户名不能为空');
+        }
+        if( is_null($info['password'])){
+            return back()->with('msg','密码不能为空');
+        }
+        if($info['password'] != $info['repassword']){
+            return back()->with('msg','密码与重复密码不一致');
+        }
+        return view('admin/login');
     }
 
     //生成验证码
