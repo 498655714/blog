@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\CommonController;
+use App\Model\PasswordResets;
 use App\Model\Users;
 use Illuminate\Http\Request;
 require_once ROOT_PATH.'/../resources/org/ValidateCode.class.php';
@@ -34,7 +35,8 @@ class AuthController extends CommonController
     }
     //退出登录
     public function getLogout(){
-
+        isset($_SESSION['username']);
+        return view('admin/login')->with('clip','login');
     }
 
     //注册操作
@@ -73,4 +75,16 @@ class AuthController extends CommonController
         $_SESSION['code'] = $_vc->getCode();//验证码保存到SESSION中
     }
 
+    //忘记密码重置
+    public function postForgot(Request $request){
+        $info = $request->all();
+        $pattern = "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i";
+        if( !preg_match( $pattern, $info['email'] ) || is_null($info['email'])){
+            return back()->with('msg','您输入的电子邮件地址不合法')
+                ->with('clip','forgot');
+        }
+        $passinfo = new PasswordResets();
+        $passinfo->updateOrCreate( ['email' => $info['email'], 'token' => $info['_token'],'created_at'=>time()], ['email' => $info['email']]);
+        return view('admin/login')->with('clip','forgot');
+    }
 }

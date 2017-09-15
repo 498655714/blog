@@ -44,6 +44,29 @@
         $(document).ready(function(){
             @if(session('clip') == 'register')
                 show_box('signup-box');
+            $( "#dialog-confirm" ).removeClass('hide').dialog({
+                resizable: false,
+                modal: true,
+                title: "<div class='widget-header'><h4 class='smaller'><i class='icon-warning-sign red'></i> Empty the recycle bin?</h4></div>",
+                title_html: true,
+                buttons: [
+                    {
+                        html: "<i class='icon-trash bigger-110'></i>&nbsp; Delete all items",
+                        "class" : "btn btn-danger btn-xs",
+                        click: function() {
+                            $( this ).dialog( "close" );
+                        }
+                    }
+                    ,
+                    {
+                        html: "<i class='icon-remove bigger-110'></i>&nbsp; Cancel",
+                        "class" : "btn btn-xs",
+                        click: function() {
+                            $( this ).dialog( "close" );
+                        }
+                    }
+                ]
+            });
             @endif
             @if(session('clip') == 'login')
                 show_box('login-box');
@@ -56,6 +79,9 @@
             });
             $('#reset').click(function(){
                 $('#registform').reset();
+            });
+            $('#sendme').click(function(){
+                $('#sendform').submit();
             });
             $('#register').click(function(){
                 $('#registform').submit();
@@ -195,8 +221,13 @@
                                     </h4>
 
                                     <div class="space-6"></div>
+
                                     <p>
+                                    @if(session('msg'))
+                                        {{session('msg')}}
+                                    @else
                                         Enter your email and to receive instructions
+                                    @endif
                                     </p>
 
                                     <form id="sendform" action="" method="post">
@@ -300,7 +331,18 @@
                                         </fieldset>
                                     </form>
                                 </div>
+                                <div id="dialog-confirm" class="hide">
+                                    <div class="alert alert-info bigger-110">
+                                        These items will be permanently deleted and cannot be recovered.
+                                    </div>
 
+                                    <div class="space-6"></div>
+
+                                    <p class="bigger-110 bolder center grey">
+                                        <i class="icon-hand-right blue bigger-120"></i>
+                                        Are you sure?
+                                    </p>
+                                </div><!-- #dialog-confirm -->
                                 <div class="toolbar center">
                                     <a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
                                         <i class="icon-arrow-left"></i>

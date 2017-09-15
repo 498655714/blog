@@ -21,3 +21,5 @@ Route::get('admin/logout', 'Admin\AuthController@getLogout');
 Route::get('admin/validatecode', 'Admin\AuthController@code');
 // 注册路由...
 Route::post('admin/register', 'Admin\AuthController@postRegister');
+//忘记密码路由
+Route::post('admin/forgot', 'Admin\AuthController@postForgot');

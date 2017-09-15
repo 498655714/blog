@@ -305,7 +305,7 @@
                         <img class="nav-user-photo" src="{{asset('assets/avatars/user.jpg')}}" alt="Jason's Photo" />
                                 <span class="user-info">
                                     <small>Welcome,</small>
-                                    Admin
+                                    {{session('name')}}
                                 </span>
 
                         <i class="icon-caret-down"></i>
@@ -329,7 +329,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="user/loginout">
+                            <a href="{{url('admin/logout')}}">
                                 <i class="icon-off"></i>
                                 退出
                             </a>
