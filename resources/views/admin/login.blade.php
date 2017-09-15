@@ -207,7 +207,7 @@
                                     @endif
                                     </p>
 
-                                    <form id="sendform" action="" method="post">
+                                    <form id="sendform" action="{{url('admin/forgot')}}" method="post">
                                         {{csrf_field()}}
                                         <fieldset>
                                             <label class="block clearfix">
