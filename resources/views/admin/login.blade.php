@@ -223,7 +223,7 @@
                                     <p class="red">
                                         @if(session('msg'))
                                             {{session('msg')}}
-                                        @elseif
+                                        @else
                                             Enter your details to begin:
                                         @endif
                                     </p>
