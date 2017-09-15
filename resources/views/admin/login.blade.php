@@ -61,12 +61,10 @@
                 $('#registform').submit();
             });
             $('#accept').click(function(){
-                alert();
                 if($(this).prop('checked')){
-                    alert();
-                    $('#register').addClass('disabled');
+                    $('#register').removeAttr('disabled');
                 }else{
-                    $('#register').removeClass('disabled');
+                    $('#register').attr('disabled','disabled');
                 }
             });
         });
