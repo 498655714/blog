@@ -39,6 +39,7 @@ class AuthController extends CommonController
 
     //注册操作
     public function postRegister(Request $request){
+        echo 111;exit;
         $info = $request->all();
         $pattern = "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i";
         if( !preg_match( $pattern, $info['email'] ) || is_null($info['email'])){
@@ -53,6 +54,15 @@ class AuthController extends CommonController
         if($info['password'] != $info['repassword']){
             return back()->with('msg','密码与重复密码不一致');
         }
+        $userinfo = new Users();
+        $userinfo->name = $info['name'];
+        $userinfo->email = $info['email'];
+        $userinfo->password = md5($info['password']);
+        $userinfo->remember_token = $info['_token'];
+        $userinfo->created_at = time();
+        $userinfo->updated_at = time();
+        $userinfo->save();
+
         return view('admin/login');
     }
 
