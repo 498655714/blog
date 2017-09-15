@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\CommonController;
-use App\Model\User;
+use App\Model\Users;
 use Illuminate\Http\Request;
 require_once ROOT_PATH.'/../resources/org/ValidateCode.class.php';
 class AuthController extends CommonController
@@ -24,7 +24,7 @@ class AuthController extends CommonController
         if(is_null($info['password'])){
             return back()->with('msg','密码不能为空');
         }
-        $userinfo = new User();
+        $userinfo = new Users();
         $userinfo = $userinfo->where(['name'=>$info['name'],'password'=>$info['password']])->get()->toArray();
         dd($userinfo);
         return view('admin/index');
