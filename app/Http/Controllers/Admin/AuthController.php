@@ -111,6 +111,12 @@ class AuthController extends CommonController
             return back()->with('msg','您输入的电子邮件地址不合法')
                 ->with('clip','forgot');
         }
+        $userinfo = new Users();
+        $ret = $userinfo->where('email',$info['email'])->get()-toArray();
+        if(empty($ret[0])){
+            return back()->with('msg','您输入的电子邮件地址的博客用户不存在')
+                ->with('clip','forgot');
+        }
         $smtpconf = include_once ROOT_PATH.'/../config/smtp.php';
 
         //这里面的一个true是表示使用身份验证,否则不使用身份验证.
@@ -130,9 +136,9 @@ class AuthController extends CommonController
             return view('common/error',compact('title','contentTitle','contents','handles'));
         }
         //修改密码
-        $userinfo = new Users();
         $userinfo->where('email',$info['email'])->update(['password'=>md5('123456')]);
         //记录发送邮件号码
+
         $passinfo = new PasswordResets();
         $passinfo->updateOrCreate( ['email' => $info['email'], 'token' => $info['_token'],'created_at'=>time()], ['email' => $info['email']]);
         $title = '邮件发送成功';
