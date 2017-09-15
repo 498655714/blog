@@ -65,7 +65,7 @@ class AuthController extends CommonController
         $userinfo->created_at = time();
         $userinfo->updated_at = time();
         $check = $userinfo->where('email',$info['email'])->get()->toArray();
-        if(empty($check[0])){
+        if(!empty($check[0])){
             return back()->with('msg','您输入的电子邮件地址已存在')->with('clip','register');
         }
         $user = $userinfo->save();
