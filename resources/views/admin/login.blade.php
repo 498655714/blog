@@ -42,6 +42,15 @@
     <script type="text/javascript" src="{{asset('assets/js/jquery-2.0.3.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            @if(session('clip') == 'register')
+                show_box('signup-box');
+            @endif
+            @if(session('clip') == 'login')
+                show_box('login-box');
+            @endif
+            @if(session('clip') == 'forgot')
+                show_box('forgot-box');
+            @endif
             $('#loginbut').click(function(){
                 $('#loginform').submit();
             });
