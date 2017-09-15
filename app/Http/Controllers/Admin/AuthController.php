@@ -10,6 +10,10 @@ require_once ROOT_PATH.'/../resources/org/ValidateCode.class.php';
 require_once ROOT_PATH.'/../resources/org/Smtp.class.php';
 class AuthController extends CommonController
 {
+    //首页
+    public function getindex(){
+        return view('admin/index');
+    }
     //登录界面
     public function  getLogin(){
         return view('admin/login')->with('clip','login');
@@ -70,9 +74,26 @@ class AuthController extends CommonController
         }
         $user = $userinfo->save();
         if($user){
-            return view('common/success');
+            $title = '注册成功';
+            $contentTitle = '恭喜你成功注册';
+            $contents = [
+                '1.首先恭喜你注册为本博客系统会员',
+                '2.本博客系统为开源项目，开源地址：<a href="https://github.com/498655714/blog">https://github.com/498655714/blog</a>',
+                '3.希望你也能发扬开源精神多发几篇好文章.',
+            ];
+            $_SESSION['name'] = $info['name'];
+            $url = "{{url('admin/index')}}";
+            $handles = ["<a href='$url'>直接登录</a>"];
+            return view('common/success',compact('title','contentTitle','contents','handles'));
         }
-        return view('common/error');
+        $title = '注册失败';
+        $contentTitle = '注册失败了';
+        $contents = [
+            '1.首先检查你填入的信息是否正确',
+            '2.可以联系管理员帮助你 QQ:498655714',
+        ];
+        $handles = [];
+        return view('common/error',compact('title','contentTitle','contents','handles'));
     }
 
     //生成验证码
@@ -99,11 +120,26 @@ class AuthController extends CommonController
         $mailcontent = '';
         $state = $smtp->sendmail($info['email'], $smtpconf['smtpusermail'], $mailtitle, $mailcontent, $smtpconf['mailtype']);
         if($state==""){
-            return view('common/error');
+            $title = '邮件发送失败';
+            $contentTitle = '邮件发送失败了';
+            $contents = [
+                '1.首先检查你填入的邮件地址是否正确',
+                '2.可以联系管理员帮助你 QQ:498655714',
+            ];
+            $handles = [];
+            return view('common/error',compact('title','contentTitle','contents','handles'));
         }
+
         //记录发送邮件号码
         $passinfo = new PasswordResets();
         $passinfo->updateOrCreate( ['email' => $info['email'], 'token' => $info['_token'],'created_at'=>time()], ['email' => $info['email']]);
-        return view('common/success');
+        $title = '邮件发送成功';
+        $contentTitle = '邮件发送成功';
+        $contents = [
+            '1.邮件已经发送成功',
+            '2.你可以根据邮件里的找回密码',
+        ];
+        $handles = [];
+        return view('common/success',compact('title','contentTitle','contents','handles'));
     }
 }

@@ -14,12 +14,13 @@
 Route::get('/', function () {
     return view('admin/login');
 });
-// 认证路由...
+// 璁よ瘉璺敱...
 Route::get('admin/login', 'Admin\AuthController@getLogin');
+Route::get('admin/index', 'Admin\AuthController@getindex');
 Route::post('admin/login', 'Admin\AuthController@postLogin');
 Route::get('admin/logout', 'Admin\AuthController@getLogout');
 Route::get('admin/validatecode', 'Admin\AuthController@code');
-// 注册路由...
+// 娉ㄥ唽璺敱...
 Route::post('admin/register', 'Admin\AuthController@postRegister');
-//忘记密码路由
+//蹇樿瀵嗙爜璺敱
 Route::post('admin/forgot', 'Admin\AuthController@postForgot');

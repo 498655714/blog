@@ -6,10 +6,10 @@
  * Time: 0:48
  */
 return [
-    'smtpserver'=>'smtp.qq.com',        //SMTP·þÎñÆ÷
-    'smtpserverport' =>25,              //SMTP·þÎñÆ÷¶Ë¿Ú
-    'smtpusermail' =>'498655714@qq.com',//SMTP·þÎñÆ÷µÄÓÃ»§ÓÊÏä
-    'smtpuser' =>'498655714@qq.com',    //SMTP·þÎñÆ÷µÄÓÃ»§ÕÊºÅ£¬×¢£º²¿·ÖÓÊÏäÖ»Ðè@Ç°ÃæµÄÓÃ»§Ãû
-    'smtppass' =>'ecvjlqtkhlhqbiec',    //SMTP·þÎñÆ÷µÄÓÃ»§ÃÜÂë
-    'mailtype' =>'HTML',                //ÓÊ¼þ¸ñÊ½£¨HTML/TXT£©,TXTÎªÎÄ±¾ÓÊ¼þ
+    'smtpserver'=>'smtp.qq.com',        //SMTPæœåŠ¡å™¨
+    'smtpserverport' =>25,              //SMTPæœåŠ¡å™¨ç«¯å£
+    'smtpusermail' =>'498655714@qq.com',//SMTPæœåŠ¡å™¨çš„ç”¨æˆ·é‚®ç®±
+    'smtpuser' =>'498655714@qq.com',    //SMTPæœåŠ¡å™¨çš„ç”¨æˆ·å¸å·ï¼Œæ³¨ï¼šéƒ¨åˆ†é‚®ç®±åªéœ€@å‰é¢çš„ç”¨æˆ·å
+    'smtppass' =>'ecvjlqtkhlhqbiec',    //SMTPæœåŠ¡å™¨çš„ç”¨æˆ·å¯†ç 
+    'mailtype' =>'HTML',                //é‚®ä»¶æ ¼å¼ï¼ˆHTML/TXTï¼‰,TXTä¸ºæ–‡æœ¬é‚®ä»¶
 ];
