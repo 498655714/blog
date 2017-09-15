@@ -26,7 +26,10 @@ class AuthController extends CommonController
         }
         $userinfo = new Users();
         $userinfo = $userinfo->where(['name'=>$info['name'],'password'=>$info['password']])->get()->toArray();
-        dd($userinfo);
+        if(empty($userinfo)){
+            return back()->with('msg','用户名或密码错误');
+        }
+        $_SESSION['name'] = $userinfo['name'];
         return view('admin/index');
     }
     //退出登录
