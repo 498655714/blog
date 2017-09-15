@@ -29,7 +29,7 @@ class AuthController extends CommonController
         if(empty($userinfo)){
             return back()->with('msg','用户名或密码错误');
         }
-        $_SESSION['name'] = $userinfo['name'];
+        $_SESSION['name'] = $userinfo[0]['name'];
         return view('admin/index');
     }
     //退出登录

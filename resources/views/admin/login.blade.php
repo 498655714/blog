@@ -83,7 +83,7 @@
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 															@if(session('msg'))
-                                                                {{session('msg')}}
+                                                                <p class="red">{{session('msg')}}</p>
                                                             @endif
 														</span>
                                             </label>
