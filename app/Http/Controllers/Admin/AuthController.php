@@ -116,8 +116,8 @@ class AuthController extends CommonController
         //这里面的一个true是表示使用身份验证,否则不使用身份验证.
         $smtp = new Smtp($smtpconf['smtpserver'],$smtpconf['smtpserverport'],true,$smtpconf['smtpuser'],$smtpconf['smtppass']);
         $smtp->debug = false;//是否显示发送的调试信息
-        $mailtitle = '';
-        $mailcontent = '';
+        $mailtitle = '个人博客密码重置';
+        $mailcontent = "你的密码已经重置，密码是：123456 ";
         $state = $smtp->sendmail($info['email'], $smtpconf['smtpusermail'], $mailtitle, $mailcontent, $smtpconf['mailtype']);
         if($state==""){
             $title = '邮件发送失败';
@@ -129,7 +129,9 @@ class AuthController extends CommonController
             $handles = [];
             return view('common/error',compact('title','contentTitle','contents','handles'));
         }
-
+        //修改密码
+        $userinfo = new Users();
+        $userinfo->where('email',$info['email'])->update(['password'=>md5('123456')]);
         //记录发送邮件号码
         $passinfo = new PasswordResets();
         $passinfo->updateOrCreate( ['email' => $info['email'], 'token' => $info['_token'],'created_at'=>time()], ['email' => $info['email']]);

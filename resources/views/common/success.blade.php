@@ -33,24 +33,24 @@
 <div class="error-page">
     <div class="error-page-container">
         <div class="error-page-main">
-            <h2 class="green">
+            <h2>
                 <strong>success</strong>
             </h2>
             <div class="error-page-actions">
                 <div>
-                    <h4>{{$contentTitle}}</h4>
+                    <h5>{{$contentTitle}}</h5>
                     <ol>
                         @foreach($contents as $item)
-                        <li>{{$item}}</li>
+                        <li>{!! $item !!}</li>
                         @endforeach
                     </ol>
                 </div>
                 <div>
-                    <h4>继续操作：</h4>
+                    <h5>继续操作：</h5>
                     <ul>
                         <li><a href="javascript :history.back(-1)">返回</a></li>
                         @foreach($handles as $handle)
-                            <li>{{$handle}}</li>
+                            <li>{!! $handle !!}</li>
                         @endforeach
                     </ul>
                 </div>
