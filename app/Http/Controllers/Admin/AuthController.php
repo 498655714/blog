@@ -12,7 +12,8 @@ class AuthController extends CommonController
     }
     //登录操作
     public function postLogin(){
-
+        $info = Input::all();
+        dd($info);
     }
     //退出登录
     public function getLogout(){
@@ -34,8 +35,4 @@ class AuthController extends CommonController
         $_SESSION['code'] = $_vc->getCode();//验证码保存到SESSION中
     }
 
-    //校验验证码
-    public function checkCode(){
-        $_SESSION['code'];
-    }
 }

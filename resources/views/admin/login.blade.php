@@ -39,10 +39,11 @@
     <script src="{{asset('assets/js/html5shiv.js')}}"></script>
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
+    <script type="text/javascript" src="{{asset('assets/js/jquery-2.0.3.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#loginbut').click(function(){
-                alert(1111);
+                $('#loginform').submit();
             });
         });
     </script>
@@ -76,26 +77,26 @@
 
                                     <div class="space-6"></div>
 
-                                    <form action="" method="post">
+                                    <form id="loginform" action="{{url('admin/login')}}" method="post">
                                         {{csrf_field()}}
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="text" name="name" class="form-control" placeholder="Username" />
 															<i class="icon-user"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" name="password" class="form-control" placeholder="Password" />
 															<i class="icon-lock"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" placeholder="ValidateCode" />
+															<input type="text" name="validatecode" placeholder="ValidateCode" />
                                                             <img src="{{url('admin/validatecode')}}" onclick="this.src='{{url('admin/validatecode?tm=')}}'+Math.random()"/>
 														</span>
 
