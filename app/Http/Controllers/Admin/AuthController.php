@@ -7,6 +7,7 @@ use App\Model\PasswordResets;
 use App\Model\Users;
 use Illuminate\Http\Request;
 require_once ROOT_PATH.'/../resources/org/ValidateCode.class.php';
+require_once ROOT_PATH.'/../resources/org/Smtp.class.php';
 class AuthController extends CommonController
 {
     //登录界面
@@ -63,9 +64,11 @@ class AuthController extends CommonController
         $userinfo->remember_token = $info['_token'];
         $userinfo->created_at = time();
         $userinfo->updated_at = time();
-        $userinfo->save();
-
-        return view('admin/login')->with('clip','login');
+        $user = $userinfo->save();
+        if($user){
+            return view('common/success');
+        }
+        return view('common/error');
     }
 
     //生成验证码
@@ -83,8 +86,20 @@ class AuthController extends CommonController
             return back()->with('msg','您输入的电子邮件地址不合法')
                 ->with('clip','forgot');
         }
+        $smtpconf = include_once ROOT_PATH.'/../config/smtp.php';
+
+        //这里面的一个true是表示使用身份验证,否则不使用身份验证.
+        $smtp = new Smtp($smtpconf['smtpserver'],$smtpconf['smtpserverport'],true,$smtpconf['smtpuser'],$smtpconf['smtppass']);
+        $smtp->debug = false;//是否显示发送的调试信息
+        $mailtitle = '';
+        $mailcontent = '';
+        $state = $smtp->sendmail($info['email'], $smtpconf['smtpusermail'], $mailtitle, $mailcontent, $smtpconf['mailtype']);
+        if($state==""){
+            return view('common/error');
+        }
+        //记录发送邮件号码
         $passinfo = new PasswordResets();
         $passinfo->updateOrCreate( ['email' => $info['email'], 'token' => $info['_token'],'created_at'=>time()], ['email' => $info['email']]);
-        return view('admin/login')->with('clip','forgot');
+        return view('common/success');
     }
 }
