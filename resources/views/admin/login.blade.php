@@ -82,6 +82,13 @@
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
+															@if(session('msg'))
+                                                                {{session('msg')}}
+                                                            @endif
+														</span>
+                                            </label>
+                                            <label class="block clearfix">
+														<span class="block input-icon input-icon-right">
 															<input type="text" name="name" class="form-control" placeholder="Username" />
 															<i class="icon-user"></i>
 														</span>
