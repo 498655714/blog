@@ -60,6 +60,13 @@
             $('#register').click(function(){
                 $('#registform').submit();
             });
+            $('#accept').click(function(){
+                if($(this).prop('checked')){
+                    $('#register').addClass('disabled');
+                }else{
+                    $('#register').removeClass('disabled');
+                }
+            });
         });
     </script>
 </head>
@@ -270,7 +277,7 @@
                                             </label>
 
                                             <label class="block">
-                                                <input type="checkbox" class="ace" />
+                                                <input id="accept" type="checkbox" class="ace" />
 														<span class="lbl">
 															I accept the
 															<a href="#">User Agreement</a>
@@ -285,7 +292,7 @@
                                                     Reset
                                                 </button>
 
-                                                <button type="button" id="register" class="width-65 pull-right btn btn-sm btn-success">
+                                                <button type="button" id="register" disabled class="width-65 pull-right btn btn-sm btn-success">
                                                     Register
                                                     <i class="icon-arrow-right icon-on-right"></i>
                                                 </button>
