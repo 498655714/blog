@@ -220,7 +220,6 @@
                                             <div class="clearfix">
                                                 <label class="inline">
                                                     <input id="remebers" type="checkbox" class="ace" />
-                                                    <input id="remeberhidden" name="remeber" type="hidden" />
                                                     <span class="lbl"> Remember Me</span>
                                                 </label>
 
@@ -232,6 +231,7 @@
 
                                             <div class="space-4"></div>
                                         </fieldset>
+                                        <input id="remeberhidden" name="remeber" type="hidden" />
                                     </form>
                                 </div><!-- /widget-main -->
 
