@@ -141,7 +141,6 @@ class AuthController extends CommonController
         if(empty($pass[0])){
             $passinfo->send_number=$info['email'];
             $passinfo->token=$info['_token'];
-            $passinfo->created_at=time();
             $passinfo->save();
         }else{
             $passinfo->where('send_number',$info['email'])->update(['token'=>$info['_token'],'created_at'=>date('Y-m-d H:i:s',time())]);
