@@ -26,28 +26,28 @@
 
         <div class="widget-body">
             <div class="widget-main">
-                <div style="float: left">
+                <div style="float: left; padding: 2px;">
                     <table>
                         <tbody>
                         <tr>
-                            <td><span style="font-size: x-large">操作系统:</span></td>
-                            <td><span style="font-size: large">Linux</span></td>
+                            <td style="right: auto"><span style="font-size: large">操作系统:</span></td>
+                            <td><span style="font-size: small">Linux</span></td>
                         </tr>
                         <tr>
-                            <td><span style="font-size: x-large">运行环境:</span></td>
-                            <td><span style="font-size: large">LNMP</span></td>
+                            <td><span style="font-size: large">运行环境:</span></td>
+                            <td><span style="font-size: small">LNMP</span></td>
                         </tr>
                         <tr>
-                            <td><span style="font-size: x-large">版本:</span></td>
-                            <td><span style="font-size: large">v-1.0</span></td>
+                            <td><span style="font-size: large">版本:</span></td>
+                            <td><span style="font-size: small">v-1.0</span></td>
                         </tr>
                         <tr>
-                            <td><span style="font-size: x-large">上传附件限制:</span></td>
-                            <td><span style="font-size: large">2M</span>v-1.0</td>
+                            <td><span style="font-size: large">上传附件限制:</span></td>
+                            <td><span style="font-size: small">2M</span>v-1.0</td>
                         </tr>
                         <tr>
-                            <td><span style="font-size: x-large">服务器域名/IP:</span></td>
-                            <td><span style="font-size: large">操作系统:</span></td>
+                            <td><span style="font-size: large">服务器域名/IP:</span></td>
+                            <td><span style="font-size: small">操作系统:</span></td>
                         </tr>
                         <tr>
                             <td><span style="font-size: x-large">HOST</span></td>
@@ -56,7 +56,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="piechart-placeholder" style="width: 50%;float: right; min-height: 150px; padding: 0px; position: relative;">
+                <div id="piechart-placeholder" style="width: 50%; min-height: 150px; padding: 0px; position: relative;">
                     <canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 574px; height: 150px;" width="574" height="150">
 
                     </canvas>
