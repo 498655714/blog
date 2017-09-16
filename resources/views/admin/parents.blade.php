@@ -678,9 +678,11 @@
                         <i class="icon-home home-icon"></i>
                         <a href="{{url('admin/index')}}">首页</a>
                     </li>
-                    @foreach($navigation as $item)
-                    <li class="active">{{$item}}</li>
-                    @endforeach
+                    @if(isset($navigation) && !empty($navigation))
+                        @foreach($navigation as $item)
+                        <li class="active">{{$item}}</li>
+                        @endforeach
+                    @endif
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -696,10 +698,10 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        {{$contenttitle_1}}
+                        {{$contenttitle_1 or '未知路径'}}
                         <small>
                             <i class="icon-double-angle-right"></i>
-                            {{$contenttitle_2}}
+                            {{$contenttitle_2 or '未知'}}
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
