@@ -87,7 +87,13 @@
                 show_box('signup-box');
             @endif
             @if(session('clip') == 'login')
-                show_box('login-box');
+                @if($name)
+                    $('#UserAccount').val({{$name}});
+                @endif
+                @if($pwd)
+                    $('#UserPassword').val({{$pwd}});
+            @endif
+            show_box('login-box');
             @endif
             @if(session('clip') == 'forgot')
                 show_box('forgot-box');
@@ -168,14 +174,14 @@
                                             </label>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" id="UserAccount" value="{{$name}}" name="name" class="form-control" placeholder="Username" />
+															<input type="text" id="UserAccount"  name="name" class="form-control" placeholder="Username" />
 															<i class="icon-user"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password"  id="UserPassword" value="{{$pwd}}" name="password" class="form-control" placeholder="Password" />
+															<input type="password"  id="UserPassword"  name="password" class="form-control" placeholder="Password" />
 															<i class="icon-lock"></i>
 														</span>
                                             </label>
