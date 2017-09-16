@@ -27,8 +27,6 @@
     <link rel="stylesheet" href="{{asset('assets/css/ace.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/ace-rtl.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/ace-skins.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/css/easyui.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/css/icon.css')}}" />
     <style type="text/css">
         .intro
         {
@@ -320,7 +318,7 @@
                         </li>
 
                         <li>
-                            <a class="gaoliang" href="javascript:;" onClick="createurl('personal','/index/user/personcenter?userId=','个人中心')">
+                            <a href="javascript:;">
                                 <i class="icon-user"></i>
                                 个人中心
                             </a>
@@ -496,7 +494,6 @@
 
 <script src={{asset("assets/js/ace-elements.min.js")}}></script>
 <script src={{asset("assets/js/ace.min.js")}}></script>
-<script src={{asset("assets/js/jquery.easyui.min.js")}}></script>
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
     function createurl(a, b, c) {
