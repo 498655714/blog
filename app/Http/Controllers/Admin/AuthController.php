@@ -16,9 +16,9 @@ class AuthController extends CommonController
         return view('admin/index');
     }
     //登录界面
-    public function  getLogin(Request $request){
-        $name = $request->cookie('name')?$request->cookie('name'):'';
-        $pwd = $request->cookie('pwd')?$request->cookie('pwd'):'';
+    public function  getLogin(){
+        $name = $_COOKIE['name']?$_COOKIE['name']:'';
+        $pwd =  $_COOKIE['pwd']?$_COOKIE['pwd']:'';
         return view('admin/login',compact('name','pwd'))->with('clip','login');
     }
     //登录操作
