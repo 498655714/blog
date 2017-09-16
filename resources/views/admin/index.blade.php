@@ -26,32 +26,32 @@
 
         <div class="widget-body">
             <div class="widget-main">
-                <div style="float: left; padding: 2px;">
-                    <table>
+                <div style="width:50%;float: left; padding: 2px;">
+                    <table style="width: 200px">
                         <tbody>
                         <tr>
-                            <td style="right: auto"><span style="font-size: large">操作系统:</span></td>
+                            <td style="float: right;"><span style="font-size: large">操作系统</span></td>
                             <td><span style="font-size: small">Linux</span></td>
                         </tr>
                         <tr>
-                            <td><span style="font-size: large">运行环境:</span></td>
+                            <td  style="float: right;"><span style="font-size: large">运行环境</span></td>
                             <td><span style="font-size: small">LNMP</span></td>
                         </tr>
                         <tr>
-                            <td><span style="font-size: large">版本:</span></td>
+                            <td style="float: right;"><span style="font-size: large">版本</span></td>
                             <td><span style="font-size: small">v-1.0</span></td>
                         </tr>
                         <tr>
-                            <td><span style="font-size: large">上传附件限制:</span></td>
-                            <td><span style="font-size: small">2M</span>v-1.0</td>
+                            <td><span style="font-size: large">上传附件限制</span></td>
+                            <td><span style="font-size: small">2M</span></td>
                         </tr>
                         <tr>
-                            <td><span style="font-size: large">服务器域名/IP:</span></td>
+                            <td><span style="font-size: large">服务器域名/IP</span></td>
                             <td><span style="font-size: small">操作系统:</span></td>
                         </tr>
                         <tr>
-                            <td><span style="font-size: x-large">HOST</span></td>
-                            <td><span style="font-size: large">v-1.0</span></td>
+                            <td><span style="font-size: large">HOST</span></td>
+                            <td><span style="font-size: small">v-1.0</span></td>
                         </tr>
                         </tbody>
                     </table>
@@ -118,33 +118,6 @@
                     </div>
                 </div>
 
-                <div class="hr hr8 hr-double"></div>
-
-                <div class="clearfix">
-                    <div class="grid3">
-                        <span class="grey">
-                            <i class="icon-facebook-sign icon-2x blue"></i>
-                            &nbsp; likes
-                        </span>
-                        <h4 class="bigger pull-right">1,255</h4>
-                    </div>
-
-                    <div class="grid3">
-                        <span class="grey">
-                            <i class="icon-twitter-sign icon-2x purple"></i>
-                            &nbsp; tweets
-                        </span>
-                        <h4 class="bigger pull-right">941</h4>
-                    </div>
-
-                    <div class="grid3">
-                        <span class="grey">
-                            <i class="icon-pinterest-sign icon-2x red"></i>
-                            &nbsp; pins
-                        </span>
-                        <h4 class="bigger pull-right">1,050</h4>
-                    </div>
-                </div>
             </div><!-- /widget-main -->
         </div><!-- /widget-body -->
     </div>
