@@ -26,28 +26,28 @@
 
         <div class="widget-body">
             <div class="widget-main">
-                <div>
+                <div  class="col-sm-5 infobox-container">
                     <table>
                         <tbody>
                         <tr>
-                            <td>操作系统:</td>
-                            <td>操作系统:</td>
+                            <td><span class="infobox-data-number">操作系统:</span></td>
+                            <td><span class="infobox-data-number">Linux</span></td>
                         </tr>
                         <tr>
-                            <td>运行环境:</td>
-                            <td>操作系统:</td>
+                            <td><span class="infobox-data-number">运行环境:</span></td>
+                            <td><span class="infobox-data-number">LNMP</span></td>
                         </tr>
                         <tr>
-                            <td>版本:</td>
-                            <td>v-1.0</td>
+                            <td><span class="infobox-data-number">版本:</span></td>
+                            <td><span class="infobox-data-number">v-1.0</span></td>
                         </tr>
                         <tr>
-                            <td>上传附件限制:</td>
-                            <td>v-1.0</td>
+                            <td><span class="infobox-data-number">上传附件限制:</span></td>
+                            <td><span class="infobox-data-number">2M</span>v-1.0</td>
                         </tr>
                         <tr>
-                            <td>服务器域名/IP:</td>
-                            <td>v-1.0</td>
+                            <td><span class="infobox-data-number">服务器域名/IP:</span></td>
+                            <td><span class="infobox-data-number">操作系统:</span></td>
                         </tr>
                         <tr>
                             <td>HOST</td>
