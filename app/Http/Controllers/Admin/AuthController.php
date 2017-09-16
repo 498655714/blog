@@ -133,11 +133,19 @@ class AuthController extends CommonController
             return view('common/error',compact('title','contentTitle','contents','handles'));
         }
         //修改密码
-        $userinfo->where('email',$info['email'])->update(['password'=>md5('123456')]);
+        $userinfo->where('email',$info['email'])->update(['password'=>md5('123456'),'update_at'=>date('Y-m-d H:i:s',time())]);
         //记录发送邮件号码
 
         $passinfo = new PasswordResets();
-        $passinfo->updateOrCreate(['send_number' => $info['email']] , ['send_number' => $info['email'], 'token' => $info['_token'],'created_at'=>time()]);
+        $pass = $passinfo->where(['send_number' => $info['email']])->get()->toArray();
+        if(empty($pass[0])){
+            $passinfo->send_number=$info['email'];
+            $passinfo->token=$info['_token'];
+            $passinfo->created_at=time();
+            $passinfo->save();
+        }else{
+            $passinfo->where('send_number',$info['email'])->update(['token'=>$info['_token'],'created_at'=>date('Y-m-d H:i:s',time())]);
+        }
         $title = '邮件发送成功';
         $contentTitle = '邮件发送成功';
         $contents = [
