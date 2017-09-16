@@ -68,6 +68,10 @@
             $('.click_pop').click(function () {
                 $('.bgPop,.pop').show();
             });
+            $('#green').click(function(){
+                $('#accept').prop('checked','checked');
+                $('#register').removeAttr('disabled');
+            });
         })
 
     </script>
@@ -75,6 +79,7 @@
     <!-- ace scripts -->
     <script src="assets/js/ace-elements.min.js"></script>
     <script src="assets/js/ace.min.js"></script>
+    <!-- 登录、注册、忘记密码界面-->
     <script type="text/javascript">
         $(document).ready(function(){
             @if(session('clip') == 'register')
@@ -103,6 +108,11 @@
                     $('#register').removeAttr('disabled');
                 }else{
                     $('#register').attr('disabled','disabled');
+                }
+            });
+            $(document).keydown(function(event){
+                if(event.keyCode == 13) {
+                    alert(1111);
                 }
             });
         });
@@ -421,7 +431,7 @@
                 </div>
                 <div class="pop-foot">
                     <input type="button" value="关闭" class="pop-cancel pop-close"/>
-                    <input type="button" value="我同意" class="pop-ok"/>
+                    <input type="button" id='green' value="我同意" class="pop-ok"/>
                 </div>
             </div>
         </div>
