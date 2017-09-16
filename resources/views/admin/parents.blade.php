@@ -302,7 +302,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{url('admin/logout')}}">
                                 <i class="icon-off"></i>
                                 退出登录
                             </a>
