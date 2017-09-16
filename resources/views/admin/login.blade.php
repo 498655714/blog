@@ -40,6 +40,13 @@
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
     <script type="text/javascript" src="{{asset('assets/js/jquery-2.0.3.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery-ui-1.10.3.full.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.ui.touch-punch.min.js')}}"></script>
+
+    <!-- ace scripts -->
+
+    <script src="assets/js/ace-elements.min.js"></script>
+    <script src="assets/js/ace.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             @if(session('clip') == 'register')
@@ -73,7 +80,6 @@
 
             $( "#id-btn-dialog1" ).on('click', function(e) {
                 e.preventDefault();
-
                 var dialog = $( "#dialog-message" ).removeClass('hide').dialog({
                     modal: true,
                     title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='icon-ok'></i> jQuery UI Dialog</h4></div>",
