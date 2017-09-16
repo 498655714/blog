@@ -127,16 +127,16 @@
             });
             //记住密码实现部分
             $('#remebers').click(function () {
-                if ($("#UserAccount").val() == "") {
-                    $('#msg').html("用户名不能为空！");
+	        if ($("#UserAccount").val() == "") {
+                    $('#msg').text("用户名不能为空");
                     return false;
                 }
                 if($("#UserPassword").val() == "")
                 {
-                    $('#msg').html("密码不能为空！");
+                    $('#msg').text("密码不能为空");
                     return false;
                 }
-                if ($('#remebers').attr("checked")) {
+                if ($('#remebers').prop("checked")) {
                     setCookie("uname", $("#UserAccount").val(), 60);
                     setCookie("upwd", $("#UserPassword").val(), 60);
                 }
@@ -147,7 +147,7 @@
             });
             if (getCookie("uname") != null)
             {
-                $('#remebers').attr("checked", "checked");
+                $('#remebers').prop("checked", "checked");
                 $('#UserAccount').val(getCookie("uname"));
                 $('#UserPassword').val(getCookie("upwd"));
             }
@@ -208,9 +208,7 @@
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															@if(session('msg'))
-                                                                <p id="msg" class="red">{{session('msg')}}</p>
-                                                            @endif
+                                                                <p id="msg" class="red">@if(session('msg')){{session('msg')}}@endif</p>
 														</span>
                                             </label>
                                             <label class="block clearfix">
