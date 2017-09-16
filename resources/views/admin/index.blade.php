@@ -26,7 +26,7 @@
 
         <div class="widget-body">
             <div class="widget-main">
-                <div  class="col-sm-5 infobox-container">
+                <div >
                     <table>
                         <tbody>
                         <tr>
