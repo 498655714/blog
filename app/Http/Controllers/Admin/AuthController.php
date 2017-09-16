@@ -35,12 +35,12 @@ class AuthController extends CommonController
         if(empty($userinfo)){
             return back()->with('msg','用户名或密码错误')->with('clip','login');
         }
-        $_SESSION['name'] = $userinfo[0]['name'];
+        $request->session()->put('name', $info['name']);
         return view('admin/index');
     }
     //退出登录
-    public function getLogout(){
-        isset($_SESSION['username']);
+    public function getLogout(Request $request){
+        $request->session()->forget('name');
         return view('admin/login')->with('clip','login');
     }
 
