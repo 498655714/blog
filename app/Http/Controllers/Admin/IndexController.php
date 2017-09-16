@@ -11,6 +11,9 @@ use \App\Http\Controllers\Admin\CommonController;
 class IndexController extends CommonController{
     //首页
     public function getindex(){
-        return view('admin/index');
+        $navigation = array();
+        $contenttitle_1 = '管理后台首页';
+        $contenttitle_2 = '欢迎界面';
+        return view('admin/index',compact('navigation','contenttitle_1','contenttitle_2'));
     }
 }

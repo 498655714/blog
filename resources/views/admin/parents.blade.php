@@ -361,9 +361,9 @@
 
             <ul class="nav nav-list">
                 <li class="active">
-                    <a href="index.html">
+                    <a href="{{url('admin/index')}}">
                         <i class="icon-dashboard"></i>
-                        <span class="menu-text"> Dashboard </span>
+                        <span class="menu-text"> 首页 </span>
                     </a>
                 </li>
 
@@ -676,9 +676,11 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="icon-home home-icon"></i>
-                        <a href="#">Home</a>
+                        <a href="{{url('admin/index')}}">首页</a>
                     </li>
-                    <li class="active">Dashboard</li>
+                    @foreach($navigation as $item)
+                    <li class="active">{{$item}}</li>
+                    @endforeach
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -694,10 +696,10 @@
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        Dashboard
+                        {{$contenttitle_1}}
                         <small>
                             <i class="icon-double-angle-right"></i>
-                            overview &amp; stats
+                            {{$contenttitle_2}}
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
