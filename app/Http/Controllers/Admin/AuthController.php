@@ -133,7 +133,7 @@ class AuthController extends CommonController
             return view('common/error',compact('title','contentTitle','contents','handles'));
         }
         //修改密码
-        $userinfo->where('email',$info['email'])->update(['password'=>md5('123456')]);
+        $userinfo->where('email',$info['email'])->update(['password'=>md5('123456'),'updated_at'=>time()]);
         //记录发送邮件号码
 
         $passinfo = new PasswordResets();
