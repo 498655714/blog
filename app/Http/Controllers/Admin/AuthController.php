@@ -137,7 +137,7 @@ class AuthController extends CommonController
         //记录发送邮件号码
 
         $passinfo = new PasswordResets();
-        $passinfo->updateOrCreate(['send_email' => $info['email']] , ['send_email' => $info['email'], 'token' => $info['_token'],'created_at'=>time()]);
+        $passinfo->updateOrCreate(['send_number' => $info['email']] , ['send_number' => $info['email'], 'token' => $info['_token'],'created_at'=>time()]);
         $title = '邮件发送成功';
         $contentTitle = '邮件发送成功';
         $contents = [
