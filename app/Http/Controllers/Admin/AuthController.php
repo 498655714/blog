@@ -39,9 +39,8 @@ class AuthController extends CommonController
             return back()->with('msg','用户名或密码错误')->with('clip','login');
         }
         $request->session()->put('name', $info['name']);
-        $name = cookie('name', $info['name'], 60*24*30);
-        $pwd = cookie('pwd', $info['password'], 60*24*30);
-        $response->response('Hello World')->cookie($name)->cookie($pwd);
+        setcookie("pwd",$info['password'],time()+(60*24*30),"/");
+        setcookie("name",$info['name'],time()+(60*24*30),"/");
         return view('admin/index');
     }
     //退出登录
