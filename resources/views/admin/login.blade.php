@@ -86,7 +86,7 @@
                 var titlediv = "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='icon-ok'></i> jQuery UI Dialog</h4></div>";
                 var dialog = $( "#dialog-message" ).removeClass('hide').dialog({
                     modal: true,
-                    title: '{!! titlediv !!}}',
+                    title: titlediv,
                     title_html: true,
                     buttons: [
                         {
@@ -106,11 +106,9 @@
                     ]
                 });
 
-                /**
                  dialog.data( "uiDialog" )._title = function(title) {
 						title.html( this.options.title );
 					};
-                 **/
             });
         });
     </script>
