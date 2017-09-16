@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CommonController;
 use App\Model\PasswordResets;
 use App\Model\Users;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 require_once ROOT_PATH.'/../resources/org/ValidateCode.class.php';
 require_once ROOT_PATH.'/../resources/org/Smtpmail.class.php';
 class AuthController extends CommonController
@@ -15,11 +16,13 @@ class AuthController extends CommonController
         return view('admin/index');
     }
     //登录界面
-    public function  getLogin(){
-        return view('admin/login')->with('clip','login');
+    public function  getLogin(Request $request){
+        $name = $request->cookie('name');
+        $pwd = $request->cookie('pwd');
+        return view('admin/login',compact('name','pwd'))->with('clip','login');
     }
     //登录操作
-    public function postLogin(Request $request){
+    public function postLogin(Request $request,Response $response){
         $info = $request->all();
         if(strtolower($info['validatecode']) != $_SESSION['code']){
             return back()->with('msg','验证码错误')->with('clip','login');
@@ -36,6 +39,9 @@ class AuthController extends CommonController
             return back()->with('msg','用户名或密码错误')->with('clip','login');
         }
         $request->session()->put('name', $info['name']);
+        $name = cookie('name', $info['name'], 60*24*30);
+        $pwd = cookie('pwd', $info['password'], 60*24*30);
+        $response->response('Hello World')->cookie($name)->cookie($pwd);
         return view('admin/index');
     }
     //退出登录
