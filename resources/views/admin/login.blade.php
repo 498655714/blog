@@ -125,27 +125,34 @@
                     }
                 }
             });
+            //cookie
+             function getCookie(c_name){
+                if (document.cookie.length>0){
+                  c_start=document.cookie.indexOf(c_name + "=")
+                  if (c_start!=-1)
+                    {
+                    c_start=c_start + c_name.length+1
+                    c_end=document.cookie.indexOf(";",c_start)
+                    if (c_end==-1) c_end=document.cookie.length
+                    return unescape(document.cookie.substring(c_start,c_end))
+                    }
+                  }
+                return "";
+             }
+            var name=getCookie('name');
+            var pwd=getCookie('pwd');
 
- function getCookie(c_name)
-{
-if (document.cookie.length>0)
-  {
-  c_start=document.cookie.indexOf(c_name + "=")
-  if (c_start!=-1)
-    { 
-    c_start=c_start + c_name.length+1 
-    c_end=document.cookie.indexOf(";",c_start)
-    if (c_end==-1) c_end=document.cookie.length
-    return unescape(document.cookie.substring(c_start,c_end))
-    } 
-  }
-return "";
-} 
-var name=getCookie('name');
-var pwd=getCookie('pwd');
+            $("#UserAccount").val(name);
+            $("#UserPassword").val(pwd);
 
-$("#UserAccount").val(name);
-$("#UserPassword").val(pwd);
+            $('#remebers').click(function(){
+                if($(this).prop('checked')){
+                    $('#remeberhidden').val('remeber');
+                }else{
+                    $('#remeberhidden').val('unremeber');
+                }
+
+            })
         });
     </script>
 </head>
@@ -213,6 +220,7 @@ $("#UserPassword").val(pwd);
                                             <div class="clearfix">
                                                 <label class="inline">
                                                     <input id="remebers" type="checkbox" class="ace" />
+                                                    <input id="remeberhidden" name="remeber" type="hidden" />
                                                     <span class="lbl"> Remember Me</span>
                                                 </label>
 
