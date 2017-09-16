@@ -46,12 +46,12 @@
                 </div>
                 <div>
                     <h5>可以尝试：</h5>
-                    <ol>
+                    <ul>
                         <li><a href="javascript:history.back(-1)">返回</a></li>
                         @foreach($handles as $handle)
                             <li>{!! $handle !!}</li>
                         @endforeach
-                    </ol>
+                    </ul>
                 </div>
             </div>
         </div>

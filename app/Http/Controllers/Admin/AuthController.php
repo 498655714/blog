@@ -77,9 +77,9 @@ class AuthController extends CommonController
             $title = '注册成功';
             $contentTitle = '恭喜你成功注册';
             $contents = [
-                '1.首先恭喜你注册为本博客系统会员',
-                '2.本博客系统为开源项目，开源地址：<a href="https://github.com/498655714/blog" target=_blank>https://github.com/498655714/blog</a>',
-                '3.希望你也能发扬开源精神多发几篇好文章.',
+                '首先恭喜你注册为本博客系统会员',
+                '本博客系统为开源项目，开源地址：<a href="https://github.com/498655714/blog" target=_blank>https://github.com/498655714/blog</a>',
+                '希望你也能发扬开源精神多发几篇好文章.',
             ];
             $_SESSION['name'] = $info['name'];
             $url = "{{url('admin/index')}}";
@@ -89,8 +89,8 @@ class AuthController extends CommonController
         $title = '注册失败';
         $contentTitle = '注册失败了';
         $contents = [
-            '1.首先检查你填入的信息是否正确',
-            '2.可以联系管理员帮助你 QQ:498655714',
+            '首先检查你填入的信息是否正确',
+            '可以联系管理员帮助你 QQ:498655714',
         ];
         $handles = [];
         return view('common/error',compact('title','contentTitle','contents','handles'));
@@ -126,8 +126,8 @@ class AuthController extends CommonController
             $title = '邮件发送失败';
             $contentTitle = '邮件发送失败了';
             $contents = [
-                '1.首先检查你填入的邮件地址是否正确',
-                '2.可以联系管理员帮助你 QQ:498655714',
+                '首先检查你填入的邮件地址是否正确',
+                '可以联系管理员帮助你 QQ:498655714',
             ];
             $handles = [];
             return view('common/error',compact('title','contentTitle','contents','handles'));
@@ -148,8 +148,8 @@ class AuthController extends CommonController
         $title = '邮件发送成功';
         $contentTitle = '邮件发送成功';
         $contents = [
-            '1.邮件已经发送成功',
-            '2.你可以根据邮件里的找回密码',
+            '邮件已经发送成功',
+            '你可以根据邮件里的找回密码',
         ];
         $handles = [];
         return view('common/success',compact('title','contentTitle','contents','handles'));

@@ -47,12 +47,12 @@
                 </div>
                 <div>
                     <h5>继续操作：</h5>
-                    <ol>
+                    <ul>
                         <li><a href="javascript:history.back(-1)">返回</a></li>
                         @foreach($handles as $handle)
                             <li>{!! $handle !!}</li>
                         @endforeach
-                    </ol>
+                    </ul>
                 </div>
             </div>
         </div>
