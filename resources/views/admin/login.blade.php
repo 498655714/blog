@@ -54,7 +54,7 @@
         .pop-top h2{  float: left;  display:block}
         .pop-top span{  float: right;  cursor: pointer;  font-weight: bold; display:block}
         .pop-content{  height: 380px; overflow: auto }
-        .pop-content-right{  width: 100%;  float: left;  padding-top:20px;  padding-left:20px;  font-size: 16px;  line-height:35px;  }
+        .pop-content-right{  width: 100%;    padding-top:20px;  padding-left:20px;  font-size: 16px;  line-height:35px;  }
         .bgPop{  display: none;  position: absolute;  z-index: 129;  left: 0;  top: 0;  width: 100%;  height: 100%;  background: rgba(0,0,0,.2);  }
     </style>
     <script>
