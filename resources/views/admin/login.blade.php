@@ -51,8 +51,8 @@
         *{padding:0px;margin:0px;}
         .pop {  display: none;  width: 600px; min-height: 470px;  max-height: 750px;  height:470px;  position: absolute;  top: 0;  left: 0;  bottom: 0;  right: 0;  margin: auto;  padding: 25px;  z-index: 130;  border-radius: 8px;  background-color: #fff;  box-shadow: 0 3px 18px rgba(100, 0, 0, .5);  }
         .pop-top{  height:40px;  width:100%;  border-bottom: 1px #E5E5E5 solid;  }
-        .pop-top h2{  float: left;  display:block}
-        .pop-top span{  float: right;  cursor: pointer;  font-weight: bold; display:block}
+        .pop-top h2{  float: left;  display:black}
+        .pop-top span{  float: right;  cursor: pointer;  font-weight: bold; display:black}
         .pop-foot{  height:50px;  line-height:50px;  width:100%;  border-top: 1px #E5E5E5 solid;  text-align: right;  }
         .pop-cancel, .pop-ok {  padding:8px 15px;  margin:15px 5px;  border: none;  border-radius: 5px;  background-color: #337AB7;  color: #fff;  cursor:pointer;  }
         .pop-cancel {  background-color: #FFF;  border:1px #CECECE solid;  color: #000;  }
