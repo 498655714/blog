@@ -7,7 +7,7 @@ use App\Model\PasswordResets;
 use App\Model\Users;
 use Illuminate\Http\Request;
 require_once ROOT_PATH.'/../resources/org/ValidateCode.class.php';
-require_once ROOT_PATH.'/../resources/org/Smtp.class.php';
+require_once ROOT_PATH.'/../resources/org/Smtpmail.class.php';
 class AuthController extends CommonController
 {
     //首页
@@ -78,7 +78,7 @@ class AuthController extends CommonController
             $contentTitle = '恭喜你成功注册';
             $contents = [
                 '1.首先恭喜你注册为本博客系统会员',
-                '2.本博客系统为开源项目，开源地址：<a href="https://github.com/498655714/blog">https://github.com/498655714/blog</a>',
+                '2.本博客系统为开源项目，开源地址：<a href="https://github.com/498655714/blog" target=_blank>https://github.com/498655714/blog</a>',
                 '3.希望你也能发扬开源精神多发几篇好文章.',
             ];
             $_SESSION['name'] = $info['name'];
@@ -117,15 +117,12 @@ class AuthController extends CommonController
             return back()->with('msg','您输入的电子邮件地址的博客用户不存在')
                 ->with('clip','forgot');
         }
-        $smtpconf = include_once ROOT_PATH.'/../config/smtp.php';
-
         //这里面的一个true是表示使用身份验证,否则不使用身份验证.
-        $smtp = new \Smtp($smtpconf['smtpserver'],$smtpconf['smtpserverport'],true,$smtpconf['smtpuser'],$smtpconf['smtppass']);
-        $smtp->debug = true;//是否显示发送的调试信息
+        $smtp = new \Smtpmail();
         $mailtitle = '个人博客密码重置';
         $mailcontent = "你的密码已经重置，密码是：123456 ";
-        $state = $smtp->sendmail($info['email'], $smtpconf['smtpusermail'], $mailtitle, $mailcontent, $smtpconf['mailtype']);
-        if($state==""){
+        $state = $smtp->sendmail($info['email'],$mailtitle,$mailcontent);
+        if(!$state){
             $title = '邮件发送失败';
             $contentTitle = '邮件发送失败了';
             $contents = [
