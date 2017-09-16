@@ -68,9 +68,10 @@
             $('.click_pop').click(function () {
                 $('.bgPop,.pop').show();
             });
-            $('#green').click(function(){
+            $('#agree').click(function(){
                 $('#accept').prop('checked','checked');
                 $('#register').removeAttr('disabled');
+                $('.bgPop,.pop').hide();
             });
         })
 
@@ -110,9 +111,18 @@
                     $('#register').attr('disabled','disabled');
                 }
             });
+            //绑定键盘回车事件
             $(document).keydown(function(event){
                 if(event.keyCode == 13) {
-                    alert(1111);
+                    if($('#login-box').hasClass('visible')){
+                        $('#loginform').submit();
+                    }
+                    if($('#signup-box').hasClass('visible')){
+                        $('#registform').submit();
+                    }
+                    if($('#forgot-box').hasClass('visible')){
+                        $('#sendform').submit();
+                    }
                 }
             });
         });
@@ -431,7 +441,7 @@
                 </div>
                 <div class="pop-foot">
                     <input type="button" value="关闭" class="pop-cancel pop-close"/>
-                    <input type="button" id='green' value="我同意" class="pop-ok"/>
+                    <input type="button" id='agree' value="我同意" class="pop-ok"/>
                 </div>
             </div>
         </div>
