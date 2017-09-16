@@ -14,6 +14,6 @@ class IndexController extends CommonController{
         $navigation = array();
         $contenttitle_1 = '管理后台首页';
         $contenttitle_2 = '欢迎界面';
-        return view('admin/index',compact('navigation','contenttitle_1','contenttitle_2'));
+        return view('admin/index',['navigation'=>$navigation,'contenttitle_1'=>$contenttitle_1,'contenttitle_2'=>$contenttitle_2]);
     }
 }
