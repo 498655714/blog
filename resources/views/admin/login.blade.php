@@ -125,6 +125,52 @@
                     }
                 }
             });
+            //记住密码实现部分
+            $('#remebers').click(function () {
+                if ($("#UserAccount").val() == "") {
+                    $('#msg').html("用户名不能为空！");
+                    return false;
+                }
+                if($("#UserPassword").val() == "")
+                {
+                    $('#msg').html("密码不能为空！");
+                    return false;
+                }
+                if ($('#remebers').attr("checked")) {
+                    setCookie("uname", $("#UserAccount").val(), 60);
+                    setCookie("upwd", $("#UserPassword").val(), 60);
+                }
+                else {
+                    delCookie("uname");
+                    delCookie("upwd");
+                }
+            });
+            if (getCookie("uname") != null)
+            {
+                $('#remebers').attr("checked", "checked");
+                $('#UserAccount').val(getCookie("uname"));
+                $('#UserPassword').val(getCookie("upwd"));
+            }
+            //写cookies
+            function setCookie(name, value) {
+                var Days = 30;
+                var exp = new Date();
+                exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+                document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+            }
+            //读取cookies
+            function getCookie(name) {
+                var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+                if (arr = document.cookie.match(reg)) return unescape(arr[2]);
+                else return null;
+            }
+            //删除cookies
+            function delCookie(name) {
+                var exp = new Date();
+                exp.setTime(exp.getTime() - 1);
+                var cval = getCookie(name);
+                if (cval != null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+            }
         });
     </script>
 </head>
@@ -163,20 +209,20 @@
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 															@if(session('msg'))
-                                                                <p class="red">{{session('msg')}}</p>
+                                                                <p id="msg" class="red">{{session('msg')}}</p>
                                                             @endif
 														</span>
                                             </label>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" name="name" class="form-control" placeholder="Username" />
+															<input type="text" id="UserAccount" name="name" class="form-control" placeholder="Username" />
 															<i class="icon-user"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" name="password" class="form-control" placeholder="Password" />
+															<input type="password"  id="UserPassword" name="password" class="form-control" placeholder="Password" />
 															<i class="icon-lock"></i>
 														</span>
                                             </label>
@@ -193,7 +239,7 @@
 
                                             <div class="clearfix">
                                                 <label class="inline">
-                                                    <input type="checkbox" class="ace" />
+                                                    <input id="remebers" type="checkbox" class="ace" />
                                                     <span class="lbl"> Remember Me</span>
                                                 </label>
 
@@ -254,7 +300,7 @@
 
                                     <div class="space-6"></div>
 
-                                    <p>
+                                    <p class="red">
                                     @if(session('msg'))
                                         {{session('msg')}}
                                     @else
