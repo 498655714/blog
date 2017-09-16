@@ -27,7 +27,7 @@
         <div class="widget-body">
             <div class="widget-main">
                 <div style="width:50%;float: left; padding: 2px;">
-                    <table style="width: 200px">
+                    <table style="width: 500px">
                         <tbody>
                         <tr>
                             <td style="float: right;"><span style="font-size: large">操作系统</span></td>
@@ -116,6 +116,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="hr hr8 hr-double"></div>
                 </div>
 
             </div><!-- /widget-main -->
