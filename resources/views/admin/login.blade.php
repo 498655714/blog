@@ -40,6 +40,7 @@
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
     <script type="text/javascript" src="{{asset('assets/js/jquery-2.0.3.min.js')}}"></script>
+    <script src="{{asset('assets/js/ace-extra.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery-ui-1.10.3.full.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery.ui.touch-punch.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
