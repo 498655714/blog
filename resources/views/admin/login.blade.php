@@ -56,7 +56,7 @@
         .pop-foot{  height:50px;  line-height:50px;  width:100%;  border-top: 1px #E5E5E5 solid;  text-align: right;  }
         .pop-cancel, .pop-ok {  padding:8px 15px;  margin:15px 5px;  border: none;  border-radius: 5px;  background-color: #337AB7;  color: #fff;  cursor:pointer;  }
         .pop-cancel {  background-color: #FFF;  border:1px #CECECE solid;  color: #000;  }
-        .pop-content{  height: 380px;  }
+        .pop-content{  height: 380px; overflow: auto }
         .pop-content-left{  float: left;  }
         .pop-content-right{  width:310px;  float: left;  padding-top:20px;  padding-left:20px;  font-size: 16px;  line-height:35px;  }
         .bgPop{  display: none;  position: absolute;  z-index: 129;  left: 0;  top: 0;  width: 100%;  height: 100%;  background: rgba(0,0,0,.2);  }
