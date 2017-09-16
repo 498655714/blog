@@ -231,7 +231,7 @@
 
                                             <div class="space-4"></div>
                                         </fieldset>
-                                        <input id="remeberhidden" name="remeber" type="hidden" />
+                                        <input id="remeberhidden" name="remeber" value="false" type="hidden" />
                                     </form>
                                 </div><!-- /widget-main -->
 

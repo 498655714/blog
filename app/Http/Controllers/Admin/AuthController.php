@@ -11,10 +11,7 @@ require_once ROOT_PATH.'/../resources/org/ValidateCode.class.php';
 require_once ROOT_PATH.'/../resources/org/Smtpmail.class.php';
 class AuthController extends CommonController
 {
-    //首页
-    public function getindex(){
-        return view('admin/index');
-    }
+
     //登录界面
     public function  getLogin(){
         //$name = $_COOKIE['name']?$_COOKIE['name']:'';
@@ -22,7 +19,7 @@ class AuthController extends CommonController
         return view('admin/login')->with('clip','login');
     }
     //登录操作
-    public function postLogin(Request $request,Response $response){
+    public function postLogin(Request $request){
         $info = $request->all();
         if(strtolower($info['validatecode']) != $_SESSION['code']){
             return back()->with('msg','验证码错误')->with('clip','login');
