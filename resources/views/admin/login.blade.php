@@ -49,12 +49,15 @@
     <!-- 协议弹出层 -->
     <style>
         *{padding:0px;margin:0px;}
-        .pop {  display: none;  width: 650px; min-height: 470px;  max-height: 750px;  height:470px;  position: absolute;  top: 0;  left: 0;  bottom: 0;  right: 0;  margin: auto;  padding: 25px;  z-index: 130;  border-radius: 8px;  background-color: #fff;  box-shadow: 0 3px 18px rgba(100, 0, 0, .5);  }
+        .pop { overflow: auto； display: none;  width: 650px; min-height: 470px;  max-height: 750px;  height:470px;  position: absolute;  top: 0;  left: 0;  bottom: 0;  right: 0;  margin: auto;  padding: 25px;  z-index: 130;  border-radius: 8px;  background-color: #fff;  box-shadow: 0 3px 18px rgba(100, 0, 0, .5);  }
         .pop-top{  height:40px;  width:100%;  border-bottom: 1px #E5E5E5 solid;  }
         .pop-top h2{  float: left;  display:block}
         .pop-top span{  float: right;  cursor: pointer;  font-weight: bold; display:block}
-        .pop-content{  height: 380px; overflow: auto }
-        .pop-content-right{  width: 100%;    padding-top:20px;  padding-left:20px;  font-size: 16px;  line-height:35px;  }
+        .pop-foot{  height:50px;  line-height:50px;  width:100%;  border-top: 1px #E5E5E5 solid;  text-align: right;  }
+        .pop-cancel, .pop-ok {  padding:8px 15px;  margin:15px 5px;  border: none;  border-radius: 5px;  background-color: #337AB7;  color: #fff;  cursor:pointer;  }
+        .pop-cancel {  background-color: #FFF;  border:1px #CECECE solid;  color: #000;  }
+        .pop-content{  height: 380px;  }
+        .pop-content-right{  width: 100%;  float: left;  padding-top:20px;  padding-left:20px;  font-size: 16px;  line-height:35px;  }
         .bgPop{  display: none;  position: absolute;  z-index: 129;  left: 0;  top: 0;  width: 100%;  height: 100%;  background: rgba(0,0,0,.2);  }
     </style>
     <script>
@@ -415,6 +418,10 @@
 
                     十二、其他规定   若本用户协议中的任何条款存在理解分歧，均应以完美世界作出的解释为准。   如本用户协议中的任何内容无论因何种原因完全或部分无效或
                     不具有执行力，本用户协议的其余内容仍应有效并且对协议各方有约束力。    本用户协议中的标题仅为方便而设，不具法律或契约效果。
+                </div>
+                <div class="pop-foot">
+                    <input type="button" value="关闭" class="pop-cancel pop-close"/>
+                    <input type="button" value="我同意" class="pop-ok"/>
                 </div>
             </div>
         </div>
