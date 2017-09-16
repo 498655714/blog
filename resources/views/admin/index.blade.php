@@ -27,7 +27,7 @@
         <div class="widget-body">
             <div class="widget-main">
                 <div style="width:50%; padding: 2px;">
-                    <table style="width: 500px">
+                    <table style="width: 300px">
                         <tbody>
                         <tr>
                             <td><span style="font-size: large">操作系统</span></td>
