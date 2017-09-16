@@ -70,6 +70,38 @@
                     $('#register').attr('disabled','disabled');
                 }
             });
+
+            $( "#id-btn-dialog1" ).on('click', function(e) {
+                e.preventDefault();
+
+                var dialog = $( "#dialog-message" ).removeClass('hide').dialog({
+                    modal: true,
+                    title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='icon-ok'></i> jQuery UI Dialog</h4></div>",
+                    title_html: true,
+                    buttons: [
+                        {
+                            text: "Cancel",
+                            "class" : "btn btn-xs",
+                            click: function() {
+                                $( this ).dialog( "close" );
+                            }
+                        },
+                        {
+                            text: "OK",
+                            "class" : "btn btn-primary btn-xs",
+                            click: function() {
+                                $( this ).dialog( "close" );
+                            }
+                        }
+                    ]
+                });
+
+                /**
+                 dialog.data( "uiDialog" )._title = function(title) {
+						title.html( this.options.title );
+					};
+                 **/
+            });
         });
     </script>
 </head>
@@ -288,7 +320,7 @@
                                                 <input id="accept" type="checkbox" class="ace" />
 														<span class="lbl">
 															I accept the
-															<a href="#">User Agreement</a>
+															<a id="id-btn-dialog1" href="#">User Agreement</a>
 														</span>
                                             </label>
 
@@ -317,6 +349,20 @@
                                 </div>
                             </div><!-- /widget-body -->
                         </div><!-- /signup-box -->
+                        <!--dialog-message-->
+                        <div id="dialog-message" class="hide">
+                            <p>
+                                This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
+                            </p>
+
+                            <div class="hr hr-12 hr-double"></div>
+
+                            <p>
+                                Currently using
+                                <b>36% of your storage space</b>
+                                .
+                            </p>
+                        </div><!-- #dialog-message -->
                     </div><!-- /position-relative -->
                 </div>
             </div><!-- /.col -->
