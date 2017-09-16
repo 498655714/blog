@@ -56,7 +56,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div id="piechart-placeholder" style="width: 90%; min-height: 150px; padding: 0px; position: relative;">
+                <div id="piechart-placeholder" style="width: 50%; min-height: 150px; padding: 0px; position: relative;">
                     <canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 574px; height: 150px;" width="574" height="150">
 
                     </canvas>
@@ -76,7 +76,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="legendLabel">social networks</td>
+                                <td class="legendLabel">社交网络</td>
                             </tr>
                             <tr>
                                 <td class="legendColorBox">
@@ -86,7 +86,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="legendLabel">search engines</td>
+                                <td class="legendLabel">搜索引擎</td>
                             </tr>
                             <tr>
                                 <td class="legendColorBox"><div style="border:1px solid null;padding:1px">
@@ -95,7 +95,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="legendLabel">ad campaigns</td>
+                                <td class="legendLabel">品牌广告</td>
                             </tr>
                             <tr>
                                 <td class="legendColorBox">
@@ -103,7 +103,7 @@
                                         <div style="width:4px;height:0;border:5px solid #DA5430;overflow:hidden"></div>
                                     </div>
                                 </td>
-                                <td class="legendLabel">direct traffic</td>
+                                <td class="legendLabel">直接流量</td>
                             </tr>
                             <tr>
                                 <td class="legendColorBox">
@@ -111,7 +111,7 @@
                                         <div style="width:4px;height:0;border:5px solid #FEE074;overflow:hidden"></div>
                                     </div>
                                 </td>
-                                <td class="legendLabel">other</td>
+                                <td class="legendLabel">其他</td>
                             </tr>
                             </tbody>
                         </table>
@@ -122,26 +122,26 @@
 
                 <div class="clearfix">
                     <div class="grid3">
-															<span class="grey">
-																<i class="icon-facebook-sign icon-2x blue"></i>
-																&nbsp; likes
-															</span>
+                        <span class="grey">
+                            <i class="icon-facebook-sign icon-2x blue"></i>
+                            &nbsp; likes
+                        </span>
                         <h4 class="bigger pull-right">1,255</h4>
                     </div>
 
                     <div class="grid3">
-															<span class="grey">
-																<i class="icon-twitter-sign icon-2x purple"></i>
-																&nbsp; tweets
-															</span>
+                        <span class="grey">
+                            <i class="icon-twitter-sign icon-2x purple"></i>
+                            &nbsp; tweets
+                        </span>
                         <h4 class="bigger pull-right">941</h4>
                     </div>
 
                     <div class="grid3">
-															<span class="grey">
-																<i class="icon-pinterest-sign icon-2x red"></i>
-																&nbsp; pins
-															</span>
+                        <span class="grey">
+                            <i class="icon-pinterest-sign icon-2x red"></i>
+                            &nbsp; pins
+                        </span>
                         <h4 class="bigger pull-right">1,050</h4>
                     </div>
                 </div>
