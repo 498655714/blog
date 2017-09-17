@@ -378,18 +378,12 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="tables.html">
+                            <a href="{{url('admin/category')}}">
                                 <i class="icon-double-angle-right"></i>
                                 文章分类列表
                             </a>
                         </li>
 
-                        <li>
-                            <a href="jqgrid.html">
-                                <i class="icon-double-angle-right"></i>
-                                添加文章分类
-                            </a>
-                        </li>
                         <li>
                             <a href="jqgrid.html">
                                 <i class="icon-double-angle-right"></i>
