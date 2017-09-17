@@ -1,5 +1,7 @@
 @extends('admin.parents')
 @section('jsandcss')
+
+    <script src="{{asset('assets/js/bootbox.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             @if(isset($changepass) && $changepass = 'success')
