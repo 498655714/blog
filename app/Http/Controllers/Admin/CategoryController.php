@@ -20,7 +20,7 @@ class CategoryController extends CommonController{
         $contenttitle_1 = '分类列表';
         $contenttitle_2 = '文章分类';
         $category = new Category();
-        $data = $category->get()->toArray();
+        $data = $category->paginate(15);
         return view('category.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
