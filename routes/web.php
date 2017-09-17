@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('admin/login');
 });
 //首页路由
-Route::get('admin/index', 'Admin\IndexController@getindex');
+Route::any('admin/index', 'Admin\IndexController@getindex');
 
 // 登录路由...
 Route::get('admin/login', 'Admin\AuthController@getLogin');
