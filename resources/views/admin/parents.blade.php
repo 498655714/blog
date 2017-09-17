@@ -44,6 +44,7 @@
     <script src="{{asset('assets/js/html5shiv.js')}}"></script>
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
+    @yield('jsandcss')
 </head>
 
 <body>

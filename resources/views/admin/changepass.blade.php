@@ -1,4 +1,24 @@
 @extends('admin.parents')
+@section('jsandcss')
+    <script type="text/javascript">
+        $(function(){
+            alert();
+            @if(isset($changepass) && $changepass = 'success')
+                bootbox.confirm("密码已经修改成功，请记住你的密码！", function(result) {
+                        if(result) {
+                            //
+                        }
+                    });
+            @else
+                bootbox.confirm("密码修改失败，请联系权限更高的管理员或者重置密码！", function(result) {
+                        if(result) {
+                            //
+                        }
+                    });
+            @endif
+        })
+    </script>
+@endsection
 @section('content')
     @if(count($errors)>0)
     <div class="alert alert-block alert-danger">
@@ -66,21 +86,3 @@
     </form>
 
 @endsection
-<script type="text/javascript">
-    $(function(){
-        alert();
-        @if(isset($changepass) && $changepass = 'success')
-            bootbox.confirm("密码已经修改成功，请记住你的密码！", function(result) {
-                    if(result) {
-                        //
-                    }
-                });
-        @else
-            bootbox.confirm("密码修改失败，请联系权限更高的管理员或者重置密码！", function(result) {
-                    if(result) {
-                        //
-                    }
-                });
-        @endif
-    })
-</script>
