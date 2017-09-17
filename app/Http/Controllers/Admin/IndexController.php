@@ -51,7 +51,7 @@ class IndexController extends CommonController{
             $ret = $userinfo->where(['name'=>session('name'),'password'=>md5($info['oldpass'])])->get()->toArray();
             if(!empty($ret[0])){
                 $userinfo->where(['name'=>session('name'),'password'=>$info['oldpass']])->update(['password'=>md5($info['password'])]);
-                return redirect('admin/success');
+                return view('admin/success');
             }else{
                 return back()->with('errors',['原始密码不正确']);
             }
