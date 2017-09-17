@@ -61,7 +61,7 @@ class IndexController extends CommonController{
                         'contenttitle_1'=>$contenttitle_1,
                         'contenttitle_2'=>$contenttitle_2,
                         'flag'=>'success',
-                        'errors'=>['密码修改成功']
+                        'errors'=>['密码修改成功，请记住密码']
                     ]);
                 }else{
                     return view('admin/changepass',[
@@ -69,7 +69,7 @@ class IndexController extends CommonController{
                         'contenttitle_1'=>$contenttitle_1,
                         'contenttitle_2'=>$contenttitle_2,
                         'flag'=>'danger',
-                        'errors'=>['密码修改失败']
+                        'errors'=>['密码修改失败,如有问题联系管理员']
                     ]);
                 }
 

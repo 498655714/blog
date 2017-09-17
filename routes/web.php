@@ -22,6 +22,8 @@ Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=
     Route::get('showpass', 'IndexController@showpass');//修改密码
     Route::post('changepass', 'IndexController@changepass');//修改密码
 
+    Route::resource('category','CategoryController');
+
 });
 
 
