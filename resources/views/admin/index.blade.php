@@ -47,11 +47,11 @@
                         </tr>
                         <tr>
                             <td><span style="font-size: large">服务器域名/IP</span></td>
-                            <td><span style="font-size: small">{{$_SERVER['SERVER_NAME']}}/{{$_SERVER['SERVER_HOST']}}</span></td>
+                            <td><span style="font-size: small">{{$_SERVER['SERVER_NAME']}}/{{$_SERVER['SERVER_ADDR']}}</span></td>
                         </tr>
                         <tr>
                             <td><span style="font-size: large">HOST</span></td>
-                            <td><span style="font-size: small">{{$_SERVER['SERVER_HOST']}}</span></td>
+                            <td><span style="font-size: small">{{$_SERVER['SERVER_ADDR']}}</span></td>
                         </tr>
                         </tbody>
                     </table>
