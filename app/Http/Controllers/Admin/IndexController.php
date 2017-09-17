@@ -36,6 +36,10 @@ class IndexController extends CommonController{
     }
     //更改密码操作
     public function changepass(Request $request){
+
+        $navigation = ['密码修改页'];
+        $contenttitle_1 = '密码修改';
+        $contenttitle_2 = '修改个人密码';
         $info = $request->all();
         $rules = [
             'password'=>'required|between:6,20|confirmed',
@@ -52,9 +56,19 @@ class IndexController extends CommonController{
             if(!empty($ret[0])){
                 $res = $userinfo->where(['name'=>session('name'),'password'=>md5($info['oldpass'])])->update(['password'=>md5($info['password'])]);
                 if($res){
-                    return view('admin/changepass')->with('changepass','success');
+                    return view('admin/changepass',[
+                        'navigation'=>$navigation,
+                        'contenttitle_1'=>$contenttitle_1,
+                        'contenttitle_2'=>$contenttitle_2,
+                        'changepass'=>'success',
+                    ]);
                 }else{
-                    return view('admin/changepass')->with('changepass','error');
+                    return view('admin/changepass',[
+                        'navigation'=>$navigation,
+                        'contenttitle_1'=>$contenttitle_1,
+                        'contenttitle_2'=>$contenttitle_2,
+                        'changepass'=>'error'
+                    ]);
                 }
 
             }else{
