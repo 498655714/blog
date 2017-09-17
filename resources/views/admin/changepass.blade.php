@@ -1,13 +1,31 @@
 @extends('admin.parents')
 @section('content')
-    <form class="form-horizontal" role="form" action="{{url('admin.changepass')}}" method="post">
+    <div class="alert alert-block alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="icon-remove"></i>
+        </button>
 
+        <i class="icon-ok green"></i>
+        <strong class="green">
+            错误：
+            <small>
+                @if(count($errors)>0)
+                    @foreach($errors as $error)
+                        <span>{{$error}}</span>
+                    @endforeach
+                @endif
+            </small>
+        </strong>
+    </div>
+    <form class="form-horizontal" role="form" action="{{url('admin.changepass')}}" method="post">
+        {{csrf_field()}}
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 原始密码：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" placeholder="Password" class="col-xs-5 col-sm-5" type="password">
+                <input id="form-field-2" name="oldpass" placeholder="Old Password" class="col-xs-10 col-sm-5" type="password">
             </div>
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-2">请输入原始密码</label>
         </div>
 
         <div class="space-4"></div>
@@ -16,19 +34,21 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 新密码：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" placeholder="Password" class="col-xs-5 col-sm-5" type="password">
+                <input id="form-field-2" name="password" placeholder="New Password" class="col-xs-10 col-sm-5" type="password">
             </div>
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 新密码6-20位</label>
         </div>
 
 
         <div class="space-4"></div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 重新输入新密码：</label>
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 确认密码：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" placeholder="Password" class="col-xs-5 col-sm-5" type="password">
+                <input id="form-field-2"  name="password_confirmation"  placeholder="Repeat New Password" class="col-xs-10 col-sm-5" type="password">
             </div>
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 再次输入密码</label>
         </div>
 
 
