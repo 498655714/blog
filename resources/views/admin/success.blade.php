@@ -1,6 +1,6 @@
 @extends('admin.parents')
 @section('content')
-    <div class="col-xs-6 col-sm-3 pricing-box">
+    <div class="col-xs-12 col-sm-6 pricing-box">
         <div class="widget-box">
             <div class="widget-header header-color-green">
                 <h5 class="bigger lighter">成功画面</h5>
