@@ -53,11 +53,9 @@ class IndexController extends CommonController{
                 $userinfo->where(['name'=>session('name'),'password'=>$info['oldpass']])->update(['password'=>md5($info['password'])]);
                 return redirect('admin.index');
             }else{
-                dd(11);
-                return back()->with('errors',['原始密码不能为空']);
+                return back()->with('errors','原始密码不能为空');
             }
         }else{
-            dd($validator->errors()->all());
             return back()->withErrors($validator);
         }
     }
