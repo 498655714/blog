@@ -1,7 +1,7 @@
 @extends('admin.parents')
 @section('jsandcss')
     <script type="text/javascript">
-        $(function(){
+        $(document).ready(function(){
             alert();
             @if(isset($changepass) && $changepass = 'success')
                 bootbox.confirm("密码已经修改成功，请记住你的密码！", function(result) {
@@ -16,7 +16,7 @@
                         }
                     });
             @endif
-        })
+        });
     </script>
 @endsection
 @section('content')
