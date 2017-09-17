@@ -52,9 +52,9 @@ class IndexController extends CommonController{
             if(!empty($ret[0])){
                 $res = $userinfo->where(['name'=>session('name'),'password'=>md5($info['oldpass'])])->update(['password'=>md5($info['password'])]);
                 if($res){
-                    return view('admin/showpass')->with('changepass','success');
+                    return view('admin/changepass')->with('changepass','success');
                 }else{
-                    return view('admin/showpass')->with('changepass','error');
+                    return view('admin/changepass')->with('changepass','error');
                 }
 
             }else{
