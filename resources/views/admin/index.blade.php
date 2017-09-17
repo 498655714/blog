@@ -31,11 +31,11 @@
                         <tbody>
                         <tr>
                             <td><span style="font-size: large">操作系统</span></td>
-                            <td><span style="font-size: small">Linux</span></td>
+                            <td><span style="font-size: small">{{PHP_OS}}</span></td>
                         </tr>
                         <tr>
                             <td ><span style="font-size: large">运行环境</span></td>
-                            <td><span style="font-size: small">LNMP</span></td>
+                            <td><span style="font-size: small">{{$_SERVER['SERVER_SOFTWARE']}}</span></td>
                         </tr>
                         <tr>
                             <td><span style="font-size: large">版本</span></td>
@@ -43,15 +43,15 @@
                         </tr>
                         <tr>
                             <td><span style="font-size: large">上传附件限制</span></td>
-                            <td><span style="font-size: small">2M</span></td>
+                            <td><span style="font-size: small"><?php echo get_cfg_var("upload_max_filesize")? get_cfg_var("upload_max_filesize"):'不允许上传'?></span></td>
                         </tr>
                         <tr>
                             <td><span style="font-size: large">服务器域名/IP</span></td>
-                            <td><span style="font-size: small">操作系统:</span></td>
+                            <td><span style="font-size: small">{{$_SERVER['SERVER_NAME']}}/{{$_SERVER['SERVER_HOST']}}</span></td>
                         </tr>
                         <tr>
                             <td><span style="font-size: large">HOST</span></td>
-                            <td><span style="font-size: small">v-1.0</span></td>
+                            <td><span style="font-size: small">{{$_SERVER['SERVER_HOST']}}</span></td>
                         </tr>
                         </tbody>
                     </table>
