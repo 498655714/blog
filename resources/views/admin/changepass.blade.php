@@ -7,7 +7,7 @@
         </button>
         <span class="label label-danger arrowed-in">错误</span>
         <strong class="red">
-            @foreach($errors->all() as $error)
+            @foreach($errors as $error)
                 <span>{{$error}}</span>
             @endforeach
         </strong>
