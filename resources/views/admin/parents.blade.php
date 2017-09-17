@@ -41,15 +41,15 @@
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="{{asset('assets/js/jquery-2.0.3.min.js')}}"></script>
     <script src="{{asset('assets/js/html5shiv.js')}}"></script>
+    <script src="{{asset('assets/js/respond.min.js')}}"></script>
+    <![endif]-->
+    <script type="text/javascript" src="{{asset('assets/js/jquery-2.0.3.min.js')}}"></script>
     <script src="{{asset('assets/js/ace-extra.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery-ui-1.10.3.full.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery.ui.touch-punch.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/typeahead-bs2.min.js')}}"></script>
-    <script src="{{asset('assets/js/respond.min.js')}}"></script>
-    <![endif]-->
     @yield('jsandcss')
 </head>
 
