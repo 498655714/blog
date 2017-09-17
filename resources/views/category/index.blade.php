@@ -183,26 +183,27 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="dataTables_info" id="sample-table-2_info">
-                                Showing 1 to 10 of 23 entries
+                                总共{{$data->count()}}页，当前为第{{$data->currentPage()}}页
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="dataTables_paginate paging_bootstrap">
-                                <ul class="pagination">
-                                    <li class="prev disabled">
-                                        <a href="#">
-                                            <i class="icon-double-angle-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li class="next">
-                                        <a href="#">
-                                            <i class="icon-double-angle-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                                {{--<ul class="pagination">--}}
+                                    {{--<li class="prev disabled">--}}
+                                        {{--<a href="#">--}}
+                                            {{--<i class="icon-double-angle-left"></i>--}}
+                                        {{--</a>--}}
+                                    {{--</li>--}}
+                                    {{--<li class="active"><a href="#">1</a></li>--}}
+                                    {{--<li><a href="#">2</a></li>--}}
+                                    {{--<li><a href="#">3</a></li>--}}
+                                    {{--<li class="next">--}}
+                                        {{--<a href="#">--}}
+                                            {{--<i class="icon-double-angle-right"></i>--}}
+                                        {{--</a>--}}
+                                    {{--</li>--}}
+                                {{--</ul>--}}
+                                {{$data->links()}}
                             </div>
                         </div>
                     </div>
