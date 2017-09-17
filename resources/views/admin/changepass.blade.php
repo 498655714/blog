@@ -59,9 +59,9 @@
                 </button>
 
                 &nbsp; &nbsp; &nbsp;
-                <button class="btn" type="reset" onclick="javascript:history.back(-1)">
+                <button class="btn" type="reset" onclick="{{url('admin/index')}}">
                     <i class="icon-undo bigger-110"></i>
-                    返回
+                    返回首页
                 </button>
             </div>
         </div>
