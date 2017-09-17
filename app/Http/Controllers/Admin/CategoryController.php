@@ -7,6 +7,8 @@
  */
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\CommonController;
+use App\Model\Category;
+
 class CategoryController extends CommonController{
 
     //全部分类 列表
@@ -14,7 +16,17 @@ class CategoryController extends CommonController{
     // 路由名称category.index
     // 方法Get
     public function index(){
-        return view('category.index');
+        $navigation = ['文章分类管理','文章分类列表'];
+        $contenttitle_1 = '分类列表';
+        $contenttitle_2 = '文章分类';
+        $category = new Category();
+        $data = $category->get()->toArray();
+        return view('category.index',[
+            'navigation'=>$navigation,
+            'contenttitle_1'=>$contenttitle_1,
+            'contenttitle_2'=>$contenttitle_2,
+            'data'=>$data
+        ]);
     }
 
     //全部分类列表

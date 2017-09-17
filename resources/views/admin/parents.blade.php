@@ -368,7 +368,36 @@
                         <span class="menu-text"> 首页 </span>
                     </a>
                 </li>
+                <li>
+                    <a href="#" class="dropdown-toggle">
+                        <i class="icon-list"></i>
+                        <span class="menu-text"> 文章分类管理 </span>
 
+                        <b class="arrow icon-angle-down"></b>
+                    </a>
+
+                    <ul class="submenu">
+                        <li>
+                            <a href="tables.html">
+                                <i class="icon-double-angle-right"></i>
+                                文章分类列表
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="jqgrid.html">
+                                <i class="icon-double-angle-right"></i>
+                                添加文章分类
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jqgrid.html">
+                                <i class="icon-double-angle-right"></i>
+                                添加文章分类
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="typography.html">
                         <i class="icon-text-width"></i>
@@ -465,30 +494,7 @@
                     </ul>
                 </li>
 
-                <li>
-                    <a href="#" class="dropdown-toggle">
-                        <i class="icon-list"></i>
-                        <span class="menu-text"> Tables </span>
 
-                        <b class="arrow icon-angle-down"></b>
-                    </a>
-
-                    <ul class="submenu">
-                        <li>
-                            <a href="tables.html">
-                                <i class="icon-double-angle-right"></i>
-                                Simple &amp; Dynamic
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="jqgrid.html">
-                                <i class="icon-double-angle-right"></i>
-                                jqGrid plugin
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
                 <li>
                     <a href="#" class="dropdown-toggle">
