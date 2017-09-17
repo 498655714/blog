@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('admin/login');
 });
 //首页路由定义中间件
-Route::group(['middleware'=>['web','admin.login']],function(){
+Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=>'Admin'],function(){
 
-    Route::any('admin/index', 'Admin\IndexController@getindex');
+    Route::get('index', 'IndexController@getindex');//首页
+    Route::get('logout', 'AuthController@getLogout');//退出
+    Route::get('changepass', 'IndexController@changepass');//修改密码
 
 });
 
@@ -25,7 +27,6 @@ Route::group(['middleware'=>['web','admin.login']],function(){
 // 登录路由...
 Route::get('admin/login', 'Admin\AuthController@getLogin');
 Route::post('admin/login', 'Admin\AuthController@postLogin');
-Route::get('admin/logout', 'Admin\AuthController@getLogout');
 Route::get('admin/validatecode', 'Admin\AuthController@code');
 // 注册路由...
 Route::post('admin/register', 'Admin\AuthController@postRegister');

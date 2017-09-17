@@ -20,4 +20,9 @@ class IndexController extends CommonController{
                 'contenttitle_2'=>$contenttitle_2
             ]);
     }
+
+    //更改密码
+    public function changepass(){
+        return view('admin.changepass');
+    }
 }
