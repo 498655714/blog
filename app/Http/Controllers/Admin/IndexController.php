@@ -48,7 +48,7 @@ class IndexController extends CommonController{
         $validator = Validator::make($info,$rules,$message);
         if($validator->passes()){
             $userinfo = new Users();
-            $ret = $userinfo->where(['name'=>session('name'),'password'=>$info['oldpass']])->get()->toArray();
+            $ret = $userinfo->where(['name'=>session('name'),'password'=>md5($info['oldpass'])])->get()->toArray();
             if(!empty($ret[0])){
                 $userinfo->where(['name'=>session('name'),'password'=>$info['oldpass']])->update(['password'=>md5($info['password'])]);
                 return redirect('admin/success');
