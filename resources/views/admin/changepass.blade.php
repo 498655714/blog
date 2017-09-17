@@ -1,7 +1,7 @@
 @extends('admin.parents')
 @section('content')
     @if(count($errors)>0)
-    <div class="alert alert-block alert-error">
+    <div class="alert alert-block alert-fault">
         <button type="button" class="close" data-dismiss="alert">
             <i class="icon-remove"></i>
         </button>
@@ -12,7 +12,7 @@
         </span>
         <strong class="red">
             @foreach($errors as $error)
-                <span>{{$error}}</span>
+                <span>{{dd($error)}}</span>
             @endforeach
         </strong>
     </div>
