@@ -1,5 +1,5 @@
 @extends('admin.parents')
-@section('jsangcss')
+@section('jsandcss')
     <script type="text/javascript">
         jQuery(function($) {
             var oTable1 = $('#sample-table-2').dataTable( {
@@ -19,21 +19,9 @@
                         });
 
             });
-
-
-            $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
-            function tooltip_placement(context, source) {
-                var $source = $(source);
-                var $parent = $source.closest('table')
-                var off1 = $parent.offset();
-                var w1 = $parent.width();
-
-                var off2 = $source.offset();
-                var w2 = $source.width();
-
-                if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
-                return 'left';
-            }
+            $('#select_num').change(function(){
+                window.location.href="{{url('admin/category?num=')}}"+$(this).val();
+            });
         })
     </script>
 @endsection
@@ -51,12 +39,12 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div id="sample-table-2_length" class="dataTables_length">
-                                <label>显示
-                                    <select size="1" name="sample-table-2_length" aria-controls="sample-table-2">
-                                        <option value="10" selected="selected">10</option>
-                                        <option value="25">25</option>
+                                <label>每页显示
+                                    <select size="1" id="select_num" name="sample-table-2_length" aria-controls="sample-table-2">
+                                        <option value="10" >10</option>
+                                        <option value="15" selected="selected">15</option>
+                                        <option value="20">20</option>
                                         <option value="50">50</option>
-                                        <option value="100">100</option>
                                     </select>
                                     记录
                                 </label>
@@ -129,51 +117,13 @@
 
                             <td class=" ">
                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                    <a class="blue" href="#">
-                                        <i class="icon-zoom-in bigger-130"></i>
-                                    </a>
-
-                                    <a class="green" href="#">
+                                    <a class="green" href="#" title="编辑">
                                         <i class="icon-pencil bigger-130"></i>
                                     </a>
 
-                                    <a class="red" href="#">
+                                    <a class="red" href="#"  title="删除">
                                         <i class="icon-trash bigger-130"></i>
                                     </a>
-                                </div>
-
-                                <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                    <div class="inline position-relative">
-                                        <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
-                                            <i class="icon-caret-down icon-only bigger-120"></i>
-                                        </button>
-
-                                        <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-                                            <li>
-                                                <a href="#" class="tooltip-info" data-rel="tooltip" title="" data-original-title="View">
-                                                    <span class="blue">
-                                                        <i class="icon-zoom-in bigger-120"></i>
-                                                    </span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#" class="tooltip-success" data-rel="tooltip" title="" data-original-title="Edit">
-                                                    <span class="green">
-                                                        <i class="icon-edit bigger-120"></i>
-                                                    </span>
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#" class="tooltip-error" data-rel="tooltip" title="" data-original-title="Delete">
-                                                    <span class="red">
-                                                        <i class="icon-trash bigger-120"></i>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </td>
                         </tr>
@@ -183,26 +133,11 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="dataTables_info" id="sample-table-2_info">
-                                总共{{$data->count()}}页，当前为第{{$data->currentPage()}}页
+                                总共{{$data->count()}}条记录共{{$data->total()}}页，当前为第{{$data->currentPage()}}页
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="dataTables_paginate paging_bootstrap">
-                                {{--<ul class="pagination">--}}
-                                    {{--<li class="prev disabled">--}}
-                                        {{--<a href="#">--}}
-                                            {{--<i class="icon-double-angle-left"></i>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="active"><a href="#">1</a></li>--}}
-                                    {{--<li><a href="#">2</a></li>--}}
-                                    {{--<li><a href="#">3</a></li>--}}
-                                    {{--<li class="next">--}}
-                                        {{--<a href="#">--}}
-                                            {{--<i class="icon-double-angle-right"></i>--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
                                 {{$data->links()}}
                             </div>
                         </div>
