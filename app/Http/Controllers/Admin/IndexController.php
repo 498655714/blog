@@ -15,9 +15,6 @@ class IndexController extends CommonController{
         $contenttitle_1 = '管理后台首页';
         $contenttitle_2 = '欢迎界面';
         $servername = $_SERVER['SERVER_NAME'];//服务器主机的名称。
-        $host = $_SERVER['HTTP_HOST'] ;
-        $host = $_SERVER['REMOTE_HOST']  ;
-        $server = $_SERVER['SERVER_SIGNATURE']  ;
         var_dump($_SESSION);exit();
         return view('admin/index',
             [   'navigation'=>$navigation,
