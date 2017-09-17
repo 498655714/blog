@@ -50,6 +50,7 @@
     <script src="{{asset('assets/js/jquery.ui.touch-punch.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/typeahead-bs2.min.js')}}"></script>
+
     @yield('jsandcss')
 </head>
 
