@@ -1,24 +1,14 @@
 @extends('admin.parents')
 @section('jsandcss')
-    <script src="{{asset('assets/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
-    <script src="{{asset('assets/js/bootbox.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.easy-pie-chart.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.gritter.min.js')}}"></script>
-    <script src="{{asset('assets/js/spin.min.js')}}"></script>
-    <script src="{{asset('assets/js/ace-elements.min.js')}}"></script>
-    <script src="{{asset('assets/js/ace.min.js')}}"></script>
-
     <script type="text/javascript">
         $(document).ready(function(){
             @if(isset($changepass) && $changepass = 'success')
-                alert('成功');
                 bootbox.confirm("密码已经修改成功，请记住你的密码！", function(result) {
                         if(result) {
                             //
                         }
                     });
-            @else
-            alert('失败');
+            @elseif(isset($changepass) && $changepass = 'error')
                 bootbox.confirm("密码修改失败，请联系权限更高的管理员或者通过邮箱发送邮件重置密码！", function(result) {
                         if(result) {
                             //

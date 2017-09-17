@@ -50,7 +50,13 @@
     <script src="{{asset('assets/js/jquery.ui.touch-punch.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/typeahead-bs2.min.js')}}"></script>
-
+    <script src="{{asset('assets/js/jquery-ui-1.10.3.custom.min.js')}}"></script>
+    <script src="{{asset('assets/js/bootbox.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.easy-pie-chart.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.gritter.min.js')}}"></script>
+    <script src="{{asset('assets/js/spin.min.js')}}"></script>
+    <script src="{{asset('assets/js/ace-elements.min.js')}}"></script>
+    <script src="{{asset('assets/js/ace.min.js')}}"></script>
     @yield('jsandcss')
 </head>
 
