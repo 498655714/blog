@@ -1,7 +1,7 @@
 @extends('admin.parents')
 @section('content')
     @if(count($errors)>0)
-    <div class="alert alert-block alert-success">
+    <div class="alert alert-block alert-error">
         <button type="button" class="close" data-dismiss="alert">
             <i class="icon-remove"></i>
         </button>
