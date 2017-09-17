@@ -60,23 +60,25 @@ class IndexController extends CommonController{
                         'navigation'=>$navigation,
                         'contenttitle_1'=>$contenttitle_1,
                         'contenttitle_2'=>$contenttitle_2,
-                        'changepass'=>'success',
+                        'flag'=>'success',
+                        'errors'=>['密码修改成功']
                     ]);
                 }else{
                     return view('admin/changepass',[
                         'navigation'=>$navigation,
                         'contenttitle_1'=>$contenttitle_1,
                         'contenttitle_2'=>$contenttitle_2,
-                        'changepass'=>'error'
+                        'flag'=>'danger',
+                        'errors'=>['密码修改失败']
                     ]);
                 }
 
             }else{
-                return back()->with('errors',['原始密码不正确']);
+                return back()->with('errors',['原始密码不正确'])->with('flag','danger');
             }
         }else{
             $errors = $validator->errors()->all();
-            return back()->with('errors',$errors);
+            return back()->with('errors',$errors)->with('flag','danger');
         }
     }
 }

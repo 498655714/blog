@@ -1,32 +1,15 @@
 @extends('admin.parents')
-@section('jsandcss')
-
-    <script src="{{asset('assets/js/bootbox.min.js')}}"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            @if(isset($changepass) && $changepass = 'success')
-                bootbox.confirm("密码已经修改成功，请记住你的密码！", function(result) {
-                        if(result) {
-                            //
-                        }
-                    });
-            @elseif(isset($changepass) && $changepass = 'error')
-                bootbox.confirm("密码修改失败，请联系权限更高的管理员或者通过邮箱发送邮件重置密码！", function(result) {
-                        if(result) {
-                            //
-                        }
-                    });
-            @endif
-        });
-    </script>
-@endsection
 @section('content')
     @if(count($errors)>0)
-    <div class="alert alert-block alert-danger">
+    <div class="alert alert-block alert-{{$flag}}">
         <button type="button" class="close" data-dismiss="alert">
             <i class="icon-remove"></i>
         </button>
-        <span class="label label-danger arrowed-in">错误</span>
+        @if($flag == 'success')
+            <span class="label label-success arrowed">正确</span>
+        @else
+            <span class="label label-danger arrowed-in">错误</span>
+        @endif
         <strong class="red">
             @foreach($errors as $error)
                 <span>{{$error}}</span>
