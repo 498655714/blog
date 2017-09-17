@@ -16,7 +16,7 @@ class AuthController extends CommonController
     public function  getLogin(){
         //$name = $_COOKIE['name']?$_COOKIE['name']:'';
         //$pwd =  $_COOKIE['pwd']?$_COOKIE['pwd']:'';
-        return view('admin/login')->with('clip','login');
+        return redirect('admin/login')->with('clip','login');
     }
     //登录操作
     public function postLogin(Request $request){
@@ -44,12 +44,12 @@ class AuthController extends CommonController
             setcookie("name",$info['name'],time()-(60*24*30),"/");
         }
 
-        return view('admin/index');
+        return rid('admin/index');
     }
     //退出登录
     public function getLogout(Request $request){
         $request->session()->forget('name');
-        return view('admin/login')->with('clip','login');
+        return redirect('admin/login')->with('clip','login');
     }
 
     //注册操作
