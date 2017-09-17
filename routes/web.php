@@ -14,8 +14,13 @@
 Route::get('/', function () {
     return view('admin/login');
 });
-//首页路由
-Route::any('admin/index', 'Admin\IndexController@getindex');
+//首页路由定义中间件
+Route::group(['middleware'=>['web','admin.login']],function(){
+
+    Route::any('admin/index', 'Admin\IndexController@getindex');
+
+});
+
 
 // 登录路由...
 Route::get('admin/login', 'Admin\AuthController@getLogin');

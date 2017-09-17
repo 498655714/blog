@@ -92,7 +92,7 @@ class AuthController extends CommonController
             $_SESSION['name'] = $info['name'];
             $url = "{{url('admin/index')}}";
             $handles = ["<a href='$url'>直接登录</a>"];
-            return view('common/success',compact('title','contentTitle','contents','handles'));
+            return redirect('common/success',compact('title','contentTitle','contents','handles'));
         }
         $title = '注册失败';
         $contentTitle = '注册失败了';
@@ -101,7 +101,7 @@ class AuthController extends CommonController
             '可以联系管理员帮助你 QQ:498655714',
         ];
         $handles = [];
-        return view('common/error',compact('title','contentTitle','contents','handles'));
+        return redirect('common/error',compact('title','contentTitle','contents','handles'));
     }
 
     //生成验证码
@@ -138,7 +138,7 @@ class AuthController extends CommonController
                 '可以联系管理员帮助你 QQ:498655714',
             ];
             $handles = [];
-            return view('common/error',compact('title','contentTitle','contents','handles'));
+            return redirect('common/error',compact('title','contentTitle','contents','handles'));
         }
         //修改密码
         $userinfo->where('email',$info['email'])->update(['password'=>md5('123456'),'updated_at'=>date('Y-m-d H:i:s',time())]);
@@ -160,6 +160,6 @@ class AuthController extends CommonController
             '你可以根据邮件里的找回密码',
         ];
         $handles = [];
-        return view('common/success',compact('title','contentTitle','contents','handles'));
+        return redirect('common/success',compact('title','contentTitle','contents','handles'));
     }
 }
