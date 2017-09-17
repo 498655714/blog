@@ -57,7 +57,7 @@ class IndexController extends CommonController{
                 return back()->with('errors',['原始密码不能为空']);
             }
         }else{
-            dd($validator->errors->all());
+            dd($validator->errors()->all());
             return back()->withErrors($validator);
         }
     }
