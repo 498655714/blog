@@ -74,11 +74,23 @@ class IndexController extends CommonController{
                 }
 
             }else{
-                return back()->with('errors',['原始密码不正确'])->with('flag','danger');
+                return view('admin/changepass',[
+                    'navigation'=>$navigation,
+                    'contenttitle_1'=>$contenttitle_1,
+                    'contenttitle_2'=>$contenttitle_2,
+                    'flag'=>'danger',
+                    'errors'=>['原始密码不正确']
+                ]);
             }
         }else{
             $errors = $validator->errors()->all();
-            return back()->with('errors',$errors)->with('flag','danger');
+            return view('admin/changepass',[
+                'navigation'=>$navigation,
+                'contenttitle_1'=>$contenttitle_1,
+                'contenttitle_2'=>$contenttitle_2,
+                'flag'=>'danger',
+                'errors'=>$errors
+            ]);
         }
     }
 }
