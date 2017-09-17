@@ -58,7 +58,5 @@ class IndexController extends CommonController{
         }else{
             return back()->withErrors($validator);
         }
-
-
     }
 }

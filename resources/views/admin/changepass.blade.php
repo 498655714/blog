@@ -1,23 +1,23 @@
 @extends('admin.parents')
 @section('content')
+    @if(count($errors)>0)
     <div class="alert alert-block alert-success">
         <button type="button" class="close" data-dismiss="alert">
             <i class="icon-remove"></i>
         </button>
 
-        <i class="icon-ok green"></i>
-        <strong class="green">
-            错误：
-            <small>
-                @if(count($errors)>0)
-                    @foreach($errors as $error)
-                        <span>{{$error}}</span>
-                    @endforeach
-                @endif
-            </small>
+        <span class="label label-warning">
+            <i class="icon-warning-sign bigger-120"></i>
+            错误
+        </span>
+        <strong class="red">
+            @foreach($errors as $error)
+                <span>{{$error}}</span>
+            @endforeach
         </strong>
     </div>
-    <form class="form-horizontal" role="form" action="{{url('admin.changepass')}}" method="post">
+    @endif
+    <form class="form-horizontal" role="form" action="{{url('admin/changepass')}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 原始密码：</label>

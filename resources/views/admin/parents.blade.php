@@ -286,9 +286,9 @@
 
                     <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="#">
+                            <a href="{{url('admin/showpass')}}">
                                 <i class="icon-cog"></i>
-                                系统设置
+                                修改密码
                             </a>
                         </li>
 
