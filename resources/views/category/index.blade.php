@@ -62,9 +62,10 @@
                             <td class="hidden-480 ">{{$val['cate_title']}}</td>
                             <td class=" ">{{$val['cate_keywords']}}</td>
                             <td class=" ">{{$val['cate_description']}}</td>
-                            <td class=" "><input type="text"  onchange="change_view('{{$val['cate_id']}}',$(this).val())" value="{{$val['cate_view']}}"/></td>
+                            <td class=" ">{{$val['cate_view']}}</td>
                             <td class="hidden-480 ">
-                                {{$val['cate_order']}}
+                                <input type="text"  onchange="change_order('{{$val['cate_id']}}',$(this).val())" value="{{$val['cate_order']}}"/>
+
                             </td>
 
                             <td class=" ">
@@ -111,7 +112,8 @@
                         });
 
             });
-            function change_view(cate_id,cate_view){
+            function change_order(cate_id,cate_view){
+                alert(11111);
                 $.ajax({
                     type: "POST",
                     url: "{{url('admin/view_change')}}",
