@@ -22,7 +22,7 @@ class CategoryController extends CommonController{
         $contenttitle_1 = '文章分类';
         $contenttitle_2 = '数据列表';
         $category = new Category();
-        $data = $category->paginate($info->num?$info->num:1);
+        $data = $category->paginate($info['num']?$info['num']:1);
         return view('category.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
