@@ -42,10 +42,10 @@ class CategoryController extends CommonController{
                     if(!empty($child)){
                         foreach($child as $value){
                             $str = '';
-                            for($i=0;$i<$levels;$i++){
+                            for($i=0;$i<$levels+1;$i++){
                                 $str .= '&nbsp;';
                             }
-                            $value['_cate_name'] = $str.' ├┄'.$value['cate_name'];
+                            $value['_cate_name'] = $str.' ├── '.$value['cate_name'];
                             $tree[] = $value;
                         }
                     }
