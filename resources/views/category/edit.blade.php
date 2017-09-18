@@ -109,7 +109,7 @@
 @endsection
 @section('footjs')
     <script src="{{asset('assets/js/jquery.autosize.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery-1.10.2.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery-2.0.3.min.js')}}"></script>
     <script type="text/javascript">
         jQuery(function($) {
             $('select').comboSelect();
