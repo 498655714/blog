@@ -29,22 +29,22 @@ class CategoryController extends CommonController{
             'data'=>$data
         ]);
     }
-    public function vieworder(){
-        dd(11111);
-//        $category = new Category();
-//        $res = $category->where(['cate_id'=>$info['cate_id']])->update(['cate_order'=>$info['cate_order']]);
-//        if($res){
-//            $data =[
-//                'status'=>1,
-//                'msg'=>'文章分类排序修改成功！'
-//            ];
-//        }else{
-//            $data =[
-//                'status'=>2,
-//                'msg'=>'文章分类排序修改失败！'
-//            ];
-//        }
-//        return $data;
+    public function vieworder(Request $request){
+        $info = $request->all();
+        $category = new Category();
+        $res = $category->where(['cate_id'=>$info['cate_id']])->update(['cate_order'=>$info['cate_order']]);
+        if($res){
+            $data =[
+                'status'=>1,
+                'msg'=>'文章分类排序修改成功！'
+            ];
+        }else{
+            $data =[
+                'status'=>2,
+                'msg'=>'文章分类排序修改失败！'
+            ];
+        }
+        return $data;
 
     }
     //全部分类列表
