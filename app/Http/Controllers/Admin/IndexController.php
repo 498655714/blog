@@ -13,16 +13,19 @@ use Illuminate\Http\Request;
 class IndexController extends CommonController{
     //首页
     public function getindex(){
+        return view('admin/index');
+    }
+
+    public function parents(){
         $navigation = array();
         $contenttitle_1 = '管理后台首页';
         $contenttitle_2 = '欢迎界面';
-        return view('admin/index',
+        return view('admin/parents',
             [   'navigation'=>$navigation,
                 'contenttitle_1'=>$contenttitle_1,
                 'contenttitle_2'=>$contenttitle_2
             ]);
     }
-
     //更改密码页面
     public function showpass(){
         $navigation = ['密码修改页'];

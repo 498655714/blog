@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=>'Admin'],function(){
 
     Route::get('index', 'IndexController@getindex');//首页
+    Route::get('parents', 'IndexController@parents');//欢迎界面
     Route::get('logout', 'AuthController@getLogout');//退出
     Route::get('showpass', 'IndexController@showpass');//修改密码
     Route::post('changepass', 'IndexController@changepass');//修改密码
