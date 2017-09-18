@@ -134,7 +134,7 @@
 <!-- ace scripts -->
 
 <script src="{{asset('assets/js/ace-elements.min.js')}}"></script>
-<script src="{{asset('/../resources/org/layer/layer.js')}}"></script>
+<script src="{{asset('layer/layer.js')}}"></script>
 <script src="{{asset('assets/js/ace.min.js')}}"></script>
 @yield('footjs')
 </body>

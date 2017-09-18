@@ -103,7 +103,7 @@
 @section('footjs')
     <script type="text/javascript">
         function change_order(cate_id,cate_view){
-            alert(11111);
+            alert(cate_id,cate_view);
             $.ajax({
                 type: "POST",
                 url: "{{url('admin/view_change')}}",
@@ -111,8 +111,10 @@
                 dataType: "json",
                 success: function(data){
                     if(data.status == 1){
+                        alert(11);
                         layer.msg(data.msg, {icon: 6});
                     }else{
+                        alert(22);
                         layer.msg(data.msg, {icon: 5});
                     }
                 }
