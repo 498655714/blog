@@ -44,7 +44,7 @@ class CategoryController extends CommonController{
                         foreach($child as $value){
                             $str = '';
                             for($i=0;$i<$value['levels'];$i++){
-                                $str .= '&nbsp;';
+                                $str .= '　&nbsp;';
                             }
                             $value['_cate_name'] = $str.'├─ '.$value['cate_name'];
                             $tree[] = $value;
