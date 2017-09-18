@@ -330,7 +330,7 @@
 
                     <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="{{url('admin/showpass')}}   target='mainframe' ">
+                            <a href="{{url('admin/showpass')}}" target='mainframe'>
                                 <i class="icon-cog"></i>
                                 修改密码
                             </a>
@@ -405,7 +405,7 @@
 
             <ul class="nav nav-list">
                 <li class="active">
-                    <a href="{{url('admin/parents')}}  target='mainframe' ">
+                    <a href="{{url('admin/parents')}}" target='mainframe'>
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 首页 </span>
                     </a>
@@ -420,7 +420,7 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="{{url('admin/category')}}   target='mainframe' ">
+                            <a href="{{url('admin/category')}}"   target='mainframe' >
                                 <i class="icon-double-angle-right"></i>
                                 文章分类列表
                             </a>
