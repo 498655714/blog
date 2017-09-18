@@ -105,7 +105,7 @@
         function change_order(cate_id,cate_order){
             $.ajax({
                 type: "POST",
-                url: "{{url('admin/category/vieworder')}}",
+                url: "{{url('admin/cate/vieworder')}}",
                 data: {'cate_id':cate_id, '_token':'{{csrf_field()}}','cate_order':cate_order},
                 dataType: "json",
                 success: function(data){

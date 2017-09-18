@@ -32,7 +32,7 @@ class CategoryController extends CommonController{
     public function vieworder(Request $request){
         $info = $request->all();
         $category = new Category();
-        $res = $category->where('cate_id',$info['cate_id'])->update(['cate_order',$info['cate_order']]);
+        $res = $category->where(['cate_id'=>$info['cate_id']])->update(['cate_order'=>$info['cate_order']]);
         if($res){
             $data =[
                 'status'=>1,
