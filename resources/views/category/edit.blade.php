@@ -1,4 +1,7 @@
 @extends('admin.layouts')
+@section('jsandcss')
+    <link rel="stylesheet" href="{{asset('assets/css/chosen.css')}}" />
+@endsection
 @section('content')
     @if(count($errors)>0)
         <div class="alert alert-block alert-{{$flag}}">
