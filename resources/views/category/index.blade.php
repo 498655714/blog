@@ -106,7 +106,7 @@
             $.ajax({
                 type: "POST",
                 url: "{{url('admin/cate/vieworder')}}",
-                data: {'cate_id':cate_id, '_token':'{{csrf_field()}}','cate_order':cate_order},
+                data: {'cate_id':cate_id, '_token':'{{csrf_token()}}','cate_order':cate_order},
                 dataType: "json",
                 success: function(data){
                     if(data.status == 1){
