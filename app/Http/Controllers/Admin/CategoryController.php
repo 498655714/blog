@@ -160,6 +160,7 @@ class CategoryController extends CommonController{
             $errors = $validator->errors()->all();
         }
         $url = 'category.edit';
+        $input['cate_id'] = $cate_id;
         return view($url,[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
