@@ -29,10 +29,10 @@ class CategoryController extends CommonController{
             'data'=>$data
         ]);
     }
-    public function view_change(Request $request){
+    public function vieworder(Request $request){
         $info = $request->all();
         $category = new Category();
-        $res = $category->where('cate_id',$info['cate_id'])->update(['cate_view',$info['cate_view']]);
+        $res = $category->where('cate_id',$info['cate_id'])->update(['cate_order',$info['cate_order']]);
         if($res){
             $data =[
                 'status'=>1,

@@ -102,11 +102,11 @@
 @endsection
 @section('footjs')
     <script type="text/javascript">
-        function change_order(cate_id,cate_view){
+        function change_order(cate_id,cate_order){
             $.ajax({
                 type: "POST",
-                url: "{{url('admin/category/view_change')}}",
-                data: {'cate_id':cate_id, '_token':'{{csrf_field()}}','cate_view':cate_view},
+                url: "{{url('admin/category/vieworder')}}",
+                data: {'cate_id':cate_id, '_token':'{{csrf_field()}}','cate_order':cate_order},
                 dataType: "json",
                 success: function(data){
                     if(data.status == 1){
