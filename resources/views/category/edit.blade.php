@@ -33,7 +33,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 分类名称：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" name="cate_name" placeholder="名称" class="col-xs-10 col-sm-5" type="text" value="{{$data[0]['cate_name']}}">
+                <input id="form-field-2" name="cate_name" placeholder="名称" class="input-xlarge" type="text" value="{{$data[0]['cate_name']}}">
             </div>
         </div>
 
@@ -51,20 +51,19 @@
         <div class="space-4"></div>
 
         <div class="form-group">
-            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 关键词：</label>
-
+            <label for="form-field-11">关键词：</label>
             <div class="col-sm-9">
-                <input id="form-field-2"  name="cate_keywords"  placeholder="关键词" class="col-xs-10 col-sm-5" type="text" value="{{$data[0]['cate_keywords']}}">
+                <textarea id="form-field-11"  name="cate_keywords" class="autosize-transition form-control" value="{{$data[0]['cate_keywords']}}" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px;"></textarea>
+
             </div>
         </div>
 
         <div class="space-4"></div>
-
         <div class="form-group">
-            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 描述：</label>
-
+            <label for="form-field-11">描述：</label>
             <div class="col-sm-9">
-                <input id="form-field-2"  name="cate_description"  placeholder="描述分类" class="col-xs-10 col-sm-5" type="text" value="{{$data[0]['cate_description']}}">
+                <textarea id="form-field-11"  name="cate_description" class="autosize-transition form-control" value="{{$data[0]['cate_description']}}" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px;"></textarea>
+
             </div>
         </div>
 
@@ -74,7 +73,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 排序：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2"  name="cate_order"  placeholder="排序" class="col-xs-10 col-sm-5" type="text" value="{{$data[0]['cate_order']}}">
+                <input id="form-field-2"  name="cate_order"  placeholder="排序" class="input-mini" type="text" value="{{$data[0]['cate_order']}}">
             </div>
         </div>
         <div class="space-4"></div>

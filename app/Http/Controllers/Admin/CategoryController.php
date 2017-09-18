@@ -17,7 +17,7 @@ class CategoryController extends CommonController{
     // 路由名称category.index
     // 方法Get
     public function index(Request $request){
-        $navigation = ['文章分类管理','文章分类列表'];
+        $navigation = ['文章分类管理','文章分类列表页'];
         $contenttitle_1 = '文章分类';
         $contenttitle_2 = '数据列表';
         $category = new Category();
@@ -103,9 +103,9 @@ class CategoryController extends CommonController{
     // 路由名称category.edit
     //方法GET
     public function edit($cate_id){
-        $navigation = ['文章分类管理','文章分类列表'];
+        $navigation = ['文章分类管理','文章分类编辑页'];
         $contenttitle_1 = '文章分类';
-        $contenttitle_2 = '数据列表';
+        $contenttitle_2 = '编辑';
         $category = new Category();
         $data = $category->where('cate_id',$cate_id)->get();
         return view('category/edit',[
