@@ -9,7 +9,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\CommonController;
 use App\Model\Category;
 use Illuminate\Http\Request;
-
+use  Illuminate\Support\Facades\Input;
 class CategoryController extends CommonController{
 
     //全部分类 列表
