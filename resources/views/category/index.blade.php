@@ -20,7 +20,7 @@
 
             });
             $('#select_num').change(function(){
-                window.location.href="{{url('admin/category?num=')}}"+$(this).val();
+                window.location.href= {{url('admin/category?num=')}}+$(this).children('option:selected').val();
             });
         })
     </script>
@@ -29,7 +29,6 @@
 @section('content')
     <div class="row">
         <div class="col-xs-12">
-            <h3 class="header smaller lighter blue">文章分类列表</h3>
             <div class="table-header">
                 以下为查询结果
             </div>

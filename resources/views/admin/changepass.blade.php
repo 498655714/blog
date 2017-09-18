@@ -59,7 +59,7 @@
                 </button>
 
                 &nbsp; &nbsp; &nbsp;
-                <button class="btn" type="reset" onclick="javascrtpt:window.location.href='{{url('admin/index')}}'">
+                <button class="btn" type="reset" onclick="javascrtpt:window.location.href='{{url('admin/parents')}}'">
                     <i class="icon-undo bigger-110"></i>
                     返回首页
                 </button>
