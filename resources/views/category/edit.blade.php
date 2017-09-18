@@ -17,7 +17,7 @@
             </strong>
         </div>
     @endif
-    <form class="form-horizontal" role="form" action="{{url('admin/category/update')}}" method="post">
+    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/category/update')}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 父级分类：</label>
@@ -146,6 +146,27 @@
                 remText: '%n character%s remaining...',
                 limitText: 'max allowed : %n.'
             });
+
+            /////////
+            $('#modal-form input[type=file]').ace_file_input({
+                style:'well',
+                btn_choose:'Drop files here or click to choose',
+                btn_change:null,
+                no_icon:'icon-cloud-upload',
+                droppable:true,
+                thumbnail:'large'
+            })
+
+            //chosen plugin inside a modal will have a zero width because the select element is originally hidden
+            //and its width cannot be determined.
+            //so we set the width after modal is show
+            $('#modal-form').on('shown.bs.modal', function () {
+                $(this).find('.chosen-container').each(function(){
+                    $(this).find('a:first-child').css('width' , '210px');
+                    $(this).find('.chosen-drop').css('width' , '210px');
+                    $(this).find('.chosen-search input').css('width' , '200px');
+                });
+            })
         })
     </script>
     @endsection
