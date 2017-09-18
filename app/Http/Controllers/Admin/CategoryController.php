@@ -35,12 +35,14 @@ class CategoryController extends CommonController{
         $tree = array();
         foreach($list as $key=>$val){
             if($val[$pid] == $root){
+                $list[$key]['_cate_name'] = $list[$key]['cate_name'];
                 $tree[] = $list[$key];
                 unset($list[$key]);
                 if(! empty($list)){
                     $child=$this->make_tree($list,$id,$pid,$val[$id]);
                     if(!empty($child)){
                         foreach($child as $value){
+                            $value['_cate_name'] = ' ├┄┄ '.$value['cate_name'];
                             $tree[] = $value;
                         }
                     }
