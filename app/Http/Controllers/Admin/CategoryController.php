@@ -102,14 +102,12 @@ class CategoryController extends CommonController{
     //路径  	/admin/category/{cate}/edit
     // 路由名称category.edit
     //方法GET
-    public function edit(Request $request){
-        $info = $request->all();
-        dd($info);exit;
+    public function edit($cate_id){
         $navigation = ['文章分类管理','文章分类列表'];
         $contenttitle_1 = '文章分类';
         $contenttitle_2 = '数据列表';
         $category = new Category();
-        $data = $category->where('cate_id',$info['cate_id'])->get();
+        $data = $category->where('cate_id',$cate_id)->get();
         return view('category/edit',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
