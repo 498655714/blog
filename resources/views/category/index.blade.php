@@ -64,7 +64,7 @@
                             <td class=" ">{{$val['cate_description']}}</td>
                             <td class=" ">{{$val['cate_view']}}</td>
                             <td class="hidden-480 ">
-                                <input type="text"  onchange="change_order('{{$val['cate_id']}}',$(this).val())" value="{{$val['cate_order']}}"/>
+                                <input type="text" class="input-mini" onchange="change_order('{{$val['cate_id']}}',$(this).val())" value="{{$val['cate_order']}}"/>
 
                             </td>
 
@@ -86,7 +86,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="dataTables_info" id="sample-table-2_info">
-                                总共{{$data->total()}}页，当前为第{{$data->currentPage()}}页
+                                共{{$data->total()}}条记录，当前为第{{$data->currentPage()}}页
                             </div>
                         </div>
                         <div class="col-sm-6">

@@ -21,13 +21,43 @@ class CategoryController extends CommonController{
         $contenttitle_1 = '文章分类';
         $contenttitle_2 = '数据列表';
         $category = new Category();
-        $data = $category->paginate(20);
+        $data = $category->orderBy('cate_order','asc')->paginate(20);
+        $data = $this->make_tree($data,'cate_id','cate_pid',0);
         return view('category.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
             'data'=>$data
         ]);
+    }
+    public function make_tree1($list,$pk='id',$pid='pid',$child='_child',$root=0){
+        $tree=array();
+        foreach($list as $key=> $val){
+
+            if($val[$pid]==$root){
+                //获取当前$pid所有子类
+                unset($list[$key]);
+                if(! empty($list)){
+                    $child=$this->make_tree1($list,$pk,$pid,$child,$val[$pk]);
+                    if(!empty($child)){
+                        $val['_child']=$child;
+                    }
+                }
+                $tree[]=$val;
+            }
+        }
+        return $tree;
+    }
+
+    public function make_tree($list,$id='id',$pid='pid',$root=0){
+        $tree = array();
+        foreach($list as $key=>$val){
+            if($val[$pid] == $root){
+                $tree[] = $list[$key];
+                $this->make_tree1($list,$id,$pid,$id);
+            }
+        }
+        return $tree;
     }
     public function vieworder(Request $request){
         $info = $request->all();
