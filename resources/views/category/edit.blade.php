@@ -23,10 +23,6 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 父级分类：</label>
 
             <div class="col-sm-9">
-                <div>
-                    <label for="form-field-select-3">Chosen</label>
-
-                    <br>
                     <select class="width-80 chosen-select" id="form-field-select-3" data-placeholder="Choose a Country..." style="display: none;">
                         <option value="">&nbsp;</option>
                         <option value="AL">Alabama</option>
@@ -52,7 +48,6 @@
                             </ul>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
 
@@ -126,3 +121,26 @@
     </form>
 
 @endsection
+@section('footjs')
+    <script type="text/javascript">
+        jQuery(function($) {
+            $(".chosen-select").chosen();
+            $('#chosen-multiple-style').on('click', function (e) {
+                var target = $(e.target).find('input[type=radio]');
+                var which = parseInt(target.val());
+                if (which == 2) $('#form-field-select-4').addClass('tag-input-style');
+                else $('#form-field-select-4').removeClass('tag-input-style');
+            });
+
+
+            $('[data-rel=tooltip]').tooltip({container: 'body'});
+            $('[data-rel=popover]').popover({container: 'body'});
+
+            $('textarea[class*=autosize]').autosize({append: "\n"});
+            $('textarea.limited').inputlimiter({
+                remText: '%n character%s remaining...',
+                limitText: 'max allowed : %n.'
+            });
+        })
+    </script>
+    @endsection
