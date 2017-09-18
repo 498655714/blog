@@ -58,7 +58,7 @@
                             <td class=" ">
                                 <a href="#">{{$val['cate_id']}}</a>
                             </td>
-                            <td class=" ">{{$val['cate_name']}}</td>
+                            <td class=" ">{{$val['_cate_name']}}</td>
                             <td class="hidden-480 ">{{$val['cate_title']}}</td>
                             <td class=" ">{{$val['cate_keywords']}}</td>
                             <td class=" ">{{$val['cate_description']}}</td>

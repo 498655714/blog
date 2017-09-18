@@ -31,7 +31,7 @@ class CategoryController extends CommonController{
             'data'=>$data
         ]);
     }
-    public function make_tree($list,$id='id',$pid='pid',$root=0){
+    public function make_tree($list,$id='id',$pid='pid',$root=0,$levels=0){
         $tree = array();
         foreach($list as $key=>$val){
             if($val[$pid] == $root){
@@ -39,10 +39,14 @@ class CategoryController extends CommonController{
                 $tree[] = $list[$key];
                 unset($list[$key]);
                 if(! empty($list)){
-                    $child=$this->make_tree($list,$id,$pid,$val[$id]);
+                    $child=$this->make_tree($list,$id,$pid,$val[$id],$levels+1);
                     if(!empty($child)){
                         foreach($child as $value){
-                            $value['_cate_name'] = ' ├┄┄ '.$value['cate_name'];
+                            $str = '';
+                            for($i=0;$i<$levels;$i++){
+                                $str .= '&nbsp;';
+                            }
+                            $value['_cate_name'] = $str.' ├┄'.$value['cate_name'];
                             $tree[] = $value;
                         }
                     }
