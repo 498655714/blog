@@ -103,18 +103,15 @@
 @section('footjs')
     <script type="text/javascript">
         function change_order(cate_id,cate_view){
-            alert(cate_id,cate_view);
             $.ajax({
                 type: "POST",
-                url: "{{url('admin/view_change')}}",
+                url: "{{url('admin/category/view_change')}}",
                 data: {'cate_id':cate_id, '_token':'{{csrf_field()}}','cate_view':cate_view},
                 dataType: "json",
                 success: function(data){
                     if(data.status == 1){
-                        alert(11);
                         layer.msg(data.msg, {icon: 6});
                     }else{
-                        alert(22);
                         layer.msg(data.msg, {icon: 5});
                     }
                 }
