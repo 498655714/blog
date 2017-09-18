@@ -670,52 +670,7 @@
         </div>
 
         <div class="main-content">
-            <div class="breadcrumbs" id="breadcrumbs">
-                <script type="text/javascript">
-                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
-                </script>
-
-                <ul class="breadcrumb">
-                    <li>
-                        <i class="icon-home home-icon"></i>
-                        <a href="{{url('admin/index')}}">首页</a>
-                    </li>
-                    @if(isset($navigation) && !empty($navigation))
-                        @foreach($navigation as $item)
-                        <li class="active">{{$item}}</li>
-                        @endforeach
-                    @endif
-                </ul><!-- .breadcrumb -->
-
-                <div class="nav-search" id="nav-search">
-                    <form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="icon-search nav-search-icon"></i>
-								</span>
-                    </form>
-                </div><!-- #nav-search -->
-            </div>
-
-            <div class="page-content">
-                <div class="page-header">
-                    <h1>
-                        {{$contenttitle_1 or '未知路径'}}
-                        <small>
-                            <i class="icon-double-angle-right"></i>
-                            {{$contenttitle_2 or '未知'}}
-                        </small>
-                    </h1>
-                </div><!-- /.page-header -->
-
-                <div class="row">
-                    <div class="col-xs-12">
-                        <!-- PAGE CONTENT BEGINS -->
-                        @yield('content')
-                        <!-- PAGE CONTENT ENDS -->
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.page-content -->
+          <iframe name="mainFrame"  frameborder="0" src="{{url('admin/index')}}" width="100%" height="100%" onLoad="javascript:iframeAutoFit(this);" scrolling="auto"></iframe>
         </div><!-- /.main-content -->
 
         <div class="ace-settings-container" id="ace-settings-container">

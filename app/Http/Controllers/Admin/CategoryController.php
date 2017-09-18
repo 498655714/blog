@@ -8,6 +8,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\CommonController;
 use App\Model\Category;
+use Illuminate\Http\Request;
 
 class CategoryController extends CommonController{
 
@@ -15,12 +16,13 @@ class CategoryController extends CommonController{
     //路径 /admin/category
     // 路由名称category.index
     // 方法Get
-    public function index(){
+    public function index(Request $request){
+        $info = $request->all();
         $navigation = ['文章分类管理','文章分类列表'];
-        $contenttitle_1 = '分类列表';
-        $contenttitle_2 = '文章分类';
+        $contenttitle_1 = '文章分类';
+        $contenttitle_2 = '数据列表';
         $category = new Category();
-        $data = $category->paginate(15);
+        $data = $category->paginate($info->num?$info->num:1);
         return view('category.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,

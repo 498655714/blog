@@ -1,4 +1,4 @@
-@extends('admin.parents')
+@extends('admin.layouts')
 @section('jsandcss')
     <script type="text/javascript">
         jQuery(function($) {
@@ -29,7 +29,7 @@
 @section('content')
     <div class="row">
         <div class="col-xs-12">
-            <h3 class="header smaller lighter blue">文章分类详情</h3>
+            <h3 class="header smaller lighter blue">文章分类列表</h3>
             <div class="table-header">
                 以下为查询结果
             </div>
@@ -133,7 +133,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="dataTables_info" id="sample-table-2_info">
-                                总共{{$data->count()}}条记录共{{$data->total()}}页，当前为第{{$data->currentPage()}}页
+                                总共{{$data->total()}}页，当前为第{{$data->currentPage()}}页
                             </div>
                         </div>
                         <div class="col-sm-6">

@@ -1,4 +1,4 @@
-@extends('admin.parents')
+@extends('admin.layouts')
 
 @section('content')
     <div class="alert alert-block alert-success">
