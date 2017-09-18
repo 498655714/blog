@@ -17,12 +17,11 @@ class CategoryController extends CommonController{
     // 路由名称category.index
     // 方法Get
     public function index(Request $request){
-        $info = $request->all();
         $navigation = ['文章分类管理','文章分类列表'];
         $contenttitle_1 = '文章分类';
         $contenttitle_2 = '数据列表';
         $category = new Category();
-        $data = $category->paginate(isset($info['num'])?$info['num']:1);
+        $data = $category->paginate(20);
         return view('category.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
@@ -30,7 +29,24 @@ class CategoryController extends CommonController{
             'data'=>$data
         ]);
     }
+    public function view_change(Request $request){
+        $info = $request->all();
+        $category = new Category();
+        $res = $category->where('cate_id',$info['cate_id'])->update(['cate_view',$info['cate_view']]);
+        if($res){
+            $data =[
+                'status'=>1,
+                'msg'=>'文章分类排序修改成功！'
+            ];
+        }else{
+            $data =[
+                'status'=>2,
+                'msg'=>'文章分类排序修改失败！'
+            ];
+        }
+        return $data;
 
+    }
     //全部分类列表
     //路径 /admin/category/create
     // 路由名称category.create

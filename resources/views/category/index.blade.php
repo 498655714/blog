@@ -8,26 +8,6 @@
 
             <div class="table-responsive">
                 <div id="sample-table-2_wrapper" class="dataTables_wrapper" role="grid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div id="sample-table-2_length" class="dataTables_length">
-                                <label>每页显示
-                                    <select size="1" id="select_num" name="sample-table-2_length" aria-controls="sample-table-2">
-                                        <option value="10" selected="selected">10</option>
-                                        <option value="15" >15</option>
-                                        <option value="20">20</option>
-                                        <option value="50">50</option>
-                                    </select>
-                                    记录
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="dataTables_filter" id="sample-table-2_filter">
-                                <label>Search: <input aria-controls="sample-table-2" type="text"></label>
-                            </div>
-                        </div>
-                    </div>
                     <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable" aria-describedby="sample-table-2_info">
                         <thead>
                         <tr role="row">
@@ -82,7 +62,7 @@
                             <td class="hidden-480 ">{{$val['cate_title']}}</td>
                             <td class=" ">{{$val['cate_keywords']}}</td>
                             <td class=" ">{{$val['cate_description']}}</td>
-                            <td class=" ">{{$val['cate_view']}}</td>
+                            <td class=" "><input type="text"  onchange="change_view('{{$val['cate_id']}}',$(this).val())" value="{{$val['cate_view']}}"/></td>
                             <td class="hidden-480 ">
                                 {{$val['cate_order']}}
                             </td>
@@ -131,9 +111,21 @@
                         });
 
             });
-            $('#select_num').change(function(){
-                window.location.href= {{url('admin/category?num=')}};
-            });
+            function change_view(cate_id,cate_view){
+                $.ajax({
+                    type: "POST",
+                    url: "{{url('admin/view_change')}}",
+                    data: {'cate_id':cate_id, '_token':'{{csrf_field()}}','cate_view':cate_view},
+                    dataType: "json",
+                    success: function(data){
+                        if(data.status == 1){
+                            layer.msg(data.msg, {icon: 6});
+                        }else{
+                            layer.msg(data.msg, {icon: 5});
+                        }
+                    }
+                });
+            }
         })
     </script>
 @endsection
