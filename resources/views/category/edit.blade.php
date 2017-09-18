@@ -33,12 +33,6 @@
                         <option value="AK">Alaska</option>
                     </select>
                     <div class="chosen-container chosen-container-single" style="width: 444px;" title="" id="form_field_select_3_chosen">
-                        <a class="chosen-single" tabindex="-1">
-                            <span>Delaware</span>
-                            <div>
-                                <b></b>
-                            </div>
-                        </a>
                         <div class="chosen-drop">
                             <div class="chosen-search">
                                 <input autocomplete="off" type="text">
