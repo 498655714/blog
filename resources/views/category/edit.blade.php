@@ -22,19 +22,18 @@
             </strong>
         </div>
     @endif
-    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/category/update')}}" method="post">
+    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/category/').$data[0]['cate_id']}}" method="post">
+        <input type="hidden" name="_method" value="put">
         {{csrf_field()}}
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 父级分类：</label>
 
             <div class="col-sm-9">
-                        <select>
-                            <option value="">月份</option>
-                            <option value="一月">一月</option>
-                            <option value="二月">二月</option>
-                            <option value="三月">三月</option>
-                            <option value="四月">四月</option>
-                            <option value="五月">五月</option>
+                        <select name="cate_pid">
+                            <option value="0">分类</option>
+                            @foreach($cates as $key=>$val)
+                            <option value="{{$val['cate_id']}}">{{$val['cate_name']}}</option>
+                            @endforeach
                         </select>
             </div>
         </div>

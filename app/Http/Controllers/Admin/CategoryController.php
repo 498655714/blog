@@ -107,12 +107,14 @@ class CategoryController extends CommonController{
         $contenttitle_1 = '文章分类';
         $contenttitle_2 = '编辑';
         $category = new Category();
+        $cates = $category->get();
         $data = $category->where('cate_id',$cate_id)->get();
         return view('category/edit',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
-            'data'=>$data
+            'data'=>$data,
+            'cates'=>$cates
         ]);
     }
 
@@ -120,8 +122,47 @@ class CategoryController extends CommonController{
     //路径/admin/category/{cate}
     //路由名称category.update
     // 方法PUT/PATCH
-    public function update(){
-        echo '分类编辑操作';
+    public function update($cate_id){
+        $navigation = ['文章分类管理','文章分类编辑页'];
+        $contenttitle_1 = '文章分类';
+        $contenttitle_2 = '编辑';
+        $input = Input::except('_token','_method');
+        $rules = [
+            'cate_name'=>'required',
+            'cate_title'=>'required',
+            'cate_keywords'=>'required',
+            'cate_description'=>'required',
+            'cate_order'=>'required',
+        ];
+        $message = [
+            'cate_name.required'=>'分类名不能为空',
+            'cate_title.required'=>'分类说明不能为空',
+            'cate_keywords.required'=>'关键词不能为空',
+            'cate_description.required'=>'分类描述不能为空',
+            'cate_order.required'=>'排序不能为空',
+        ];
+        $validator = Validator::make($input,$rules,$message);
+        if($validator->passes()){
+            $rs = Category::where('cate_id',$cate_id)->update($input);
+            if($rs){
+                $flag  = 'success';
+                $errors = ['修改成功'];
+            }else{
+                $errors = ['修改失败，稍后重试'];
+                $flag  = 'danger';
+            }
+        }else{
+            $flag  = 'danger';
+            $errors = $validator->errors()->all();
+        }
+
+        return view('/admin/category/'.$cate_id.'/edit',[
+            'navigation'=>$navigation,
+            'contenttitle_1'=>$contenttitle_1,
+            'contenttitle_2'=>$contenttitle_2,
+            'flag'=>$flag,
+            'errors'=>$errors
+        ]);
     }
 
     //分类删除

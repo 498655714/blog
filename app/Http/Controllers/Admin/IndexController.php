@@ -59,41 +59,27 @@ class IndexController extends CommonController{
             if(!empty($ret[0])){
                 $res = $userinfo->where(['name'=>session('name'),'password'=>md5($info['oldpass'])])->update(['password'=>md5($info['password'])]);
                 if($res){
-                    return view('admin/changepass',[
-                        'navigation'=>$navigation,
-                        'contenttitle_1'=>$contenttitle_1,
-                        'contenttitle_2'=>$contenttitle_2,
-                        'flag'=>'success',
-                        'errors'=>['密码修改成功，请记住密码']
-                    ]);
+                    $flag = 'success';
+                    $errors = ['密码修改成功，请记住密码'];
                 }else{
-                    return view('admin/changepass',[
-                        'navigation'=>$navigation,
-                        'contenttitle_1'=>$contenttitle_1,
-                        'contenttitle_2'=>$contenttitle_2,
-                        'flag'=>'danger',
-                        'errors'=>['密码修改失败,如有问题联系管理员']
-                    ]);
+                    $flag = 'danger';
+                    $errors = ['密码修改失败,如有问题联系管理员'];
                 }
 
             }else{
-                return view('admin/changepass',[
-                    'navigation'=>$navigation,
-                    'contenttitle_1'=>$contenttitle_1,
-                    'contenttitle_2'=>$contenttitle_2,
-                    'flag'=>'danger',
-                    'errors'=>['原始密码不正确']
-                ]);
+                $flag = 'danger';
+                $errors = ['原始密码不正确'];
             }
         }else{
             $errors = $validator->errors()->all();
-            return view('admin/changepass',[
-                'navigation'=>$navigation,
-                'contenttitle_1'=>$contenttitle_1,
-                'contenttitle_2'=>$contenttitle_2,
-                'flag'=>'danger',
-                'errors'=>$errors
-            ]);
+            $flag = 'danger';
         }
+        return view('admin/changepass',[
+            'navigation'=>$navigation,
+            'contenttitle_1'=>$contenttitle_1,
+            'contenttitle_2'=>$contenttitle_2,
+            'flag'=>$flag,
+            'errors'=>$errors
+        ]);
     }
 }
