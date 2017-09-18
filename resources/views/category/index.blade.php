@@ -109,12 +109,11 @@
                 data: {'cate_id':cate_id, '_token':'{{csrf_token()}}','cate_order':cate_order},
                 dataType: "json",
                 success: function(data){
-                    alert(data.status);
-//                    if(data.status == 1){
-//                        layer.msg(data.msg, {icon: 6});
-//                    }else{
-//                        layer.msg(data.msg, {icon: 5});
-//                    }
+                    if(data.status == 1){
+                        layer.msg(data.message, {icon: 6});
+                    }else{
+                        layer.msg(data.message, {icon: 5});
+                    }
                 }
             });
         }

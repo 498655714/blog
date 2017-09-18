@@ -36,12 +36,12 @@ class CategoryController extends CommonController{
         if($res){
             $data =[
                 'status'=>1,
-                'msg'=>'文章分类排序修改成功！'
+                'message'=>'文章分类排序修改成功！'
             ];
         }else{
             $data =[
                 'status'=>2,
-                'msg'=>'文章分类排序修改失败！'
+                'message'=>'文章分类排序修改失败！'
             ];
         }
         return $data;
