@@ -142,6 +142,9 @@ class CategoryController extends CommonController{
             'cate_description.required'=>'分类描述不能为空',
             'cate_order.required'=>'排序不能为空',
         ];
+
+        $category = new Category();
+        $cates = $category->get();
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
             $rs = Category::where('cate_id',$cate_id)->update($input);
@@ -162,7 +165,9 @@ class CategoryController extends CommonController{
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
             'flag'=>$flag,
-            'errors'=>$errors
+            'errors'=>$errors,
+            'cates'=>$cates,
+            'data'=>['0'=>$input],
         ]);
     }
 
