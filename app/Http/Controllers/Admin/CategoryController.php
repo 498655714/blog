@@ -127,7 +127,6 @@ class CategoryController extends CommonController{
         $contenttitle_1 = '文章分类';
         $contenttitle_2 = '编辑';
         $input = Input::except('_token','_method');
-        dd($input);exit;
         $rules = [
             'cate_name'=>'required',
             'cate_title'=>'required',
@@ -156,7 +155,7 @@ class CategoryController extends CommonController{
             $flag  = 'danger';
             $errors = $validator->errors()->all();
         }
-        $url = 'category.edit';
+        $url = '/admin/category/'.$cate_id.'/edit';
         return view($url,[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
