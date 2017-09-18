@@ -30,30 +30,11 @@ class CategoryController extends CommonController{
             'data'=>$data
         ]);
     }
-    public function make_tree1($list,$pk='id',$pid='pid',$child='_child',$root=0){
-        $tree=array();
-        foreach($list as $key=> $val){
-
-            if($val[$pid]==$root){
-                //获取当前$pid所有子类
-                unset($list[$key]);
-                if(! empty($list)){
-                    $child=$this->make_tree1($list,$pk,$pid,$child,$val[$pk]);
-                    if(!empty($child)){
-                        $val['_child']=$child;
-                    }
-                }
-                $tree[]=$val;
-            }
-        }
-        return $tree;
-    }
-
     public function make_tree($list,$id='id',$pid='pid',$root=0){
         $tree = array();
         foreach($list as $key=>$val){
             if($val[$pid] == $root){
-                $tree[] = $val;
+                $tree[] = $list[$key];
                 unset($list[$key]);
                 if(! empty($list)){
                     $child=$this->make_tree1($list,$id,$pid,$val[$id]);
