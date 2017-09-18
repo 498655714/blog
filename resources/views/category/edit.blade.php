@@ -22,7 +22,7 @@
             </strong>
         </div>
     @endif
-    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/category/').$data[0]['cate_id']}}" method="post">
+    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/category/').$data[0]['cate_id']}}.'/edit'" method="post">
         <input type="hidden" name="_method" value="put">
         {{csrf_field()}}
         <div class="form-group">
