@@ -122,14 +122,6 @@
 @section('footjs')
     <script type="text/javascript">
         jQuery(function($) {
-            var oTable1 = $('#sample-table-2').dataTable( {
-                "aoColumns": [
-                    { "bSortable": false },
-                    null, null,null, null, null,
-                    { "bSortable": false }
-                ] } );
-
-
             $('table th input:checkbox').on('click' , function(){
                 var that = this;
                 $(this).closest('table').find('tr > td:first-child input:checkbox')
@@ -140,8 +132,7 @@
 
             });
             $('#select_num').change(function(){
-                alert($(this).children('option:selected').val());
-                //window.location.href= {{url('admin/category?num=')}}+$(this).children('option:selected').val();
+                window.location.href= {{url('admin/category?num=')}};
             });
         })
     </script>
