@@ -21,7 +21,7 @@ class CategoryController extends CommonController{
         $contenttitle_1 = '文章分类';
         $contenttitle_2 = '数据列表';
         $category = new Category();
-        $data = $category->orderBy('cate_order','asc')->get()->toAarry;//->paginate(20);
+        $data = $category->orderBy('cate_order','asc')->get()->toAarry();//->paginate(20);
         $data = $this->make_tree($data,'cate_id','cate_pid',0);
         return view('category.index',[
             'navigation'=>$navigation,
