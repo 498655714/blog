@@ -39,9 +39,6 @@ class CategoryController extends CommonController{
                 unset($list[$key]);
                 if(! empty($list)){
                     $child=$this->make_tree($list,$id,$pid,$val[$id]);
-                    if(!empty($child)){
-                        $tree[] = $child;
-                    }
                 }
             }
         }
