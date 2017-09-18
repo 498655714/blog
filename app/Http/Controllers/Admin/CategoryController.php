@@ -29,9 +29,8 @@ class CategoryController extends CommonController{
             'data'=>$data
         ]);
     }
-    public function vieworder(Request $request){
-        $info = $request->all();
-        dd($info);
+    public function vieworder(){
+        dd(11111);
 //        $category = new Category();
 //        $res = $category->where(['cate_id'=>$info['cate_id']])->update(['cate_order'=>$info['cate_order']]);
 //        if($res){
