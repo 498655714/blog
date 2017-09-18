@@ -102,6 +102,22 @@
 @endsection
 @section('footjs')
     <script type="text/javascript">
+        function change_order(cate_id,cate_view){
+            alert(11111);
+            $.ajax({
+                type: "POST",
+                url: "{{url('admin/view_change')}}",
+                data: {'cate_id':cate_id, '_token':'{{csrf_field()}}','cate_view':cate_view},
+                dataType: "json",
+                success: function(data){
+                    if(data.status == 1){
+                        layer.msg(data.msg, {icon: 6});
+                    }else{
+                        layer.msg(data.msg, {icon: 5});
+                    }
+                }
+            });
+        }
         jQuery(function($) {
             $('table th input:checkbox').on('click' , function(){
                 var that = this;
@@ -112,22 +128,7 @@
                         });
 
             });
-            function change_order(cate_id,cate_view){
-                alert(11111);
-                $.ajax({
-                    type: "POST",
-                    url: "{{url('admin/view_change')}}",
-                    data: {'cate_id':cate_id, '_token':'{{csrf_field()}}','cate_view':cate_view},
-                    dataType: "json",
-                    success: function(data){
-                        if(data.status == 1){
-                            layer.msg(data.msg, {icon: 6});
-                        }else{
-                            layer.msg(data.msg, {icon: 5});
-                        }
-                    }
-                });
-            }
+
         })
     </script>
 @endsection
