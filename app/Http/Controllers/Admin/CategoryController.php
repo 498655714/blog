@@ -23,7 +23,6 @@ class CategoryController extends CommonController{
         $category = new Category();
         $data = $category->orderBy('cate_order','asc')->get();//->paginate(20);
         $data = $this->make_tree($data,'cate_id','cate_pid',0);
-        dd($data);
         return view('category.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
