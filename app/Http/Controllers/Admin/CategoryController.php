@@ -104,6 +104,7 @@ class CategoryController extends CommonController{
     //方法GET
     public function edit(Request $request){
         $info = $request->all();
+        dd($info);exit;
         $navigation = ['文章分类管理','文章分类列表'];
         $contenttitle_1 = '文章分类';
         $contenttitle_2 = '数据列表';
