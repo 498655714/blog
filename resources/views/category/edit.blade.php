@@ -125,6 +125,7 @@
 
     <script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery.autosize.min.js')}}"></script>
+    <script src="{{asset('assets/js/fuelux/fuelux.spinner.min.js')}}"></script>
     <script type="text/javascript">
 
         jQuery(function($) {
