@@ -20,7 +20,8 @@
 
             });
             $('#select_num').change(function(){
-                window.location.href= {{url('admin/category?num=')}}+$(this).children('option:selected').val();
+                alert($(this).children('option:selected').val());
+                //window.location.href= {{url('admin/category?num=')}}+$(this).children('option:selected').val();
             });
         })
     </script>
@@ -40,8 +41,8 @@
                             <div id="sample-table-2_length" class="dataTables_length">
                                 <label>每页显示
                                     <select size="1" id="select_num" name="sample-table-2_length" aria-controls="sample-table-2">
-                                        <option value="10" >10</option>
-                                        <option value="15" selected="selected">15</option>
+                                        <option value="10" selected="selected">10</option>
+                                        <option value="15" >15</option>
                                         <option value="20">20</option>
                                         <option value="50">50</option>
                                     </select>
