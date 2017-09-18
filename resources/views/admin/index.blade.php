@@ -687,11 +687,9 @@
         </div>
 
         <div class="main-content">
-            <div class="row">
-                <div class="col-xs-12">
+
                     <iframe name="mainFrame"  frameborder="0" src="{{url('admin/parents')}}" width="100%" height="100%" onLoad="javascript:iframeAutoFit(this);" scrolling="auto"></iframe>
-                </div>
-            </div>
+
         </div><!-- /.main-content -->
 
         <div class="ace-settings-container" id="ace-settings-container">
