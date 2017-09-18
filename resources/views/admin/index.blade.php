@@ -44,7 +44,6 @@
     <script src="{{asset('assets/js/html5shiv.js')}}"></script>
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
-    <script type="text/javascript" src="{{asset('assets/js/jquery-2.0.3.min.js')}}"></script>
     <script>
         var Sys = {};
         var ua = navigator.userAgent.toLowerCase();
