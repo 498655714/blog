@@ -86,14 +86,9 @@
             </small>
         </h1>
     </div><!-- /.page-header -->
-
-    <div class="row">
-        <div class="col-xs-12">
             <!-- PAGE CONTENT BEGINS -->
         @yield('content')
         <!-- PAGE CONTENT ENDS -->
-        </div><!-- /.col -->
-    </div><!-- /.row -->
 </div><!-- /.page-content -->
 <!-- basic scripts -->
 

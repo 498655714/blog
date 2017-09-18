@@ -45,7 +45,24 @@
     <script src="{{asset('assets/js/respond.min.js')}}"></script>
     <![endif]-->
     <script type="text/javascript" src="{{asset('assets/js/jquery-2.0.3.min.js')}}"></script>
-    @yield('jsandcss')
+    <script>
+        function iframeAutoFit(iframeObj)
+        {
+            /*setTimeout(function ()
+             {
+             if (!iframeObj)
+             return;
+             iframeObj.height = (iframeObj.Document ? iframeObj.Document.body.scrollHeight : iframeObj.contentDocument.body.offsetHeight) + 30;//这里+30是有目的的，比如ie下会少那么一些像素
+             }, 200)*/
+            var height = iframeObj.contentDocument.body.offsetHeight + 30;
+            //给以一个最小高度
+            if(height < 1000){
+                iframeObj.height=1000;
+            }else{
+                iframeObj.height=height;
+            }
+
+    </script>
 </head>
 
 <body>
