@@ -122,7 +122,11 @@
 
 @endsection
 @section('footjs')
+
+    <script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.autosize.min.js')}}"></script>
     <script type="text/javascript">
+
         jQuery(function($) {
             $(".chosen-select").chosen();
             $('#chosen-multiple-style').on('click', function (e) {
