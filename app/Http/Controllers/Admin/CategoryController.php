@@ -35,7 +35,7 @@ class CategoryController extends CommonController{
         foreach($list as $key=>$val){
             if($val[$pid] == $root){
                 $list[$key]['_cate_name'] = $list[$key]['cate_name'];
-                $list[$key]['levels'] = $levels+1;
+                $list[$key]['levels'] = $levels;
                 $tree[] = $list[$key];
                 unset($list[$key]);
                 if(! empty($list)){
@@ -44,7 +44,7 @@ class CategoryController extends CommonController{
                         foreach($child as $value){
                             $str = '';
                             for($i=0;$i<$value['levels'];$i++){
-                                $str .= '　&nbsp;';
+                                $str .= '　';
                             }
                             $value['_cate_name'] = $str.'├─ '.$value['cate_name'];
                             $tree[] = $value;
