@@ -405,7 +405,7 @@
 
             <ul class="nav nav-list">
                 <li class="active">
-                    <a href="{{url('admin/index')}}">
+                    <a href="{{url('admin/parents')}}">
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 首页 </span>
                     </a>

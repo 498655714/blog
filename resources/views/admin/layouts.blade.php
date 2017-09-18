@@ -57,7 +57,7 @@
     <ul class="breadcrumb">
         <li>
             <i class="icon-home home-icon"></i>
-            <a href="{{url('admin/index')}}">首页</a>
+            <a href="{{url('admin/parents')}}">首页</a>
         </li>
         @if(isset($navigation) && !empty($navigation))
             @foreach($navigation as $item)
