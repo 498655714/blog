@@ -1,32 +1,4 @@
 @extends('admin.layouts')
-@section('jsandcss')
-    <script type="text/javascript">
-        jQuery(function($) {
-            var oTable1 = $('#sample-table-2').dataTable( {
-                "aoColumns": [
-                    { "bSortable": false },
-                    null, null,null, null, null,
-                    { "bSortable": false }
-                ] } );
-
-
-            $('table th input:checkbox').on('click' , function(){
-                var that = this;
-                $(this).closest('table').find('tr > td:first-child input:checkbox')
-                        .each(function(){
-                            this.checked = that.checked;
-                            $(this).closest('tr').toggleClass('selected');
-                        });
-
-            });
-            $('#select_num').change(function(){
-                alert($(this).children('option:selected').val());
-                //window.location.href= {{url('admin/category?num=')}}+$(this).children('option:selected').val();
-            });
-        })
-    </script>
-@endsection
-
 @section('content')
     <div class="row">
         <div class="col-xs-12">
@@ -146,4 +118,31 @@
             </div>
         </div>
     </div>
+@endsection
+@section('footjs')
+    <script type="text/javascript">
+        jQuery(function($) {
+            var oTable1 = $('#sample-table-2').dataTable( {
+                "aoColumns": [
+                    { "bSortable": false },
+                    null, null,null, null, null,
+                    { "bSortable": false }
+                ] } );
+
+
+            $('table th input:checkbox').on('click' , function(){
+                var that = this;
+                $(this).closest('table').find('tr > td:first-child input:checkbox')
+                        .each(function(){
+                            this.checked = that.checked;
+                            $(this).closest('tr').toggleClass('selected');
+                        });
+
+            });
+            $('#select_num').change(function(){
+                alert($(this).children('option:selected').val());
+                //window.location.href= {{url('admin/category?num=')}}+$(this).children('option:selected').val();
+            });
+        })
+    </script>
 @endsection
