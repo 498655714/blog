@@ -23,7 +23,36 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 父级分类：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" name="cate_name" placeholder="名称" class="col-xs-10 col-sm-5" type="text" value="{{$data[0]['cate_pid']}}">
+                <div>
+                    <label for="form-field-select-3">Chosen</label>
+
+                    <br>
+                    <select class="width-80 chosen-select" id="form-field-select-3" data-placeholder="Choose a Country..." style="display: none;">
+                        <option value="">&nbsp;</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                    </select>
+                    <div class="chosen-container chosen-container-single" style="width: 444px;" title="" id="form_field_select_3_chosen">
+                        <a class="chosen-single" tabindex="-1">
+                            <span>Delaware</span>
+                            <div>
+                                <b></b>
+                            </div>
+                        </a>
+                        <div class="chosen-drop">
+                            <div class="chosen-search">
+                                <input autocomplete="off" type="text">
+                            </div>
+                            <ul class="chosen-results">
+                                <li class="active-result result-selected" style="" data-option-array-index="0">&nbsp;</li>
+                                <li class="active-result" style="" data-option-array-index="1">
+                                    Alabama
+                                </li>
+                                <li class="active-result" style="" data-option-array-index="2">Alaska</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -51,7 +80,7 @@
         <div class="space-4"></div>
 
         <div class="form-group">
-            <label for="form-field-11">关键词：</label>
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-2">关键词：</label>
             <div class="col-sm-9">
                 <textarea id="form-field-11"  name="cate_keywords" class="autosize-transition form-control" value="{{$data[0]['cate_keywords']}}" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px;"></textarea>
 
@@ -60,7 +89,7 @@
 
         <div class="space-4"></div>
         <div class="form-group">
-            <label for="form-field-11">描述：</label>
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-2">描述：</label>
             <div class="col-sm-9">
                 <textarea id="form-field-11"  name="cate_description" class="autosize-transition form-control" value="{{$data[0]['cate_description']}}" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px;"></textarea>
 
