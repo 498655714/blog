@@ -28,42 +28,14 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 父级分类：</label>
 
             <div class="col-sm-9">
-
-                <div class="jq22">
-                    <div class="combo-select">
-                        <select tabindex="-1">
+                        <select>
                             <option value="">月份</option>
                             <option value="一月">一月</option>
                             <option value="二月">二月</option>
                             <option value="三月">三月</option>
                             <option value="四月">四月</option>
                             <option value="五月">五月</option>
-                            <option value="六月">六月</option>
-                            <option value="七月">七月</option>
-                            <option value="八月">八月</option>
-                            <option value="九月">九月</option>
-                            <option value="十月">十月</option>
-                            <option value="十一月">十一月</option>
-                            <option value="十二月">十二月</option>
                         </select>
-                        <div class="combo-arrow"></div>
-                        <ul class="combo-dropdown">
-                            <li class="option-item option-hover" data-index="0" data-value="">月份</li>
-                            <li class="option-item" data-index="1" data-value="一月">一月</li>
-                            <li class="option-item option-selected" data-index="2" data-value="二月">二月</li>
-                            <li class="option-item" data-index="3" data-value="三月">三月</li>
-                            <li class="option-item" data-index="4" data-value="四月">四月</li>
-                            <li class="option-item" data-index="5" data-value="五月">五月</li>
-                            <li class="option-item" data-index="6" data-value="六月">六月</li>
-                            <li class="option-item" data-index="7" data-value="七月">七月</li>
-                            <li class="option-item" data-index="8" data-value="八月">八月</li>
-                            <li class="option-item" data-index="9" data-value="九月">九月</li>
-                            <li class="option-item" data-index="10" data-value="十月">十月</li>
-                            <li class="option-item" data-index="11" data-value="十一月">十一月</li>
-                            <li class="option-item" data-index="12" data-value="十二月">十二月</li>
-                        </ul><input placeholder="月份" class="combo-input text-input" type="text">
-                    </div>
-                </div>
             </div>
         </div>
 
