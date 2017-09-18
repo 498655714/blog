@@ -17,9 +17,6 @@
                                     <span class="lbl"></span>
                                 </label>
                             </th>
-                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 100px;" aria-label="Domain: activate to sort column ascending">
-                                分类ID
-                            </th>
                             <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 145px;" aria-label="Price: activate to sort column ascending">
                                 分类名称
                             </th>
@@ -54,10 +51,6 @@
                                     <span class="lbl"></span>
                                 </label>
                             </td>
-
-                            <td class=" ">
-                                <a href="#">{{$val['cate_id']}}</a>
-                            </td>
                             <td class=" ">{{$val['_cate_name']}}</td>
                             <td class="hidden-480 ">{{$val['cate_title']}}</td>
                             <td class=" ">{{$val['cate_keywords']}}</td>
@@ -70,7 +63,7 @@
 
                             <td class=" ">
                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                    <a class="green" href="#" title="编辑">
+                                    <a class="green" href="{{url('/admin/category/'.$val['cate_id'].'/edit')}}" title="编辑">
                                         <i class="icon-pencil bigger-130"></i>
                                     </a>
 

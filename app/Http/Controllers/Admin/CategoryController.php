@@ -55,6 +55,7 @@ class CategoryController extends CommonController{
         }
         return $tree;
     }
+    //ajax异步请求修改分类排序
     public function vieworder(Request $request){
         $info = $request->all();
         $category = new Category();
@@ -73,7 +74,7 @@ class CategoryController extends CommonController{
         return $data;
 
     }
-    //全部分类列表
+    //增加编辑分类页面
     //路径 /admin/category/create
     // 路由名称category.create
     // 方法GET
@@ -81,7 +82,7 @@ class CategoryController extends CommonController{
 
     }
 
-    //全部分类列表
+    //增加编辑分类操作
     //路径 /admin/category
     // 路由名称category.store
     // 方法POST
@@ -97,24 +98,34 @@ class CategoryController extends CommonController{
 
     }
 
-    //全部分类列表
+    //分类编辑页面
     //路径  	/admin/category/{cate}/edit
     // 路由名称category.edit
     //方法GET
-    public function edit(){
-
-
+    public function edit(Request $request){
+        $info = $request->all();
+        $navigation = ['文章分类管理','文章分类列表'];
+        $contenttitle_1 = '文章分类';
+        $contenttitle_2 = '数据列表';
+        $category = new Category();
+        $data = $category->where('cate_id',$info['cate_id'])->get();
+        return view('category/edit',[
+            'navigation'=>$navigation,
+            'contenttitle_1'=>$contenttitle_1,
+            'contenttitle_2'=>$contenttitle_2,
+            'data'=>$data
+        ]);
     }
 
-    //全部分类列表
+    //分类编辑操作
     //路径/admin/category/{cate}
     //路由名称category.update
     // 方法PUT/PATCH
     public function update(){
-
+        echo '分类编辑操作';
     }
 
-    //全部分类列表
+    //分类删除
     //路径 /admin/category/{cate}
     // 路由名称category.destroy
     //方法DELETE

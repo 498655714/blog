@@ -80,8 +80,8 @@
              }, 200)*/
             var height = iframeObj.contentDocument.body.offsetHeight + 30;
             //给以一个最小高度
-            if (height < 1000) {
-                iframeObj.height = 1000;
+            if (height < 1300) {
+                iframeObj.height = 1300;
             } else {
                 iframeObj.height = height;
             }
