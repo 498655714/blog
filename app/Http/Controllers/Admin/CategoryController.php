@@ -155,8 +155,8 @@ class CategoryController extends CommonController{
             $flag  = 'danger';
             $errors = $validator->errors()->all();
         }
-
-        return view('/admin/category/'.$cate_id.'/edit',[
+        $url = 'admin/category/'.$cate_id.'/edit';
+        return view($url,[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
