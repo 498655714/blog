@@ -1,7 +1,8 @@
 @extends('admin.layouts')
 @section('jsandcss')
     <link rel="stylesheet" href="{{asset('assets/css/jquery-ui-1.10.3.custom.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/css/chosen.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/combo.select.css')}}">
+    <script src="{{asset('assets/js/jquery.combo.select.js')}}"></script>
 @endsection
 @section('content')
     @if(count($errors)>0)
@@ -27,25 +28,12 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 父级分类：</label>
 
             <div class="col-sm-9">
-                    <select class="width-80 chosen-select" id="form-field-select-3" data-placeholder="Choose a Country..." style="display: none;">
-                        <option value="">&nbsp;</option>
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                    </select>
-                    <div class="chosen-container chosen-container-single" style="width: 444px;" title="" id="form_field_select_3_chosen">
-                        <div class="chosen-drop">
-                            <div class="chosen-search">
-                                <input autocomplete="off" type="text">
-                            </div>
-                            <ul class="chosen-results">
-                                <li class="active-result result-selected" style="" data-option-array-index="0">&nbsp;</li>
-                                <li class="active-result" style="" data-option-array-index="1">
-                                    Alabama
-                                </li>
-                                <li class="active-result" style="" data-option-array-index="2">Alaska</li>
-                            </ul>
-                        </div>
-                    </div>
+                <select>
+                    <option value="">分类名</option>
+                    <option value="一月">一月</option>
+                    <option value="二月">二月</option>
+                    <option value="三月">三月</option>
+                </select>
             </div>
         </div>
 
@@ -75,9 +63,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">关键词：</label>
             <div class="col-sm-6">
-                <textarea id="form-field-11"  name="cate_keywords" class="autosize-transition form-control" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px; width:500px;">
-                     {{$data[0]['cate_keywords']}}
-                </textarea>
+                <textarea id="form-field-11"  name="cate_keywords" class="autosize-transition form-control" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px; width:500px;">{{$data[0]['cate_keywords']}}</textarea>
             </div>
         </div>
 
@@ -85,9 +71,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">描述：</label>
             <div class="col-sm-6">
-                <textarea id="form-field-11"  name="cate_description" class="autosize-transition form-control"  style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 140px; width:500px;">
-                   {{$data[0]['cate_description']}}
-                </textarea>
+                <textarea id="form-field-11"  name="cate_description" class="autosize-transition form-control"  style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 140px; width:500px;">{{$data[0]['cate_description']}}</textarea>
             </div>
         </div>
 
@@ -122,60 +106,15 @@
 
 @endsection
 @section('footjs')
-    <script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery.autosize.min.js')}}"></script>
     <script type="text/javascript">
         jQuery(function($) {
-
-            $(".chosen-select").chosen();
-            $('#chosen-multiple-style').on('click', function(e){
-                var target = $(e.target).find('input[type=radio]');
-                var which = parseInt(target.val());
-                if(which == 2) $('#form-field-select-4').addClass('tag-input-style');
-                else $('#form-field-select-4').removeClass('tag-input-style');
-            });
-
-
-            $('[data-rel=tooltip]').tooltip({container:'body'});
-            $('[data-rel=popover]').popover({container:'body'});
-
+            $('select').comboSelect();
             $('textarea[class*=autosize]').autosize({append: "\n"});
             $('textarea.limited').inputlimiter({
                 remText: '%n character%s remaining...',
                 limitText: 'max allowed : %n.'
             });
-
-
-
-
-            /////////
-            $('#modal-form input[type=file]').ace_file_input({
-                style:'well',
-                btn_choose:'Drop files here or click to choose',
-                btn_change:null,
-                no_icon:'icon-cloud-upload',
-                droppable:true,
-                thumbnail:'large'
-            })
-
-            //chosen plugin inside a modal will have a zero width because the select element is originally hidden
-            //and its width cannot be determined.
-            //so we set the width after modal is show
-            $('#modal-form').on('shown.bs.modal', function () {
-                $(this).find('.chosen-container').each(function(){
-                    $(this).find('a:first-child').css('width' , '210px');
-                    $(this).find('.chosen-drop').css('width' , '210px');
-                    $(this).find('.chosen-search input').css('width' , '200px');
-                });
-            })
-            /**
-             //or you can activate the chosen plugin after modal is shown
-             //this way select element becomes visible with dimensions and chosen works as expected
-             $('#modal-form').on('shown', function () {
-					$(this).find('.modal-chosen').chosen();
-				})
-             */
-
         });
     </script>
     @endsection
