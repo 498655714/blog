@@ -22,19 +22,18 @@
             </strong>
         </div>
     @endif
-    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/category/'.$data[0]['cate_id'])}}" method="post">
-        <input type="hidden" name="_method" value="put">
+    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/category')}}" method="post">
         {{csrf_field()}}
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 父级分类：</label>
 
             <div class="col-sm-9">
-                        <select name="cate_pid" width="150px">
-                            <option value="0">--顶级分类--</option>
-                            @foreach($cates as $key=>$val)
-                            <option value="{{$val['cate_id']}}">{{$val['cate_name']}}</option>
-                            @endforeach
-                        </select>
+                <select name="cate_pid" width="150px">
+                    <option value="0">--顶级分类--</option>
+                    @foreach($cates as $key=>$val)
+                        <option value="{{$val['cate_id']}}">{{$val['cate_name']}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
@@ -44,7 +43,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 分类名称：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" name="cate_name" placeholder="名称" class="input-xlarge" type="text" value="{{$data[0]['cate_name']}}">
+                <input id="form-field-2" name="cate_name" placeholder="名称" class="input-xlarge" type="text" >
             </div>
         </div>
 
@@ -54,7 +53,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 分类说明：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" name="cate_title" placeholder="说明分类" class="col-xs-10 col-sm-5" type="text" value="{{$data[0]['cate_title']}}">
+                <input id="form-field-2" name="cate_title" placeholder="说明分类" class="col-xs-10 col-sm-5" type="text" >
             </div>
         </div>
 
@@ -64,7 +63,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">关键词：</label>
             <div class="col-sm-6">
-                <textarea id="form-field-11"  name="cate_keywords" class="autosize-transition form-control" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px; width:500px;">{{$data[0]['cate_keywords']}}</textarea>
+                <textarea id="form-field-11"  name="cate_keywords" class="autosize-transition form-control" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px; width:500px;"></textarea>
             </div>
         </div>
 
@@ -72,7 +71,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">描述：</label>
             <div class="col-sm-6">
-                <textarea id="form-field-11"  name="cate_description" class="autosize-transition form-control"  style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 140px; width:500px;">{{$data[0]['cate_description']}}</textarea>
+                <textarea id="form-field-11"  name="cate_description" class="autosize-transition form-control"  style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 140px; width:500px;"></textarea>
             </div>
         </div>
 
@@ -82,7 +81,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 排序：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2"  name="cate_order"  placeholder="排序" class="input-mini" type="text" value="{{$data[0]['cate_order']}}">
+                <input id="form-field-2"  name="cate_order"  placeholder="排序" class="input-mini" type="text" >
             </div>
         </div>
         <div class="space-6"></div>
@@ -118,4 +117,4 @@
             });
         });
     </script>
-    @endsection
+@endsection

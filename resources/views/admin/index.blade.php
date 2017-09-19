@@ -412,7 +412,7 @@
                 <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
-                        <span class="menu-text"> 文章分类管理 </span>
+                        <span class="menu-text"> 分类管理 </span>
 
                         <b class="arrow icon-angle-down"></b>
                     </a>
@@ -421,14 +421,14 @@
                         <li>
                             <a href="{{url('admin/category')}}"   target='mainFrame' >
                                 <i class="icon-double-angle-right"></i>
-                                文章分类列表
+                                分类列表
                             </a>
                         </li>
 
                         <li>
-                            <a href="jqgrid.html"   target='mainFrame' >
+                            <a href="{{url('admin/category/create')}}"   target='mainFrame' >
                                 <i class="icon-double-angle-right"></i>
-                                添加文章分类
+                                添加分类
                             </a>
                         </li>
                     </ul>

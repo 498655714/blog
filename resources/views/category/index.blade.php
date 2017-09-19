@@ -51,7 +51,7 @@
                                     <span class="lbl"></span>
                                 </label>
                             </td>
-                            <td class=" ">{{$val['_cate_name']}}</td>
+                            <td class=" "><a href="{{url('/admin/category/'.$val['cate_id'].'/edit')}}">{{$val['_cate_name']}}</a></td>
                             <td class="hidden-480 ">{{$val['cate_title']}}</td>
                             <td class=" ">{{$val['cate_keywords']}}</td>
                             <td class=" ">{{$val['cate_description']}}</td>
@@ -67,7 +67,7 @@
                                         <i class="icon-pencil bigger-130"></i>
                                     </a>
 
-                                    <a class="red" href="#"  title="删除">
+                                    <a class="red" href="deletecate({{$val['cate_id']}})"  title="删除">
                                         <i class="icon-trash bigger-130"></i>
                                     </a>
                                 </div>
@@ -108,6 +108,26 @@
                         layer.msg(data.message, {icon: 5});
                     }
                 }
+            });
+        }
+        function deletecate(cate_id){
+            layer.confirm('您确定删除该分类吗？', {
+                btn: ['是的','再想想'] //按钮
+            }, function(){
+                $.post(
+                        "{{url('admin/category/')}}/".cate_id,
+                        {'_token':'{{csrf_token()}}','_method':'delete','cate_id':cate_id},
+                        function(data){
+                            if(data.status == 1){
+                                layer.msg(data.message,{icon: 6})
+                            }else{
+                                layer.msg(data.message,{icon: 5})
+                            }
+                        }
+                );
+                layer.msg('的确很重要', {icon: 1});
+            },function() {
+                layer.msg('再想想吧,你不知道你做的是什么~')
             });
         }
         jQuery(function($) {
