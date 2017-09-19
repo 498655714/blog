@@ -114,7 +114,8 @@
             layer.confirm('您确定删除该分类吗？', {
                 btn: ['是的','再想想'] //按钮
             }, function(){
-                $.post("{{url('admin/category/')}}/".cate_id,
+                url = "{{url('admin/category')}}/"+cate_id;
+                $.post(url,
                         {'_token':'{{csrf_token()}}','_method':'delete'},
                         function(data){
                             if(data.status == 1){
