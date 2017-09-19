@@ -186,9 +186,8 @@
                 }
 
             }).on('change', function(){
-                alert();
-                //console.log($(this).data('ace_input_files'));
-                //console.log($(this).data('ace_input_method'));
+                console.log($(this).data('ace_input_files'));
+                console.log($(this).data('ace_input_method'));
             });
         });
     </script>
