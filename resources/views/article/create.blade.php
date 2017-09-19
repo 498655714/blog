@@ -72,14 +72,6 @@
             <div class="col-sm-5">
                 <div class="ace-file-input ace-file-multiple">
                     <input multiple="" id="id-input-file-3" type="file">
-                    <label class="file-label" data-title="Drop files here or click to choose">
-                        <span class="file-name" data-title="No File ...">
-                            <i class="icon-cloud-upload"></i>
-                        </span>
-                    </label>
-                    <a class="remove" href="#">
-                        <i class="icon-remove"></i>
-                    </a>
                 </div>
             </div>
         </div>
