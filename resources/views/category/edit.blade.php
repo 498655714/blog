@@ -32,7 +32,7 @@
                         <select name="cate_pid" width="150px">
                             <option value="0">--顶级分类--</option>
                             @foreach($cates as $key=>$val)
-                            <option value="{{$val['cate_id']}}">{{$val['cate_name']}}</option>
+                            <option value="{{$val['cate_id']}}"@if($data[0]['cate_pid'] == $val['cate_id']) selected @endif>{{$val['cate_name']}}</option>
                             @endforeach
                         </select>
             </div>
