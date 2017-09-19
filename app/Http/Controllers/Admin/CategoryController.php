@@ -84,10 +84,13 @@ class CategoryController extends CommonController{
         $navigation = ['分类管理','分类添加页'];
         $contenttitle_1 = '分类管理';
         $contenttitle_2 = '添加';
-        return view('category.index',[
+        $category = new Category();
+        $cates = $category->get();
+        return view('category.create',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
+            'cates'=>$cates,
         ]);
     }
 
