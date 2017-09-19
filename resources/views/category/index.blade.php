@@ -119,6 +119,7 @@
                         {'_token':'{{csrf_token()}}','_method':'delete'},
                         function(data){
                             if(data.status == 1){
+                                location.href =location.href;
                                 layer.msg(data.message,{icon: 6})
                             }else{
                                 layer.msg(data.message,{icon: 5})
