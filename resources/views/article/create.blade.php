@@ -2,11 +2,6 @@
 @section('jsandcss')
     <link rel="stylesheet" href="{{asset('assets/css/jquery-ui-1.10.3.custom.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/combo.select.css')}}">
-    <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/ueditor.config.js')}}"></script>
-    <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/ueditor.all.min.js')}}"> </script>
-    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
-    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
-    <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
     <script src="{{asset('assets/js/jquery.combo.select.js')}}"></script>
 @endsection
 @section('content')
@@ -74,7 +69,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 缩略图：</label>
 
-            <div class="col-sm-9">
+            <div class="col-sm-5">
                 <div class="ace-file-input ace-file-multiple">
                     <input multiple="" id="id-input-file-3" type="file">
                     <label class="file-label" data-title="Drop files here or click to choose">
@@ -96,7 +91,25 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 文章内容：</label>
 
             <div class="col-sm-9">
-                <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+                <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/ueditor.config.js')}}"></script>
+                <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/ueditor.all.min.js')}}"> </script>
+                <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+                <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+                <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
+
+                <script id="editor" type="text/plain" style="width:850px;height:500px;"></script>
+                <script type="text/javascript">
+
+                    //实例化编辑器
+                    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+                    var ue = UE.getEditor('editor');
+                </script>
+                <style>
+                    .edui-default{line-height: 28px;}
+                    div.edui-combox-body,div.edui-button-body,div.edui-splitbutton-body
+                    {overflow:hidden; height:22px;}
+                    div.edui-box{overflow:hidden; height:22px;}
+                </style>
             </div>
         </div>
         <div class="space-6"></div>
@@ -122,6 +135,8 @@
 @endsection
 @section('footjs')
     <script src="{{asset('assets/js/jquery.autosize.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.inputlimiter.1.3.1.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.maskedinput.min.js')}}"></script>
     <script type="text/javascript">
         jQuery(function($) {
             $('select').comboSelect();
