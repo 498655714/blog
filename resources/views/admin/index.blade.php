@@ -443,14 +443,14 @@
 
                     <ul class="submenu">
                         <li>
-                            <a href="{{url('admin/category')}}"   target='mainFrame' >
+                            <a href="{{url('admin/article')}}"   target='mainFrame' >
                                 <i class="icon-double-angle-right"></i>
                                 文章列表
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{url('admin/category/create')}}"   target='mainFrame' >
+                            <a href="{{url('admin/article/create')}}"   target='mainFrame' >
                                 <i class="icon-double-angle-right"></i>
                                 添加文章
                             </a>
