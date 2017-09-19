@@ -43,7 +43,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 文章标题：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" name="art_title" placeholder="这里写标题" class="input-xlarge" type="text" >
+                <input id="form-field-2" name="art_title" placeholder="这里写标题" class="input-xxlarge" type="text" >
             </div>
         </div>
 
@@ -52,7 +52,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">关键词：</label>
             <div class="col-sm-6">
-                <textarea id="form-field-11"  name="art_tag" class="autosize-transition form-control" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px; width:500px;"></textarea>
+                <textarea id="form-field-11"  name="art_tag" class="autosize-transition form-control" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 36px; width:500px;"></textarea>
             </div>
         </div>
 
@@ -182,10 +182,11 @@
                     //1 = 'FILE_LOAD_FAILED',
                     //2 = 'IMAGE_LOAD_FAILED',
                     //3 = 'THUMBNAIL_FAILED'
-                    //alert(error_code);
+                    alert(error_code);
                 }
 
             }).on('change', function(){
+                alert();
                 //console.log($(this).data('ace_input_files'));
                 //console.log($(this).data('ace_input_method'));
             });
