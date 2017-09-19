@@ -114,18 +114,15 @@
             layer.confirm('您确定删除该分类吗？', {
                 btn: ['是的','再想想'] //按钮
             }, function(){
-                $.post(
-                        "{{url('admin/category/')}}/".cate_id,
-                        {'_token':'{{csrf_token()}}','_method':'delete','cate_id':cate_id},
+                $.post("{{url('admin/category/')}}/".cate_id,
+                        {'_token':'{{csrf_token()}}','_method':'delete'},
                         function(data){
                             if(data.status == 1){
                                 layer.msg(data.message,{icon: 6})
                             }else{
                                 layer.msg(data.message,{icon: 5})
                             }
-                        }
-                );
-                layer.msg('的确很重要', {icon: 1});
+                        });
             },function() {
                 layer.msg('再想想吧,你不知道你做的是什么~')
             });

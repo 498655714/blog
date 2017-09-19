@@ -18,7 +18,7 @@ class IndexController extends CommonController{
 
     public function parents(){
         $navigation = array();
-        $contenttitle_1 = '管理后台首页';
+        $contenttitle_1 = '首页';
         $contenttitle_2 = '欢迎界面';
         return view('admin/parents',
             [   'navigation'=>$navigation,
