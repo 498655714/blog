@@ -67,7 +67,7 @@
                                         <i class="icon-pencil bigger-130"></i>
                                     </a>
 
-                                    <a class="red" href="deletecate({{$val['cate_id']}})"  title="删除">
+                                    <a class="red" href="#" onclick="deletecate({{$val['cate_id']}})" title="删除">
                                         <i class="icon-trash bigger-130"></i>
                                     </a>
                                 </div>
