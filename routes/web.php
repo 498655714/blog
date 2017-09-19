@@ -20,10 +20,12 @@ Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=
     Route::get('index', 'IndexController@getindex');//首页
     Route::get('parents', 'IndexController@parents');//欢迎界面
     Route::get('logout', 'AuthController@getLogout');//退出
-    Route::get('showpass', 'IndexController@showpass');//修改密码
+    Route::get('showpass', 'IndexController@showpass');//修改密码页
     Route::post('changepass', 'IndexController@changepass');//修改密码
-    Route::post('cate/vieworder', 'CategoryController@vieworder');//修改密码
+    Route::post('cate/vieworder', 'CategoryController@vieworder');//修改排序
+    Route::post('article/imgtoup', 'ArticleController@imgtoup');//图片上传
 
+    //资源路由
     Route::resource('category','CategoryController');
     Route::resource('article','ArticleController');
 

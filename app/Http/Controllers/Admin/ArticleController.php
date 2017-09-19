@@ -213,6 +213,11 @@ class ArticleController extends CommonController{
         return $data;
     }
 
+    //ajax 异步文件上传处理
+    public function imgtoup(){
+        $input = Input::except('_token');
+        dd();
+    }
 
     //递归根据pid2进行排序
     public function make_tree($list,$id='id',$pid='pid',$root=0,$levels=0){

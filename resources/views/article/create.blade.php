@@ -140,11 +140,12 @@
 
             $('#id-input-file-3').ace_file_input({
                 style:'well',
-                btn_choose:'Drop images here or click to choose',
+                btn_choose:'选择要上传的图片',
                 btn_change:null,
                 no_icon:'icon-picture',
                 droppable:true,
-                thumbnail:'small',//large | fit
+                thumbnail:'large',//small| large | fit
+                //选择文件时触发
                 before_change:function(files, dropped) {
                     var allowed_files = [];
                     for(var i = 0 ; i < files.length; i++) {
@@ -163,7 +164,7 @@
                         allowed_files.push(file);
                     }
                     if(allowed_files.length == 0) return false;
-
+                    layer.msg('选择的图片必须是.jpg|.jpeg|.png|.gif|.bmp格式',{icon: 5});
                     return allowed_files;
                 }
                 //,icon_remove:null//set null, to hide remove/reset button
@@ -176,18 +177,42 @@
 						return true;
 					}*/
                 ,
+                //预览显示错误时触发
                 preview_error : function(filename, error_code) {
                     //name of the file that failed
                     //error_code values
                     //1 = 'FILE_LOAD_FAILED',
                     //2 = 'IMAGE_LOAD_FAILED',
                     //3 = 'THUMBNAIL_FAILED'
-                    alert(error_code);
+                    //layer.msg('',{icon: 5});
                 }
 
             }).on('change', function(){
-                console.log($(this).data('ace_input_files'));
-                console.log($(this).data('ace_input_method'));
+                put_img = $(this).data('ace_input_files');
+                console.log(put_img);
+                return false;
+                layer.msg('你确定上传该图片么？', {
+                    time: 0 //不自动关闭
+                    ,btn: ['确定', '取消']
+                    ,yes: function(index){
+                        layer.close(index);
+                        //上传文件操作
+                        $.post(
+                                "{{url('article/imgtoup')}}",
+                            {'_token':'{{csrf_token()}}'},
+                            function(data){
+                                if(data.status == 1){
+                                    layer.msg(data.message,{icon: 6})
+                                }else{
+                                    layer.msg(data.message,{icon: 5})
+                                }
+                            }
+                        );
+                    }
+                });
+
+                //console.log($(this).data('ace_input_files'));
+                //console.log($(this).data('ace_input_method'));
             });
         });
     </script>
