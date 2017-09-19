@@ -8,6 +8,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\CommonController;
 use App\Model\article;
+use App\Model\Category;
 use Illuminate\Http\Request;
 use Validator;
 use  Illuminate\Support\Facades\Input;
@@ -84,12 +85,13 @@ class ArticleController extends CommonController{
         $navigation = ['文章管理','文章添加页'];
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '添加';
-        $article = new Article();
-        $article = $article->get();
+        $category = new Category();
+        $cates = $category->get();
         return view('article.create',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
+            'cates'=>$cates,
         ]);
     }
 
