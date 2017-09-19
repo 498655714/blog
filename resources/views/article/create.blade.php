@@ -30,9 +30,6 @@
             <div class="col-sm-9">
                 <select name="cate_pid" width="150px">
                     <option value="0">--顶级分类--</option>
-                    @foreach($cates as $key=>$val)
-                        <option value="{{$val['cate_id']}}">{{$val['cate_name']}}</option>
-                    @endforeach
                 </select>
             </div>
         </div>

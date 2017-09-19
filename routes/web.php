@@ -25,6 +25,7 @@ Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=
     Route::post('cate/vieworder', 'CategoryController@vieworder');//修改密码
 
     Route::resource('category','CategoryController');
+    Route::resource('article','ArticleController');
 
 });
 
