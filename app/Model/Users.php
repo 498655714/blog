@@ -7,5 +7,4 @@ class Users extends Model
 {
     protected $tabel='users';
     protected $primaryKey='id';
-    public $timstamps=false;
 }

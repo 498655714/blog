@@ -120,8 +120,7 @@ class CategoryController extends CommonController{
         if($validator->passes()){
             $rs = Category::create($input);
             if($rs){
-                $flag  = 'success';
-                $errors = ['添加成功'];
+                return redirect('/admin/category');
             }else{
                 $errors = ['添加失败，稍后重试'];
                 $flag  = 'danger';
@@ -195,8 +194,7 @@ class CategoryController extends CommonController{
         if($validator->passes()){
             $rs = Category::where('cate_id',$cate_id)->update($input);
             if($rs){
-                $flag  = 'success';
-                $errors = ['修改成功'];
+                return redirect('/admin/category');
             }else{
                 $errors = ['修改失败，稍后重试'];
                 $flag  = 'danger';

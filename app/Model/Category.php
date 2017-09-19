@@ -8,5 +8,5 @@ class Category extends Model
 {
     protected $tabel='categories';
     protected $primaryKey='cate_id';
-    public $timstamps=false;
+    protected $guarded=[];
 }
