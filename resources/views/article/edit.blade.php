@@ -92,15 +92,14 @@
                 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
                 <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
 
-                <script id="editor" name="art_content" type="text/plain"  style="width:850px;height:500px;">
-                    {!! $data[0]['art_content'] !!}
-                </script>
+                <script id="editor" name="art_content" type="text/plain"  style="width:850px;height:500px;"></script>
                 <script type="text/javascript">
 
                     //实例化编辑器
                     //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
 
                     var ue = UE.getEditor('editor');
+                    ue.setcontent({!! $data[0]['art_content'] !!});
                 </script>
                 <style>
                     .edui-default{line-height: 28px;}
