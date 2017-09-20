@@ -237,7 +237,7 @@ class ArticleController extends CommonController{
             $result['message'] = 'Unspecified error!';
         }
         else {
-            $save_path = date('YmdHis',time()).rand(100,999).$file['name'];
+            $save_path = $file['name'];
             $thumb_path = date('YmdHis',time()).rand(100,999).'thumb.jpg';
 
             if(
