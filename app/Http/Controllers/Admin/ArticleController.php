@@ -78,6 +78,7 @@ class ArticleController extends CommonController{
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '添加';
         $input = Input::except('_token');
+        echo 111;
         dd($input);exit;
         $rules = [
             'cate_name'=>'required',
