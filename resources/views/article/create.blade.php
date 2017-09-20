@@ -184,6 +184,7 @@
                     //for modern browsers that support FormData and uploading files via ajax
                     var fd = new FormData($form.get(0));
                     console.log($form.get(0));
+                    console.log(fd);
                     //if file has been drag&dropped , append it to FormData
                     if(file_input.data('ace_input_method') == 'drop') {
                         var files = file_input.data('ace_input_files');
