@@ -142,7 +142,7 @@
                 btn_choose: '选择要上传的图片',
                 btn_change: null,//更改按钮
                 droppable: true,//允许拖放
-                thumbnail: 'large',//预览大小设置 small | large | bit
+                thumbnail: 'large',//预览大小设置 small | large | fit
 
                 before_remove: function () {
                     if (upload_in_progress)
@@ -183,7 +183,7 @@
                 if( "FormData" in window ) {
                     //for modern browsers that support FormData and uploading files via ajax
                     var fd = new FormData($form.get(0));
-
+                    console.log($form.get(0));
                     //if file has been drag&dropped , append it to FormData
                     if(file_input.data('ace_input_method') == 'drop') {
                         var files = file_input.data('ace_input_files');
