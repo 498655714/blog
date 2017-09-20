@@ -182,16 +182,15 @@
                 var deferred ;
                 if( "FormData" in window ) {
                     //for modern browsers that support FormData and uploading files via ajax
-                    var fd = new FormData(file_input.data('ace_input_files'));
-                    console.log(fd);
+                    var fd = new FormData($form.get(0));
                     //if file has been drag&dropped , append it to FormData
-                    if(file_input.data('ace_input_method') == 'drop') {
+                    //if(file_input.data('ace_input_method') == 'drop') {
                         var files = file_input.data('ace_input_files');
                         if(files && files.length > 0) {
                             fd.append(file_input.attr('name'), files[0]);
                             //to upload multiple files, the 'name' attribute should be something like this: myfile[]
                         }
-                    }
+                    //}
 
                     upload_in_progress = true;
                     deferred = $.ajax({
