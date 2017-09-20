@@ -32,7 +32,7 @@
                 <select name="cate_id" width="150px">
                     <option value="0">--顶级分类--</option>
                     @foreach($cates as $key=>$val)
-                        <option value="{{$val['cate_id']}}" @if($val['cate_id'] == $data['cate_id']) selected @endif>{{$val['cate_name']}}</option>
+                        <option value="{{$val['cate_id']}}" @if($val['cate_id'] == $data[0]['cate_id']) selected @endif>{{$val['cate_name']}}</option>
                     @endforeach
                 </select>
             </div>
@@ -44,7 +44,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 文章标题：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" name="art_title" placeholder="这里写标题" value="{{$data['art_title']}}" class="input-xxlarge" type="text" >
+                <input id="form-field-2" name="art_title" placeholder="这里写标题" value="{{$data[0]['art_title']}}" class="input-xxlarge" type="text" >
             </div>
         </div>
 
@@ -53,7 +53,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">关键词：</label>
             <div class="col-sm-6">
-                <textarea id="form-field-11"  name="art_tag" class="autosize-transition form-control" value="{{$data['art_tag']}}"  style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 36px; width:500px;"></textarea>
+                <textarea id="form-field-11"  name="art_tag" class="autosize-transition form-control" value="{{$data[0]['art_tag']}}"  style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 36px; width:500px;"></textarea>
             </div>
         </div>
 
@@ -61,7 +61,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">描述：</label>
             <div class="col-sm-6">
-                <textarea id="form-field-11"  name="art_description" class="autosize-transition form-control"  style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 140px; width:500px;">{{$data['art_description']}}</textarea>
+                <textarea id="form-field-11"  name="art_description" class="autosize-transition form-control"  style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 140px; width:500px;">{{$data[0]['art_description']}}</textarea>
             </div>
         </div>
 
@@ -72,7 +72,7 @@
 
             <div class="col-sm-5">
                 <div class="ace-file-input ace-file-multiple">
-                    <input  id="id-input-file-text" name="art_thumb" type="text" value="{{$data['art_thumb']}}" class="input-xlarge">
+                    <input  id="id-input-file-text" name="art_thumb" type="text" value="{{$data[0]['art_thumb']}}" class="input-xlarge">
                     {{--<img id="id-input-file-img" src="" hidden/>--}}
                     <input multiple="" id="id-input-file-3" type="file">
                 </div>
@@ -92,7 +92,7 @@
                 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
                 <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
 
-                <script id="editor" name="art_content" type="text/plain" value="{{$data['art_content']}}" style="width:850px;height:500px;"></script>
+                <script id="editor" name="art_content" type="text/plain" value="{{$data[0]['art_content']}}" style="width:850px;height:500px;"></script>
                 <script type="text/javascript">
 
                     //实例化编辑器
