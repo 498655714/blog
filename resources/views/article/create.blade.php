@@ -72,7 +72,7 @@
             <div class="col-sm-5">
                 <div class="ace-file-input ace-file-multiple">
                     <input  id="id-input-file-text" name="art_thumb" type="text" class="input-xlarge">
-                    <img id="id-input-file-img" src="" hidden/>
+                    {{--<img id="id-input-file-img" src="" hidden/>--}}
                     <input multiple="" id="id-input-file-3" type="file">
                 </div>
             </div>
@@ -256,7 +256,7 @@
                     if(result.status == 'OK') {
                         layer.msg('恭喜！图片上传成功！', {icon: 6});
                         $('#id-input-file-text').val(result.url);
-                        $('#id-input-file-img').attr('src',"/../"+result.url).removeAttr('hidden');
+                        //$('#id-input-file-img').attr('src',"/"+result.url).removeAttr('hidden');
                     }
                     else {
                         layer.msg(result.message, {icon: 5});

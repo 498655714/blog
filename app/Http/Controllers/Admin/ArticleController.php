@@ -78,6 +78,7 @@ class ArticleController extends CommonController{
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '添加';
         $input = Input::except('_token');
+        dd($input);exit;
         $rules = [
             'cate_name'=>'required',
             'cate_title'=>'required',
@@ -239,7 +240,7 @@ class ArticleController extends CommonController{
 //        ! $this->resize($save_path, $thumb_path, 150)
         else {
             $save_path = explode('.',$file['name']);
-            $save_path = date('YmdHis').rand(100,99).$save_path[1] ;
+            $save_path = date('YmdHis').rand(100,99).'.'.$save_path[1] ;
             //$thumb_path = 'thumb.jpg';
             if(
                 ! move_uploaded_file($file['tmp_name'] , public_path().'/uploads/'.$save_path)
