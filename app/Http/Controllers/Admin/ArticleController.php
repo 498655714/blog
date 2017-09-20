@@ -135,21 +135,22 @@ class ArticleController extends CommonController{
         $contenttitle_2 = '编辑';
         $input = Input::except('_token','_method');
         $rules = [
-            'cate_name'=>'required',
-            'cate_title'=>'required',
-            'cate_order'=>'required',
+            'art_title'=>'required',
+            'art_description'=>'required',
+            'art_content'=>'required',
         ];
         $message = [
-            'cate_name.required'=>'文章名不能为空',
-            'cate_title.required'=>'文章说明不能为空',
-            'cate_order.required'=>'排序不能为空',
+            'art_title.required'=>'文章名不能为空',
+            'art_description.required'=>'文章说明不能为空',
+            'art_content.required'=>'文章内容不能为空',
         ];
 
-        $article = new article();
-        $cates = $article->get();
+        $article = new Article();
+        $category = new Category();
+        $cates = $category->get();
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
-            $rs = article::where('cate_id',$cate_id)->update($input);
+            $rs = $article->where('cate_id',$cate_id)->update($input);
             if($rs){
                 return redirect('/admin/article');
             }else{
