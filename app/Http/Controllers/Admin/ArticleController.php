@@ -219,8 +219,7 @@ class ArticleController extends CommonController{
 
         $result = array();
 
-        //$file = $_FILES['art_thumb'];
-        dd($_FILES);exit;
+        $file = isset($_FILES['art_thump'])?$_FILES['art_thump']:$_FILES['undefined'];
 
         if(!preg_match('/^image\//' , $file['type'])
             || !preg_match('/\.(jpe?g|gif|png)$/' , $file['name'])
@@ -238,13 +237,13 @@ class ArticleController extends CommonController{
             $result['message'] = 'Unspecified error!';
         }
         else {
-            $save_path = $file['name'];
+            $save_path = date('YmdHis',time()).rand(100,999).$file['name'];
             $thumb_path = date('YmdHis',time()).rand(100,999).'thumb.jpg';
 
             if(
-                ! move_uploaded_file($file['tmp_name'] , $save_path)
+                ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$save_path)
                 OR
-                !resize($save_path, $thumb_path, 150)
+                !$this->resize($save_path, $thumb_path, 150)
             )
             {
                 $result['status'] = 'ERR';
@@ -254,7 +253,7 @@ class ArticleController extends CommonController{
             else {
                 $result['status'] = 'OK';
                 $result['message'] = '图片上传成功!';
-                $result['url'] = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'/'.$thumb_path;
+                $result['url'] = 'uploads/'.$thumb_path;
             }
         }
 
