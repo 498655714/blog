@@ -240,7 +240,7 @@ class ArticleController extends CommonController{
             $save_path = $file['tmp_name'];
             $thumb_path = 'thumb.jpg';
             if(
-                ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$save_path)
+                ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$thumb_path)
                 OR
                ! $this->resize($save_path, $thumb_path, 150)
             )
