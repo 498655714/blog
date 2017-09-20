@@ -115,9 +115,7 @@ class ArticleController extends CommonController{
         $article = new Article();
         $category = new Category();
         $cates = $category->get();
-        $data = $article->where('art_id',$art_id)->get();
-        dd($data);
-        dd(isset($data['art_id'])?$data['art_id']:$data[0]['art_id']);exit();
+        $data = $article->where('art_id',$art_id)->get()->toArray();
         return view('article/edit',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
