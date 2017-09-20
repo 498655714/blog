@@ -237,13 +237,16 @@ class ArticleController extends CommonController{
             $result['message'] = 'Unspecified error!';
         }
         else {
-            $save_path = $file['name'];
-            $thumb_path = date('YmdHis',time()).rand(100,999).'thumb.jpg';
+            $save_path = $file['tmp_name'];
+            $thumb_path = 'thumb.jpg';
+            $thumb = $this->resize($save_path, $thumb_path, 150);
+
+            dd($thumb);exit;
 
             if(
                 ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$save_path)
                 OR
-                !$this->resize($save_path, $thumb_path, 150)
+                !
             )
             {
                 $result['status'] = 'ERR';
