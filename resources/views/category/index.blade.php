@@ -57,21 +57,21 @@
                                     <span class="lbl"></span>
                                 </label>
                             </td>
-                            <td class=" "><img src="/{{$val['art_thumb']}}"/></td>
-                            <td class=" "><a href="{{url('/admin/article/'.$val['art_id'].'/edit')}}">{{$val['art_title']}}</a></td>
-                            <td class="hidden-480 ">{{$val['art_description']}}</td>
-                            <td class=" ">{{$val['art_tag']}}</td>
-                            <td class=" ">{{$val['art_editor']}}</td>
-                            <td class=" ">{{$val['art_view']}}</td>
-                            <td class=" ">{{$val['created_at']}}</td>
-                            <td class=" ">{{$val['updated_at']}}</td>
+                            <td class=" "><img src="/{{$val[0]['art_thumb']}}"/></td>
+                            <td class=" "><a href="{{url('/admin/article/'.$val[0]['art_id'].'/edit')}}">{{$val[0]['art_title']}}</a></td>
+                            <td class="hidden-480 ">{{$val[0]['art_description']}}</td>
+                            <td class=" ">{{$val[0]['art_tag']}}</td>
+                            <td class=" ">{{$val[0]['art_editor']}}</td>
+                            <td class=" ">{{$val[0]['art_view']}}</td>
+                            <td class=" ">{{$val[0]['created_at']}}</td>
+                            <td class=" ">{{$val[0]['updated_at']}}</td>
                             <td class=" ">
                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                    <a class="green" href="{{url('/admin/article/'.$val['art_id'].'/edit')}}" title="编辑">
+                                    <a class="green" href="{{url('/admin/article/'.$val[0]['art_id'].'/edit')}}" title="编辑">
                                         <i class="icon-pencil bigger-130"></i>
                                     </a>
 
-                                    <a class="red" href="javascript:;" onclick="deleteart({{$val['art_id']}})" title="删除">
+                                    <a class="red" href="javascript:;" onclick="deleteart({{$val[0]['art_id']}})" title="删除">
                                         <i class="icon-trash bigger-130"></i>
                                     </a>
                                 </div>
