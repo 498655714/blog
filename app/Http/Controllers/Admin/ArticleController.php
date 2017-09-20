@@ -219,8 +219,8 @@ class ArticleController extends CommonController{
 
         $result = array();
 
-        $file = $_FILES['art_thumb'];
-        dd($file);exit;
+        //$file = $_FILES['art_thumb'];
+        dd($_FILES);exit;
 
         if(!preg_match('/^image\//' , $file['type'])
             || !preg_match('/\.(jpe?g|gif|png)$/' , $file['name'])
