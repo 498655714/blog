@@ -24,7 +24,6 @@ class ArticleController extends CommonController{
         $contenttitle_2 = '列表';
         $article = new Article();
         $data = $article->orderBy('created_at','desc')->get();//->paginate(20);
-        dd($data);
         return view('article.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
