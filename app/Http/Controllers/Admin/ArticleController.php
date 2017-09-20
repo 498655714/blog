@@ -24,31 +24,13 @@ class ArticleController extends CommonController{
         $contenttitle_2 = '列表';
         $article = new Article();
         $data = $article->orderBy('created_at','desc')->get();//->paginate(20);
+        dd($data);
         return view('article.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
             'data'=>$data
         ]);
-    }
-    //ajax异步请求修改文章排序
-    public function vieworder(Request $request){
-        $info = $request->all();
-        $article = new Article();
-        $res = $article->where(['cate_id'=>$info['cate_id']])->update(['cate_order'=>$info['cate_order']]);
-        if($res){
-            $data =[
-                'status'=>1,
-                'message'=>'文章文章排序修改成功！'
-            ];
-        }else{
-            $data =[
-                'status'=>2,
-                'message'=>'文章文章排序修改失败！'
-            ];
-        }
-        return $data;
-
     }
     //增加文章页面
     //路径 /admin/article/create
