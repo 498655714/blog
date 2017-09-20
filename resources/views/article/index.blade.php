@@ -58,7 +58,7 @@
                                         <span class="lbl"></span>
                                     </label>
                                 </td>
-                                <td class=" "><img src="/{{$val['art_thumb']}}"/></td>
+                                <td class=" "><img src="/{{$val['art_thumb']}}" style="width: 100px;height: 80px"/></td>
                                 <td class=" "><a href="{{url('/admin/article/'.$val['art_id'].'/edit')}}">{{$val['art_title']}}</a></td>
                                 <td class="hidden-480 ">{{$val['art_description']}}</td>
                                 <td class=" ">{{$val['art_tag']}}</td>

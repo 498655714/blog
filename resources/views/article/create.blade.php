@@ -50,6 +50,16 @@
         <div class="space-6"></div>
 
         <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 作者：</label>
+
+            <div class="col-sm-9">
+                <input id="form-field-2" name="art_editor" placeholder="这里作者" class="input-large" type="text" >
+            </div>
+        </div>
+
+        <div class="space-6"></div>
+
+        <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">关键词：</label>
             <div class="col-sm-6">
                 <textarea id="form-field-11"  name="art_tag" class="autosize-transition form-control" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 36px; width:500px;"></textarea>

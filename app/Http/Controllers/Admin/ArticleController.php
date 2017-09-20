@@ -23,7 +23,7 @@ class ArticleController extends CommonController{
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '列表';
         $article = new Article();
-        $data = $article->orderBy('created_at','desc')->get();//->paginate(20);
+        $data = $article->orderBy('created_at','desc')->paginate(15);;
         return view('article.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
@@ -68,7 +68,6 @@ class ArticleController extends CommonController{
             'art_description.required'=>'文章说明不能为空',
             'art_content.required'=>'文章内容不能为空',
         ];
-
         $article = new Article();
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
