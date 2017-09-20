@@ -84,12 +84,12 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="dataTables_info" id="sample-table-2_info">
-                                {{--共{{$data->total()}}条记录，当前为第{{$data->currentPage()}}页--}}
+                                当前为第{{$val->currentPage()}}页
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="dataTables_paginate paging_bootstrap">
-                                {{--{{$data->links()}}--}}
+                                {{$val->links()}}
                             </div>
                         </div>
                     </div>
