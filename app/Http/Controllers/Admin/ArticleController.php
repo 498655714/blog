@@ -236,7 +236,6 @@ class ArticleController extends CommonController{
             $result['status'] = 'ERR';
             $result['message'] = 'Unspecified error!';
         }
-//        OR
 //        ! $this->resize($save_path, $thumb_path, 150)
         else {
             $save_path = date('YmdHis').rand(100,99).$file['name'];
