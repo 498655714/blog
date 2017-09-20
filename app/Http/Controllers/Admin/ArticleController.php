@@ -236,13 +236,14 @@ class ArticleController extends CommonController{
             $result['status'] = 'ERR';
             $result['message'] = 'Unspecified error!';
         }
+//        OR
+//        ! $this->resize($save_path, $thumb_path, 150)
         else {
-            $save_path = $file['tmp_name'];
-            $thumb_path = 'thumb.jpg';
+            $save_path = date('YmdHis').rand(100,99).$file['name'];
+            //$thumb_path = 'thumb.jpg';
             if(
-                ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$thumb_path)
-                OR
-               ! $this->resize($save_path, $thumb_path, 150)
+                ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$save_path)
+
             )
             {
                 $result['status'] = 'ERR';
@@ -252,7 +253,7 @@ class ArticleController extends CommonController{
             else {
                 $result['status'] = 'OK';
                 $result['message'] = '图片上传成功!';
-                $result['url'] = 'uploads/'.$thumb_path;
+                $result['url'] = 'uploads/'.$save_path;
             }
         }
 
