@@ -238,10 +238,11 @@ class ArticleController extends CommonController{
         }
 //        ! $this->resize($save_path, $thumb_path, 150)
         else {
-            $save_path = date('YmdHis').rand(100,99).$file['name'];
+            $save_path = explode('.',$file['name']);
+            $save_path = date('YmdHis').rand(100,99).$save_path[1] ;
             //$thumb_path = 'thumb.jpg';
             if(
-                ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$save_path)
+                ! move_uploaded_file($file['tmp_name'] , app_path().'/uploads/'.$save_path)
 
             )
             {
