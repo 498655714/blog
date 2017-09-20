@@ -257,7 +257,7 @@
                     if(result.status == 'OK') {
                         layer.msg('恭喜！图片上传成功！', {icon: 6});
                         $('#id-input-file-text').val(result.url);
-                        $('#id-input-file-img').attr('src',"{{asset(result.url)}}");
+                        $('#id-input-file-img').attr('src',result.url);
                     }
                     else {
                         layer.msg(result.message, {icon: 5});

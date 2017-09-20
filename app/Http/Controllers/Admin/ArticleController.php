@@ -221,7 +221,7 @@ class ArticleController extends CommonController{
 
         $file = $_FILES['art_thumb'];
         dd($file);exit;
-        
+
         if(!preg_match('/^image\//' , $file['type'])
             || !preg_match('/\.(jpe?g|gif|png)$/' , $file['name'])
             || getimagesize($file['tmp_name']) === FALSE
