@@ -244,10 +244,7 @@ class ArticleController extends CommonController{
             dd($thumb);exit;
 
             if(
-                ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$save_path)
-                OR
-                !
-            )
+                ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$save_path))
             {
                 $result['status'] = 'ERR';
                 $result['message'] = '图片不能上传!';
