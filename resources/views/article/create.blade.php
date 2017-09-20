@@ -22,7 +22,7 @@
             </strong>
         </div>
     @endif
-    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/article')}}" method="post"  enctype="multipart/form-data">
+    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/article')}}" method="post" >
         {{csrf_field()}}
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 文章分类：</label>
