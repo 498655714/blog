@@ -215,8 +215,101 @@ class ArticleController extends CommonController{
 
     //ajax 异步文件上传处理
     public function imgtoup(){
-        $input = Input::except('_token');
-        dd();
+        $ajax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH']==='XMLHttpRequest';
+
+        $result = array();
+
+        $file = $_FILES['art_thumb'];
+        dd($file);exit;
+        
+        if(!preg_match('/^image\//' , $file['type'])
+            || !preg_match('/\.(jpe?g|gif|png)$/' , $file['name'])
+            || getimagesize($file['tmp_name']) === FALSE
+        ) {
+            $result['status'] = 'ERR';
+            $result['message'] = '无效的图片格式!';
+        }
+        else if($file['size'] > 1048576) {
+            $result['status'] = 'ERR';
+            $result['message'] = '图片大小不能超过1mb!';
+        }
+        else if($file['error'] != 0 || !is_uploaded_file($file['tmp_name'])) {
+            $result['status'] = 'ERR';
+            $result['message'] = 'Unspecified error!';
+        }
+        else {
+            $save_path = $file['name'];
+            $thumb_path = date('YmdHis',time()).rand(100,999).'thumb.jpg';
+
+            if(
+                ! move_uploaded_file($file['tmp_name'] , $save_path)
+                OR
+                !resize($save_path, $thumb_path, 150)
+            )
+            {
+                $result['status'] = 'ERR';
+                $result['message'] = '图片不能上传!';
+            }
+
+            else {
+                $result['status'] = 'OK';
+                $result['message'] = '图片上传成功!';
+                $result['url'] = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).'/'.$thumb_path;
+            }
+        }
+
+
+        $result = json_encode($result);
+        if($ajax) {
+            echo $result;
+        }
+        else {
+            //for browsers that don't support uploading via ajax,
+            //we have used an iframe instead and the response is sent as a script
+            echo '<script language="javascript" type="text/javascript">';
+            echo 'var iframe = window.top.window.jQuery("#' . $_POST['temporary-iframe-id'] . '").data("deferrer").resolve(' . $result . ');';
+            echo '</script>';
+        }
+
+    }
+
+    function resize($in_file, $out_file, $new_width, $new_height=FALSE)
+    {
+        $image = null;
+        $extension = strtolower(preg_replace('/^.*\./', '', $in_file));
+        switch($extension)
+        {
+            case 'jpg':
+            case 'jpeg':
+                $image = imagecreatefromjpeg($in_file);
+                break;
+            case 'png':
+                $image = imagecreatefrompng($in_file);
+                break;
+            case 'gif':
+                $image = imagecreatefromgif($in_file);
+                break;
+        }
+        if(!$image || !is_resource($image)) return false;
+
+
+        $width = imagesx($image);
+        $height = imagesy($image);
+        if($new_height === FALSE)
+        {
+            $new_height = (int)(($height * $new_width) / $width);
+        }
+
+
+        $new_image = imagecreatetruecolor($new_width, $new_height);
+        imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+
+        $ret = imagejpeg($new_image, $out_file, 80);
+
+        imagedestroy($new_image);
+        imagedestroy($image);
+
+        return $ret;
     }
 
     //递归根据pid2进行排序

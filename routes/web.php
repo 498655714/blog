@@ -23,7 +23,7 @@ Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=
     Route::get('showpass', 'IndexController@showpass');//修改密码页
     Route::post('changepass', 'IndexController@changepass');//修改密码
     Route::post('cate/vieworder', 'CategoryController@vieworder');//修改排序
-    Route::post('article/imgtoup', 'ArticleController@imgtoup');//图片上传
+    Route::post('article/imgtoup', 'ArticleController@imgtoup');//图片上传异步
 
     //资源路由
     Route::resource('category','CategoryController');

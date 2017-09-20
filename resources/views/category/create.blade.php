@@ -111,10 +111,6 @@
         jQuery(function($) {
             $('select').comboSelect();
             $('textarea[class*=autosize]').autosize({append: "\n"});
-            $('textarea.limited').inputlimiter({
-                remText: '%n character%s remaining...',
-                limitText: 'max allowed : %n.'
-            });
         });
     </script>
 @endsection

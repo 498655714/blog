@@ -22,7 +22,7 @@
             </strong>
         </div>
     @endif
-    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/article')}}" method="post">
+    <form class="form-horizontal" id="modal-form" role="form" action="{{url('admin/article')}}" method="post"  enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 文章分类：</label>
@@ -71,6 +71,8 @@
 
             <div class="col-sm-5">
                 <div class="ace-file-input ace-file-multiple">
+                    <input  id="id-input-file-text" name="art_thumb" type="text">
+                    <img id="id-input-file-img" src="" hidden/>
                     <input multiple="" id="id-input-file-3" type="file">
                 </div>
             </div>
@@ -89,7 +91,7 @@
                 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
                 <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
 
-                <script id="editor" type="text/plain" style="width:850px;height:500px;"></script>
+                <script id="editor" name="art_content" type="text/plain" style="width:850px;height:500px;"></script>
                 <script type="text/javascript">
 
                     //实例化编辑器
@@ -127,93 +129,153 @@
 @endsection
 @section('footjs')
     <script src="{{asset('assets/js/jquery.autosize.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.inputlimiter.1.3.1.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.maskedinput.min.js')}}"></script>
     <script type="text/javascript">
         jQuery(function($) {
             $('select').comboSelect();
             $('textarea[class*=autosize]').autosize({append: "\n"});
-            $('textarea.limited').inputlimiter({
-                remText: '%n character%s remaining...',
-                limitText: 'max allowed : %n.'
-            });
 
+            var $form = $('#modal-form');
+            var file_input = $form.find('input[type=file]');
+            var upload_in_progress = false;
             $('#id-input-file-3').ace_file_input({
-                style:'well',
-                btn_choose:'选择要上传的图片',
-                btn_change:null,
-                no_icon:'icon-picture',
-                droppable:true,
-                thumbnail:'large',//small| large | fit
-                //选择文件时触发
-                before_change:function(files, dropped) {
-                    var allowed_files = [];
-                    for(var i = 0 ; i < files.length; i++) {
-                        var file = files[i];
-                        if(typeof file === "string") {
-                            //IE8 and browsers that don't support File Object
-                            if(! (/\.(jpe?g|png|gif|bmp)$/i).test(file) ) return false;
-                        }
-                        else {
-                            var type = $.trim(file.type);
-                            if( ( type.length > 0 && ! (/^image\/(jpe?g|png|gif|bmp)$/i).test(type) )
-                                    || ( type.length == 0 && ! (/\.(jpe?g|png|gif|bmp)$/i).test(file.name) )//for android's default browser which gives an empty string for file.type
-                            ) continue;//not an image so don't keep this file
-                        }
+                style: 'well',
+                btn_choose: '选择要上传的图片',
+                btn_change: null,//更改按钮
+                droppable: true,//允许拖放
+                thumbnail: 'large',//预览大小设置 small | large | bit
 
-                        allowed_files.push(file);
+                before_remove: function () {
+                    if (upload_in_progress)
+                        return false;//如果在上传文件中，不允许重置文件在input
+                    return true;
+                },
+                //发生改变前
+                before_change: function (files, dropped) {
+                    var file = files[0];
+                    if (typeof file == "string") {//files is just a file name here (in browsers that don't support FileReader API)
+                        if (!(/\.(jpe?g|png|gif)$/i).test(file)) {
+                            layer.msg('请选择图片文件! 格式：jpeg|png|gif', {icon: 5})
+                            return false;
+                        }
                     }
-                    if(allowed_files.length == 0) return false;
-                    layer.msg('选择的图片必须是.jpg|.jpeg|.png|.gif|.bmp格式',{icon: 5});
-                    return allowed_files;
-                }
-                //,icon_remove:null//set null, to hide remove/reset button
-                /**,before_change:function(files, dropped) {
-						//Check an example below
-						//or examples/file-upload.html
-						return true;
-					}*/
-                /**,before_remove : function() {
-						return true;
-					}*/
-                ,
-                //预览显示错误时触发
-                preview_error : function(filename, error_code) {
-                    //name of the file that failed
-                    //error_code values
-                    //1 = 'FILE_LOAD_FAILED',
-                    //2 = 'IMAGE_LOAD_FAILED',
-                    //3 = 'THUMBNAIL_FAILED'
-                    //layer.msg('',{icon: 5});
-                }
+                    else {
+                        var type = $.trim(file.type);
+                        if (( type.length > 0 && !(/^image\/(jpe?g|png|gif)$/i).test(type) )
+                                || ( type.length == 0 && !(/\.(jpe?g|png|gif)$/i).test(file.name) )//for android's default browser!
+                        ) {
+                            layer.msg('请选择图片文件! 格式：jpeg|png|gif', {icon: 5});
+                            return false;
+                        }
 
-            }).on('change', function(){
-                put_img = $(this).data('ace_input_files');
-                console.log(put_img);
-                return false;
-                layer.msg('你确定上传该图片么？', {
-                    time: 0 //不自动关闭
-                    ,btn: ['确定', '取消']
-                    ,yes: function(index){
-                        layer.close(index);
-                        //上传文件操作
-                        $.post(
-                                "{{url('article/imgtoup')}}",
-                            {'_token':'{{csrf_token()}}'},
-                            function(data){
-                                if(data.status == 1){
-                                    layer.msg(data.message,{icon: 6})
-                                }else{
-                                    layer.msg(data.message,{icon: 5})
-                                }
+                        if (file.size > 1048576) {//~100Kb
+                            layer.msg('图片大小不能超过1mb！', {icon: 5});
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+            }).on('change',function(){
+                var submit_url = "{{url('admin/article/imgtoup')}}";
+                if(!file_input.data('ace_input_files')) return false;//no files selected
+
+                var deferred ;
+                if( "FormData" in window ) {
+                    //for modern browsers that support FormData and uploading files via ajax
+                    var fd = new FormData($form.get(0));
+
+                    //if file has been drag&dropped , append it to FormData
+                    if(file_input.data('ace_input_method') == 'drop') {
+                        var files = file_input.data('ace_input_files');
+                        if(files && files.length > 0) {
+                            fd.append(file_input.attr('name'), files[0]);
+                            //to upload multiple files, the 'name' attribute should be something like this: myfile[]
+                        }
+                    }
+
+                    upload_in_progress = true;
+                    deferred = $.ajax({
+                        url: submit_url,
+                        type: $form.attr('method'),
+                        processData: false,
+                        contentType: false,
+                        dataType: 'json',
+                        data: fd,
+                        xhr: function() {
+                            var req = $.ajaxSettings.xhr();
+                            if (req && req.upload) {
+                                req.upload.addEventListener('progress', function(e) {
+                                    if(e.lengthComputable) {
+                                        var done = e.loaded || e.position, total = e.total || e.totalSize;
+                                        var percent = parseInt((done/total)*100) + '%';
+                                        //percentage of uploaded file
+                                    }
+                                }, false);
                             }
-                        );
+                            return req;
+                        },
+                        beforeSend : function() {
+                        },
+                        success : function() {
+
+                        }
+                    })
+
+                }
+                else {
+                    //for older browsers that don't support FormData and uploading files via ajax
+                    //we use an iframe to upload the form(file) without leaving the page
+                    upload_in_progress = true;
+                    deferred = new $.Deferred
+
+                    var iframe_id = 'temporary-iframe-'+(new Date()).getTime()+'-'+(parseInt(Math.random()*1000));
+                    $form.after('<iframe id="'+iframe_id+'" name="'+iframe_id+'" frameborder="0" width="0" height="0" src="about:blank" style="position:absolute;z-index:-1;"></iframe>');
+                    $form.append('<input type="hidden" name="temporary-iframe-id" value="'+iframe_id+'" />');
+                    $form.next().data('deferrer' , deferred);//save the deferred object to the iframe
+                    $form.attr({'method' : 'POST', 'enctype' : 'multipart/form-data',
+                        'target':iframe_id, 'action':submit_url});
+
+                    $form.get(0).submit();
+
+                    //if we don't receive the response after 60 seconds, declare it as failed!
+                    setTimeout(function(){
+                        var iframe = document.getElementById(iframe_id);
+                        if(iframe != null) {
+                            iframe.src = "about:blank";
+                            $(iframe).remove();
+
+                            deferred.reject({'status':'fail','message':'上传超时!'});
+                        }
+                    } , 60000);
+                }
+
+
+                ////////////////////////////
+                deferred.done(function(result){
+                    upload_in_progress = false;
+
+                    if(result.status == 'OK') {
+                        layer.msg('恭喜！图片上传成功！', {icon: 6});
+                        $('#id-input-file-text').val(result.url);
+                        $('#id-input-file-img').attr('src',"{{asset(result.url)}}");
                     }
+                    else {
+                        layer.msg(result.message, {icon: 5});
+                    }
+                }).fail(function(res){
+                    upload_in_progress = false;
+                    layer.msg('系统错误', {icon: 5});
                 });
 
-                //console.log($(this).data('ace_input_files'));
-                //console.log($(this).data('ace_input_method'));
+                deferred.promise();
+                return false;
             });
+
+            //重置
+            $form.on('reset', function() {
+                file_input.ace_file_input('reset_input');
+            });
+
         });
     </script>
 @endsection
