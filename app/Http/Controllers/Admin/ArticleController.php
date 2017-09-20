@@ -240,6 +240,7 @@ class ArticleController extends CommonController{
         else {
             $save_path = explode('.',$file['name']);
             $save_path = date('YmdHis').rand(100,99).$save_path[1] ;
+            echo public_path().'-----'.app_path().'--------'.base_path();exit();
             //$thumb_path = 'thumb.jpg';
             if(
                 ! move_uploaded_file($file['tmp_name'] , app_path().'/uploads/'.$save_path)
