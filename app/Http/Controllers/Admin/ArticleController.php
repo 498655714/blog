@@ -239,12 +239,11 @@ class ArticleController extends CommonController{
         else {
             $save_path = $file['tmp_name'];
             $thumb_path = 'thumb.jpg';
-            $thumb = $this->resize($save_path, $thumb_path, 150);
-
-            dd($thumb);exit;
-
             if(
-                ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$save_path))
+                ! move_uploaded_file($file['tmp_name'] , base_path().'/uploads/'.$save_path)
+                OR
+               ! $this->resize($save_path, $thumb_path, 150)
+            )
             {
                 $result['status'] = 'ERR';
                 $result['message'] = '图片不能上传!';
