@@ -23,8 +23,7 @@ class ArticleController extends CommonController{
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '列表';
         $article = new Article();
-        $data = $article->orderBy('cate_order','asc')->get();//->paginate(20);
-        $data = $this->make_tree($data,'cate_id','cate_pid',0);
+        $data = $article->orderBy('created_at','desc')->get();//->paginate(20);
         return view('article.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
@@ -78,24 +77,21 @@ class ArticleController extends CommonController{
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '添加';
         $input = Input::except('_token');
-        echo 111;
-        dd($input);exit;
         $rules = [
-            'cate_name'=>'required',
-            'cate_title'=>'required',
-            'cate_order'=>'required',
+            'art_title'=>'required',
+            'art_description'=>'required',
+            'art_content'=>'required',
         ];
         $message = [
-            'cate_name.required'=>'文章名不能为空',
-            'cate_title.required'=>'文章说明不能为空',
-            'cate_order.required'=>'排序不能为空',
+            'art_title.required'=>'文章名不能为空',
+            'art_description.required'=>'文章说明不能为空',
+            'art_content.required'=>'文章内容不能为空',
         ];
 
         $article = new Article();
-        $cates = $article->get();
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
-            $rs = article::create($input);
+            $rs = $article->create($input);
             if($rs){
                 return redirect('/admin/article');
             }else{
@@ -107,6 +103,8 @@ class ArticleController extends CommonController{
             $errors = $validator->errors()->all();
         }
         $url = 'article.create';
+        $category = new Category();
+        $cates = $category->get();
         return view($url,[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
@@ -129,13 +127,14 @@ class ArticleController extends CommonController{
     //路径  	/admin/article/{cate}/edit
     // 路由名称article.edit
     //方法GET
-    public function edit($cate_id){
+    public function edit($art_id){
         $navigation = ['文章管理','文章编辑页'];
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '编辑';
         $article = new Article();
-        $cates = $article->get();
-        $data = $article->where('cate_id',$cate_id)->get();
+        $category = new Category();
+        $cates = $category->get();
+        $data = $article->where('art_id',$art_id)->get();
         return view('article/edit',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
@@ -197,10 +196,9 @@ class ArticleController extends CommonController{
     //路径 /admin/article/{cate}
     // 路由名称article.destroy
     //方法DELETE
-    public function destroy($cate_id){
-        $article = new article();
-        $res = $article->where('cate_id',$cate_id)->delete();
-        $article->where('cate_pid',$cate_id)->update(['cate_pid'=>0]);
+    public function destroy($art_id){
+        $article = new Article();
+        $res = $article->where('art_id',$art_id)->delete();
         if($res){
             $data = [
                 'status'=>1,
@@ -313,32 +311,6 @@ class ArticleController extends CommonController{
         return $ret;
     }
 
-    //递归根据pid2进行排序
-    public function make_tree($list,$id='id',$pid='pid',$root=0,$levels=0){
-        $tree = array();
-        foreach($list as $key=>$val){
-            if($val[$pid] == $root){
-                $list[$key]['_cate_name'] = $list[$key]['cate_name'];
-                $list[$key]['levels'] = $levels;
-                $tree[] = $list[$key];
-                unset($list[$key]);
-                if(! empty($list)){
-                    $child=$this->make_tree($list,$id,$pid,$val[$id],$levels+1);
-                    if(!empty($child)){
-                        foreach($child as $value){
-                            $str = '';
-                            for($i=0;$i<$value['levels'];$i++){
-                                $str .= '　';
-                            }
-                            $value['_cate_name'] = $str.'├─ '.$value['cate_name'];
-                            $tree[] = $value;
-                        }
-                    }
-                }
-            }
-        }
-        return $tree;
-    }
 
 
 }

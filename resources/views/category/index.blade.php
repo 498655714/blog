@@ -18,22 +18,28 @@
                                 </label>
                             </th>
                             <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 145px;" aria-label="Price: activate to sort column ascending">
-                                分类名称
+                                文章缩略图
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 145px;" aria-label="Price: activate to sort column ascending">
+                                文章题目
                             </th>
                             <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 158px;" aria-label="Clicks: activate to sort column ascending">
-                                分类说明
+                                文章描述
                             </th>
                             <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 233px;" aria-label="Update: activate to sort column ascending">
-                                关键词
+                                关键词、标签
                             </th>
                             <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 191px;" aria-label="Status: activate to sort column ascending">
-                                描述
+                                作者
                             </th>
                             <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 191px;" aria-label="Status: activate to sort column ascending">
                                 查看次数
                             </th>
                             <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 191px;" aria-label="Status: activate to sort column ascending">
-                                排序
+                                创建时间
+                            </th>
+                            <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 191px;" aria-label="Status: activate to sort column ascending">
+                                更新时间
                             </th>
                             <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 205px;" aria-label="">
                                 操作
@@ -51,23 +57,21 @@
                                     <span class="lbl"></span>
                                 </label>
                             </td>
-                            <td class=" "><a href="{{url('/admin/category/'.$val['cate_id'].'/edit')}}">{{$val['_cate_name']}}</a></td>
-                            <td class="hidden-480 ">{{$val['cate_title']}}</td>
-                            <td class=" ">{{$val['cate_keywords']}}</td>
-                            <td class=" ">{{$val['cate_description']}}</td>
-                            <td class=" ">{{$val['cate_view']}}</td>
-                            <td class="hidden-480 ">
-                                <input type="text" class="input-mini" onchange="change_order('{{$val['cate_id']}}',$(this).val())" value="{{$val['cate_order']}}"/>
-
-                            </td>
-
+                            <td class=" "><img src="/{{$val['art_thumb']}}"/></td>
+                            <td class=" "><a href="{{url('/admin/article/'.$val['art_id'].'/edit')}}">{{$val['art_title']}}</a></td>
+                            <td class="hidden-480 ">{{$val['art_description']}}</td>
+                            <td class=" ">{{$val['art_tag']}}</td>
+                            <td class=" ">{{$val['art_editor']}}</td>
+                            <td class=" ">{{$val['art_view']}}</td>
+                            <td class=" ">{{$val['created_at']}}</td>
+                            <td class=" ">{{$val['updated_at']}}</td>
                             <td class=" ">
                                 <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
-                                    <a class="green" href="{{url('/admin/category/'.$val['cate_id'].'/edit')}}" title="编辑">
+                                    <a class="green" href="{{url('/admin/article/'.$val['art_id'].'/edit')}}" title="编辑">
                                         <i class="icon-pencil bigger-130"></i>
                                     </a>
 
-                                    <a class="red" href="javascript:;" onclick="deletecate({{$val['cate_id']}})" title="删除">
+                                    <a class="red" href="javascript:;" onclick="deleteart({{$val['art_id']}})" title="删除">
                                         <i class="icon-trash bigger-130"></i>
                                     </a>
                                 </div>
@@ -95,26 +99,11 @@
 @endsection
 @section('footjs')
     <script type="text/javascript">
-        function change_order(cate_id,cate_order){
-            $.ajax({
-                type: "POST",
-                url: "{{url('admin/cate/vieworder')}}",
-                data: {'cate_id':cate_id, '_token':'{{csrf_token()}}','cate_order':cate_order},
-                dataType: "json",
-                success: function(data){
-                    if(data.status == 1){
-                        layer.msg(data.message, {icon: 6});
-                    }else{
-                        layer.msg(data.message, {icon: 5});
-                    }
-                }
-            });
-        }
-        function deletecate(cate_id){
-            layer.confirm('您确定删除该分类吗？', {
+        function deleteart(art_id){
+            layer.confirm('您确定删除该篇文章吗？', {
                 btn: ['是的','再想想'] //按钮
             }, function(){
-                url = "{{url('admin/category')}}/"+cate_id;
+                url = "{{url('admin/article')}}/"+art_id;
                 $.post(url,
                         {'_token':'{{csrf_token()}}','_method':'delete'},
                         function(data){
