@@ -7,7 +7,7 @@
  */
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\CommonController;
-use App\Model\article;
+use App\Model\Article;
 use App\Model\Category;
 use Illuminate\Http\Request;
 use Validator;
