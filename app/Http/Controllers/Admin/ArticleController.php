@@ -62,7 +62,7 @@ class ArticleController extends CommonController{
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '添加';
         $input = Input::except('_token');
-        $art_tag = isset($input['tags'])?explode(',',$input['tags']):'';
+        $art_tag = isset($input['tags'])?implode(',',$input['tags']):'';
         if(!$art_tag){
             unset($input['tags']);
             $input['art_tag'] = $art_tag;
