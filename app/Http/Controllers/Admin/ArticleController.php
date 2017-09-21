@@ -63,6 +63,9 @@ class ArticleController extends CommonController{
         $contenttitle_2 = '添加';
         $input = Input::except('_token');
         $art_tag = isset($input['tags'])?implode(',',$input['tags']):'';
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
+
         if($art_tag){
             unset($input['tags']);
             $input['art_tag'] = $art_tag;
@@ -92,10 +95,18 @@ class ArticleController extends CommonController{
             $flag  = 'danger';
             $errors = $validator->errors()->all();
         }
-        //$url = 'article.create';
+        $url = 'article.create';
         $category = new Category();
-        //$cates = $category->get();
-        return back()->with('flag')->with('errors')->withInput();
+        $cates = $category->get();
+        return view($url,[
+            'navigation'=>$navigation,
+            'contenttitle_1'=>$contenttitle_1,
+            'contenttitle_2'=>$contenttitle_2,
+            'tags'=>$tags,
+            'flag'=>$flag,
+            'errors'=>$errors,
+            'cates'=>$cates,
+        ])->withInput(Input::all());
     }
 
     //全部文章列表
