@@ -165,9 +165,8 @@ class ArticleController extends CommonController{
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
             $article = new Article();
-            if(isset($input['tags'])){
-                $input['art_tag'] = implode(',',$input['tags']);
-                unset($input['tags']);
+            if(isset($input['art_tag'])){
+                $input['art_tag'] = implode(',',$input['art_tag']);
             }
             $rs = $article->where('art_id',$art_id)->update($input);
             if($rs){
