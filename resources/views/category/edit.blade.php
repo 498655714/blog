@@ -64,7 +64,23 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">关键词：</label>
             <div class="col-sm-6">
-                <textarea id="form-field-11"  name="cate_keywords" class="autosize-transition form-control" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px; width:500px;">{{$data[0]['cate_keywords']}}</textarea>
+                @foreach($tags as $tag=>$value)
+                    <label>
+                        <input name="cate_keywords[]" class="ace" type="checkbox"
+                               @if(isset($data[0]['cate_keywords']) && !empty($data[0]['cate_keywords']))
+                                   @foreach($data[0]['cate_keywords'] as $tag)
+                                       @if($tag == $value['tag_id'])
+                                       checked
+                                       @endif
+                                   @endforeach
+                               @endif
+                               value="{{$value['tag_id']}}">
+                        <span class="lbl"> {{$value['tag_name']}}&nbsp;&nbsp;&nbsp;</span>
+                    </label>
+                    @if((!($key+1)%8))
+                        <br>
+                    @endif
+                @endforeach
             </div>
         </div>
 

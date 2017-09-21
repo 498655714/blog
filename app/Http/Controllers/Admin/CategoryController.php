@@ -168,14 +168,19 @@ class CategoryController extends CommonController{
         $contenttitle_1 = '分类管理';
         $contenttitle_2 = '编辑';
         $category = new Category();
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
         $cates = $category->get();
-        $data = $category->where('cate_id',$cate_id)->get();
+        $data = $category->where('cate_id',$cate_id)->get()->toArray();
+        if(!empty($data[0]['cate_keywords']))
+            $data[0]['cate_keywords'] = explode(',',$data[0]['cate_keywords']);
         return view('category/edit',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
             'data'=>$data,
-            'cates'=>$cates
+            'cates'=>$cates,
+            'tags'=>$tags
         ]);
     }
 
@@ -203,6 +208,9 @@ class CategoryController extends CommonController{
         $cates = $category->get();
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
+            if(isset($input['cate_keywords'])){
+                $input['cate_keywords'] = implode(',',$input['cate_keywords']);
+            }
             $rs = Category::where('cate_id',$cate_id)->update($input);
             if($rs){
                 return redirect('/admin/category');
@@ -214,6 +222,8 @@ class CategoryController extends CommonController{
             $flag  = 'danger';
             $errors = $validator->errors()->all();
         }
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
         $url = 'category.edit';
         $input['cate_id'] = $cate_id;
         return view($url,[
@@ -223,6 +233,7 @@ class CategoryController extends CommonController{
             'flag'=>$flag,
             'errors'=>$errors,
             'cates'=>$cates,
+            'tags'=>$tags,
             'data'=>['0'=>$input],
         ]);
     }
