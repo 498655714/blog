@@ -409,6 +409,12 @@
                         <span class="menu-text"> 首页 </span>
                     </a>
                 </li>
+                <li class="active">
+                    <a href="javascript:;" id="showtags">
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> 标签管理 </span>
+                    </a>
+                </li>
                 <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-list"></i>
@@ -435,7 +441,7 @@
                 </li>
                 <li>
                     <a href="#" class="dropdown-toggle">
-                        <i class="icon-list"></i>
+                        <i class="icon-list-alt"></i>
                         <span class="menu-text"> 文章管理 </span>
 
                         <b class="arrow icon-angle-down"></b>
@@ -713,6 +719,16 @@
                 $(this).closest('li').addClass('selected');
             else
                 $(this).closest('li').removeClass('selected');
+        });
+
+        $('#showtags').click(function(){
+            layer.open({
+                type: 2,
+                area: ['700px', '450px'],
+                fixed: false, //不固定
+                maxmin: true,
+                content: '{{url('admin/tag/index')}}'
+            });
         });
 
     })

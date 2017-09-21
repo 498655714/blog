@@ -92,6 +92,10 @@ class ArticleController extends CommonController{
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
             $article = new Article();
+            if(!isset($input['art_thumb'])){
+                $input['art_thumb'] = "uploads/20170921142915100.jpg";
+            }
+
             $rs = $article->create($input);
             if($rs){
                 return redirect('/admin/article');
