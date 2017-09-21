@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\CommonController;
 use App\Model\Article;
 use App\Model\Category;
+use App\Model\Tag;
 use Illuminate\Http\Request;
 use Validator;
 use  Illuminate\Support\Facades\Input;
@@ -40,12 +41,15 @@ class ArticleController extends CommonController{
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '添加';
         $category = new Category();
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
         $cates = $category->get();
         return view('article.create',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
             'cates'=>$cates,
+            'tags'=>$tags,
         ]);
     }
 
@@ -220,7 +224,7 @@ class ArticleController extends CommonController{
 //        ! $this->resize($save_path, $thumb_path, 150)
         else {
             $save_path = explode('.',$file['name']);
-            $save_path = date('YmdHis').rand(100,99).'.'.$save_path[1] ;
+            $save_path = date('YmdHis').rand(100,999).'.'.$save_path[1] ;
             //$thumb_path = 'thumb.jpg';
             if(
                 ! move_uploaded_file($file['tmp_name'] , public_path().'/uploads/'.$save_path)
