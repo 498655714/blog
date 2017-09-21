@@ -62,6 +62,7 @@ class ArticleController extends CommonController{
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '添加';
         $input = Input::except('_token');
+        dd($input);exit();
         $rules = [
             'art_title'=>'required',
             'art_description'=>'required',
@@ -72,9 +73,10 @@ class ArticleController extends CommonController{
             'art_description.required'=>'文章说明不能为空',
             'art_content.required'=>'文章内容不能为空',
         ];
-        $article = new Article();
+
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
+            $article = new Article();
             $rs = $article->create($input);
             if($rs){
                 return redirect('/admin/article');

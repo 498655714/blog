@@ -65,7 +65,7 @@
                 @foreach($tags as $tag=>$value)
                 <label>
                     <input name="tags[]" class="ace" type="checkbox" value="{{$value['tag_id']}}">
-                    <span class="lbl"> {{$value['tag_name']}}</span>
+                    <span class="lbl"> {{$value['tag_name']}}&nbsp;&nbsp;&nbsp;</span>
                 </label>
                 @endforeach
             </div>
