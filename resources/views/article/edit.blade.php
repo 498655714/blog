@@ -64,7 +64,7 @@
             <div class="col-sm-6">
                 @foreach($tags as $tag=>$value)
                     <label>
-                        <input name="tags[]" class="ace" type="checkbox" @if(isset($data[0]['art_tag'])) @foreach($data[0]['art_tag'] as $tag) @if($$tag == $value['tag_id'])) checked @endif @endforeach  @endif value="{{$value['tag_id']}}">
+                        <input name="tags[]" class="ace" type="checkbox" @if(isset($data[0]['art_tag'])) @foreach($data[0]['art_tag'] as $tag) @if($tag == $value['tag_id'])) checked @endif @endforeach  @endif value="{{$value['tag_id']}}">
                         <span class="lbl"> {{$value['tag_name']}}&nbsp;&nbsp;&nbsp;</span>
                     </label>
                     @if((!($key+1)%8))
