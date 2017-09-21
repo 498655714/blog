@@ -67,8 +67,6 @@ class ArticleController extends CommonController{
             unset($input['tags']);
             $input['art_tag'] = $art_tag;
         }
-
-        dd($input);exit();
         $rules = [
             'art_title'=>'required',
             'art_description'=>'required',
@@ -94,17 +92,10 @@ class ArticleController extends CommonController{
             $flag  = 'danger';
             $errors = $validator->errors()->all();
         }
-        $url = 'article.create';
+        //$url = 'article.create';
         $category = new Category();
-        $cates = $category->get();
-        return view($url,[
-            'navigation'=>$navigation,
-            'contenttitle_1'=>$contenttitle_1,
-            'contenttitle_2'=>$contenttitle_2,
-            'flag'=>$flag,
-            'errors'=>$errors,
-            'cates'=>$cates,
-        ]);
+        //$cates = $category->get();
+        return back().with('flag',$flag).with('errors',$errors);
     }
 
     //全部文章列表
