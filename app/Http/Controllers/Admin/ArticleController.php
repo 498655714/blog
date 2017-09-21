@@ -62,11 +62,9 @@ class ArticleController extends CommonController{
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '添加';
         $input = Input::except('_token');
-        $art_tag = isset($input['tags'])?implode(',',$input['tags']):'';
-
-        if($art_tag){
+        if(isset($input['tags'])){
+            $input['art_tag'] = $input['tags'];
             unset($input['tags']);
-            $input['art_tag'] = $art_tag;
         }
         $rules = [
             'art_title'=>'required',
@@ -167,6 +165,7 @@ class ArticleController extends CommonController{
             $article = new Article();
             if(isset($input['tags'])){
                 $input['art_tag'] = implode(',',$input['tags']);
+                unset($input['tags']);
             }
             $rs = $article->where('art_id',$art_id)->update($input);
             if($rs){
