@@ -53,7 +53,21 @@
                                 </td>
                                 <td class=" "><a href="{{url('/admin/category/'.$val['cate_id'].'/edit')}}">{{$val['_cate_name']}}</a></td>
                                 <td class="hidden-480 ">{{$val['cate_title']}}</td>
-                                <td class=" ">{{$val['cate_keywords']}}</td>
+                                <td class=" ">
+                                    @if(isset($val['cate_keywords']) && !empty($val['cate_keywords']))
+                                        <?php $tag = explode(',',$val['cate_keywords']) ?>
+                                        @foreach($tag as $tmpkey => $tag_id)
+                                            @foreach($tags as $tag_key => $tag_val)
+                                                @if($tag_key == $tag_id)
+                                                    {{$tag_val['tag_name']}}
+                                                @endif
+                                            @endforeach
+                                            @if(count($tag) != ($tmpkey+1))
+                                                ,
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </td>
                                 <td class=" ">{{$val['cate_description']}}</td>
                                 <td class=" ">{{$val['cate_view']}}</td>
                                 <td class="hidden-480 ">

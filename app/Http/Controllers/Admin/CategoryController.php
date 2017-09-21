@@ -23,13 +23,16 @@ class CategoryController extends CommonController{
         $contenttitle_1 = '分类管理';
         $contenttitle_2 = '列表';
         $category = new Category();
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
         $data = $category->orderBy('cate_order','asc')->get();//->paginate(20);
         $data = $this->make_tree($data,'cate_id','cate_pid',0);
         return view('category.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
-            'data'=>$data
+            'data'=>$data,
+            'tags'=>$tags
         ]);
     }
     //递归根据pid2进行排序
