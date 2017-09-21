@@ -33,7 +33,7 @@
                 <select name="cate_id" width="150px">
                     <option value="0">--顶级分类--</option>
                     @foreach($cates as $key=>$val)
-                        <option value="{{$val['cate_id']}}" @if(isset($data[0]['cate_id']) && $val['cate_id'] == $data[0]['cate_id']) selected @endif>{{$val['cate_name']}}</option>
+                        <option value="{{$val['cate_id']}}" @if(isset($data[0]['cate_id']) && ($val['cate_id'] == $data[0]['cate_id'])) selected @endif>{{$val['cate_name']}}</option>
                     @endforeach
                 </select>
             </div>
@@ -65,7 +65,7 @@
             <div class="col-sm-6">
                 @foreach($tags as $tag=>$value)
                     <label>
-                        <input name="tags[]" class="ace" type="checkbox" @if(isset($data[0]['art_tag']) && $data[0]['art_tag'] == $value['tag_id']) checked @endif value="{{$value['tag_id']}}">
+                        <input name="tags[]" class="ace" type="checkbox" @if(isset($data[0]['art_tag']) && ($data[0]['art_tag'] == $value['tag_id'])) checked @endif value="{{$value['tag_id']}}">
                         <span class="lbl"> {{$value['tag_name']}}&nbsp;&nbsp;&nbsp;</span>
                     </label>
                     @if((!($key+1)%8))
