@@ -590,6 +590,10 @@
     jQuery(function($) {
         $('ul[class="nav nav-list"] > li').click(function(){
             $('ul[class="nav nav-list"]').find("li[class='active']").removeClass('active');
+            $('ul[class="nav nav-list"] li').find("li[class='active']").removeClass('active');
+            $(this).addClass('active');
+        });
+        $('ul[class="nav nav-list"] > li > ul > li').click(function(){
             $(this).addClass('active');
         });
         $('.easy-pie-chart.percentage').each(function(){
