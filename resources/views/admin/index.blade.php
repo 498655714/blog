@@ -574,12 +574,11 @@
 
 <script src="{{asset('assets/js/ace-elements.min.js')}}"></script>
 <script src="{{asset('assets/js/ace.min.js')}}"></script>
-
+<script src="{{asset('layer/layer.js')}}"></script>
 <!-- inline scripts related to this page -->
 
 <script type="text/javascript">
     function showtag(){
-        alert();
         layer.open({
             type: 2,
             area: ['700px', '450px'],
@@ -589,6 +588,10 @@
         });
     };
     jQuery(function($) {
+        $('ul[class="nav nav-list"] > li').click(function(){
+            $('ul[class="nav nav-list"]').find("li[class='active']").removeClass('active');
+            $(this).addClass('active');
+        });
         $('.easy-pie-chart.percentage').each(function(){
             var $box = $(this).closest('.infobox');
             var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
