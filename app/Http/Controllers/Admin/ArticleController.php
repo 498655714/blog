@@ -131,9 +131,7 @@ class ArticleController extends CommonController{
         $cates = $category->get();
         $data = $article->where('art_id',$art_id)->get()->toArray();
         if(!empty($data['art_tag']))
-            $data['art_tag'] = implode(',',$data['art_tag']);
-
-        dd($data);exit();
+            $data['art_tag'] = explode(',',$data['art_tag']);
         return view('article/edit',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
