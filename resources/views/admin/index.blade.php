@@ -410,7 +410,7 @@
                     </a>
                 </li>
                 <li class="active">
-                    <a href="javascript:;" id="showtags">
+                    <a href="javascript:;" id="showtags" onclick="alert(ddasdfsdafsd);">
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 标签管理 </span>
                     </a>
