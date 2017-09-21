@@ -95,7 +95,7 @@ class ArticleController extends CommonController{
         //$url = 'article.create';
         $category = new Category();
         //$cates = $category->get();
-        return back()->with('flag',$flag)->with('errors',$errors);
+        return back()->with('flag')->with('errors')->withInput();
     }
 
     //全部文章列表
