@@ -409,8 +409,8 @@
                         <span class="menu-text"> 首页 </span>
                     </a>
                 </li>
-                <li class="active">
-                    <a href="javascript:;" id="showtags" onclick="alert(ddasdfsdafsd);">
+                <li>
+                    <a href="{{url('admin/tag/index')}}">
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 标签管理 </span>
                     </a>
