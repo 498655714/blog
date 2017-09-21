@@ -28,7 +28,7 @@
                                 文章描述
                             </th>
                             <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 233px;" aria-label="Update: activate to sort column ascending">
-                                关键词、标签
+                                关键词(标签)
                             </th>
                             <th class="hidden-480 sorting" role="columnheader" tabindex="0" aria-controls="sample-table-2" rowspan="1" colspan="1" style="width: 191px;" aria-label="Status: activate to sort column ascending">
                                 作者
@@ -65,8 +65,12 @@
                                     @if(isset($val['art_tag']) && !empty($val['art_tag']))
                                         <?php $tag = explode(',',$val['art_tag']) ?>
                                         @foreach($tag as $tag_id)
-                                            {{$tag_id}}
-                                            &nbsp;&nbsp;&nbsp;
+                                            @foreach($tags as $tag_key => $tag_val)
+                                                @if($tag_key == $tag_id)
+                                                    {{$tag_val['tag_name']}}
+                                                @endif
+                                            @endforeach
+                                            ,
                                         @endforeach
                                     @endif
                                 </td>
