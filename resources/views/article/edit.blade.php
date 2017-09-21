@@ -110,7 +110,7 @@
                 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
                 <script type="text/javascript" charset="utf-8" src="{{asset('ueditor/lang/zh-cn/zh-cn.js')}}"></script>
 
-                <script id="editor" name="art_content" type="text/plain"  style="width:850px;height:500px;">@if(isset($data[0]['art_content'])) {!! $data[0]['art_content'] !!} @enif</script>
+                <script id="editor" name="art_content" type="text/plain"  style="width:850px;height:500px;">@if(isset($data[0]['art_content'])) {!! $data[0]['art_content'] !!} @endif</script>
                 <script type="text/javascript">
 
                     //实例化编辑器
