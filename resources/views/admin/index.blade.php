@@ -410,7 +410,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{url('admin/tag/index')}}">
+                    <a href="javascript:;" onclick="showtag()">
                         <i class="icon-tag"></i>
                         <span class="menu-text"> 标签管理 </span>
                     </a>
@@ -578,6 +578,16 @@
 <!-- inline scripts related to this page -->
 
 <script type="text/javascript">
+    function showtag(){
+        alert();
+        layer.open({
+            type: 2,
+            area: ['700px', '450px'],
+            fixed: false, //不固定
+            maxmin: true,
+            content: '{{url('admin/tag/index')}}'
+        });
+    };
     jQuery(function($) {
         $('.easy-pie-chart.percentage').each(function(){
             var $box = $(this).closest('.infobox');
@@ -719,17 +729,6 @@
                 $(this).closest('li').addClass('selected');
             else
                 $(this).closest('li').removeClass('selected');
-        });
-
-        $('#showtags').click(function(){
-            alert();
-            layer.open({
-                type: 2,
-                area: ['700px', '450px'],
-                fixed: false, //不固定
-                maxmin: true,
-                content: '{{url('admin/tag/index')}}'
-            });
         });
 
     })
