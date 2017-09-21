@@ -722,6 +722,7 @@
         });
 
         $('#showtags').click(function(){
+            alert();
             layer.open({
                 type: 2,
                 area: ['700px', '450px'],
