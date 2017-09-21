@@ -67,6 +67,9 @@
                     <input name="tags[]" class="ace" type="checkbox"  @if(isset($input['tags']))@foreach($input['tags'] as $tag) @if($tag == $value['tag_id']) checked @endif @endforeach @endif  value="{{$value['tag_id']}}">
                     <span class="lbl"> {{$value['tag_name']}}&nbsp;&nbsp;&nbsp;</span>
                 </label>
+                    @if((!($key+1)%8))
+                        <br>
+                    @endif
                 @endforeach
             </div>
         </div>

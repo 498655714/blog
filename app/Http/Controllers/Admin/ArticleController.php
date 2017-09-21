@@ -127,12 +127,15 @@ class ArticleController extends CommonController{
         $contenttitle_2 = '编辑';
         $article = new Article();
         $category = new Category();
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
         $cates = $category->get();
         $data = $article->where('art_id',$art_id)->get()->toArray();
         return view('article/edit',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
+            'tags'=>$tags,
             'data'=>$data,
             'cates'=>$cates
         ]);
@@ -160,6 +163,8 @@ class ArticleController extends CommonController{
 
         $article = new Article();
         $category = new Category();
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
         $cates = $category->get();
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
@@ -180,6 +185,7 @@ class ArticleController extends CommonController{
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
+            'tags'=>$tags,
             'flag'=>$flag,
             'errors'=>$errors,
             'cates'=>$cates,
