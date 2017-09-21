@@ -63,8 +63,6 @@ class ArticleController extends CommonController{
         $contenttitle_2 = '添加';
         $input = Input::except('_token');
         $art_tag = isset($input['tags'])?implode(',',$input['tags']):'';
-        $tag = new Tag();
-        $tags = $tag->get()->toArray();
 
         if($art_tag){
             unset($input['tags']);
@@ -95,6 +93,9 @@ class ArticleController extends CommonController{
             $flag  = 'danger';
             $errors = $validator->errors()->all();
         }
+
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
         $url = 'article.create';
         $category = new Category();
         $cates = $category->get();
@@ -145,7 +146,7 @@ class ArticleController extends CommonController{
     //路径/admin/article/{cate}
     //路由名称article.update
     // 方法PUT/PATCH
-    public function update($cate_id){
+    public function update($art_id){
         $navigation = ['文章管理','文章编辑页'];
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '编辑';
@@ -161,14 +162,13 @@ class ArticleController extends CommonController{
             'art_content.required'=>'文章内容不能为空',
         ];
 
-        $article = new Article();
-        $category = new Category();
-        $tag = new Tag();
-        $tags = $tag->get()->toArray();
-        $cates = $category->get();
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
-            $rs = $article->where('cate_id',$cate_id)->update($input);
+            $article = new Article();
+            if(isset($input['tags'])){
+                $input['art_tag'] = implode(',',$input['tags']);
+            }
+            $rs = $article->where('art_id',$art_id)->update($input);
             if($rs){
                 return redirect('/admin/article');
             }else{
@@ -179,8 +179,12 @@ class ArticleController extends CommonController{
             $flag  = 'danger';
             $errors = $validator->errors()->all();
         }
+        $category = new Category();
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
+        $cates = $category->get();
         $url = 'article.edit';
-        $input['cate_id'] = $cate_id;
+        $input['art_id'] = $art_id;
         return view($url,[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
