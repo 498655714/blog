@@ -63,14 +63,14 @@
                                 <td class="hidden-480 ">{{$val['art_description']}}</td>
                                 <td class=" ">
                                     @if(isset($val['art_tag']) && !empty($val['art_tag']))
-                                        <?php $tag = explode(',',$val['art_tag']) ?>
-                                        @foreach($tag as $tag_id)
+                                        {{ $tag = explode(',',$val['art_tag']) }}
+                                        @foreach($tag as $tagkey => $tag_id)
                                             @foreach($tags as $tag_key => $tag_val)
                                                 @if($tag_key == $tag_id)
                                                     {{$tag_val['tag_name']}}
                                                 @endif
                                             @endforeach
-                                            ,
+                                                @if(count($tags) != ($tagkey+1)),@endif
                                         @endforeach
                                     @endif
                                 </td>
