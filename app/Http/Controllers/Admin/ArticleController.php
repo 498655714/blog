@@ -19,18 +19,30 @@ class ArticleController extends CommonController{
     //路径 /admin/article
     // 路由名称article.index
     // 方法Get
-    public function index(Request $request){
+    public function index(){
         $navigation = ['文章管理','文章列表页'];
         $contenttitle_1 = '文章管理';
         $contenttitle_2 = '列表';
         $article = new Article();
-        $data = $article->orderBy('created_at','desc')->paginate(15);;
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
+        $tags = $this->adjustArray($tags,'tag_id');
+        $data = $article->orderBy('art_id','desc')->paginate(15);;
         return view('article.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
-            'data'=>$data
+            'data'=>$data,
+            'tags'=>$tags
         ]);
+    }
+
+    public function adjustArray($array,$array_val){
+        $arr = array();
+        foreach($array as $key => $val){
+            $arr[$val[$array_val]] = $val;
+        }
+        return $arr;
     }
     //增加文章页面
     //路径 /admin/article/create
