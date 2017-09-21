@@ -65,11 +65,7 @@
                                     @if(isset($val['art_tag']) && !empty($val['art_tag']))
                                         <?php $tag = explode(',',$val['art_tag']) ?>
                                         @foreach($tag as $tag_id)
-                                            @foreach($tags as $tag_key => $tag_val)
-                                                @if($tag_key == $tag_id)
-                                                    {{$tag_val}}
-                                                @endif
-                                            @endforeach
+                                            {{$tag_id}}
                                             &nbsp;&nbsp;&nbsp;
                                         @endforeach
                                     @endif
