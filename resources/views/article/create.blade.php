@@ -31,7 +31,7 @@
                 <select name="cate_id" width="150px">
                     <option value="0">--顶级分类--</option>
                     @foreach($cates as $key=>$val)
-                        <option value="{{$val['cate_id']}}">{{$val['cate_name']}}</option>
+                        <option value="{{$val['cate_id']}}" {{old('foo', '请输入...')}}>{{$val['cate_name']}}</option>
                     @endforeach
                 </select>
             </div>
@@ -43,7 +43,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 文章标题：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" name="art_title" placeholder="这里写标题" class="input-xxlarge" type="text" >
+                <input id="form-field-2" name="art_title"  placeholder="这里写标题" class="input-xxlarge" type="text" >
             </div>
         </div>
 
