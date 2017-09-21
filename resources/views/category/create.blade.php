@@ -31,7 +31,7 @@
                 <select name="cate_pid" width="150px">
                     <option value="0">--顶级分类--</option>
                     @foreach($cates as $key=>$val)
-                        <option value="{{$val['cate_id']}}">{{$val['cate_name']}}</option>
+                        <option value="{{$val['cate_id']}}"  @if(isset($input['cate_pid']) && $input['cate_pid'] == $val['cate_id']) selected @endif  >{{$val['cate_name']}}</option>
                     @endforeach
                 </select>
             </div>
@@ -43,7 +43,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 分类名称：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" name="cate_name" placeholder="名称" class="input-xlarge" type="text" >
+                <input id="form-field-2" name="cate_name" placeholder="名称" @if(isset($input['cate_name']))value ="{{$input['cate_name']}}" @endif class="input-xlarge" type="text" >
             </div>
         </div>
 
@@ -53,7 +53,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 分类说明：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2" name="cate_title" placeholder="说明分类" class="col-xs-10 col-sm-5" type="text" >
+                <input id="form-field-2" name="cate_title" placeholder="说明分类"  @if(isset($input['cate_title']))value ="{{$input['cate_title']}}" @endif class="col-xs-10 col-sm-5" type="text" >
             </div>
         </div>
 
@@ -63,7 +63,15 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">关键词：</label>
             <div class="col-sm-6">
-                <textarea id="form-field-11"  name="cate_keywords" class="autosize-transition form-control" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 69px; width:500px;"></textarea>
+                @foreach($tags as $tag=>$value)
+                    <label>
+                        <input name="tags[]" class="ace" type="checkbox"  @if(isset($input['tags']))@foreach($input['tags'] as $tag) @if($tag == $value['tag_id']) checked @endif @endforeach @endif  value="{{$value['tag_id']}}">
+                        <span class="lbl"> {{$value['tag_name']}}&nbsp;&nbsp;&nbsp;</span>
+                    </label>
+                    @if((!($key+1)%8))
+                        <br>
+                    @endif
+                @endforeach
             </div>
         </div>
 
@@ -71,7 +79,7 @@
         <div class="form-group">
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2">描述：</label>
             <div class="col-sm-6">
-                <textarea id="form-field-11"  name="cate_description" class="autosize-transition form-control"  style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 140px; width:500px;"></textarea>
+                <textarea id="form-field-11"  name="cate_description" class="autosize-transition form-control"  style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 140px; width:500px;">@if(isset($input['cate_description'])){{$input['cate_description']}}@endif</textarea>
             </div>
         </div>
 
@@ -81,7 +89,7 @@
             <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> 排序：</label>
 
             <div class="col-sm-9">
-                <input id="form-field-2"  name="cate_order"  placeholder="排序" class="input-mini" type="text" >
+                <input id="form-field-2"  name="cate_order" @if(isset($input['cate_order']))value ="{{$input['cate_order']}}"@endif  placeholder="排序" class="input-mini" type="text" >
             </div>
         </div>
         <div class="space-6"></div>

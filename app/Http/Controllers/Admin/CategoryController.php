@@ -8,6 +8,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\CommonController;
 use App\Model\Category;
+use App\Model\Tag;
 use Illuminate\Http\Request;
 use Validator;
 use  Illuminate\Support\Facades\Input;
@@ -85,12 +86,15 @@ class CategoryController extends CommonController{
         $contenttitle_1 = '分类管理';
         $contenttitle_2 = '添加';
         $category = new Category();
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
         $cates = $category->get();
         return view('category.create',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
             'contenttitle_2'=>$contenttitle_2,
             'cates'=>$cates,
+            'tags'=>$tags,
         ]);
     }
 
@@ -118,6 +122,10 @@ class CategoryController extends CommonController{
         $cates = $category->get();
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
+            if(isset($input['tags'])){
+                $input['cate_keywords'] = implode(',',$input['tags']);
+                unset($input['tags']);
+            }
             $rs = Category::create($input);
             if($rs){
                 return redirect('/admin/category');
@@ -129,6 +137,8 @@ class CategoryController extends CommonController{
             $flag  = 'danger';
             $errors = $validator->errors()->all();
         }
+        $tag = new Tag();
+        $tags = $tag->get()->toArray();
         $url = 'category.create';
         return view($url,[
             'navigation'=>$navigation,
@@ -137,7 +147,8 @@ class CategoryController extends CommonController{
             'flag'=>$flag,
             'errors'=>$errors,
             'cates'=>$cates,
-        ]);
+            'tags'=>$tags,
+        ])->withInput(Input::all());
     }
 
     //全部分类列表

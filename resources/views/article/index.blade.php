@@ -70,7 +70,7 @@
                                                     {{$tag_val['tag_name']}}
                                                 @endif
                                             @endforeach
-                                            @if(count($tags) != $tmpkey)
+                                            @if(count($tag) != ($tmpkey+1))
                                                 ,
                                             @endif
                                         @endforeach
