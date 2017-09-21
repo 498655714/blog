@@ -411,7 +411,7 @@
                 </li>
                 <li>
                     <a href="{{url('admin/tag/index')}}">
-                        <i class="icon-dashboard"></i>
+                        <i class="icon-tag"></i>
                         <span class="menu-text"> 标签管理 </span>
                     </a>
                 </li>

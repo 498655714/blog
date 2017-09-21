@@ -14,7 +14,7 @@ class TagController extends CommonController{
     //列出所有标签
     public function index(){
         $tags = new Tag;
-        $tag = $tags->get->toArray();
+        $tag = $tags->get()->toArray();
         return view('',['tags'=>$tag]);
     }
 

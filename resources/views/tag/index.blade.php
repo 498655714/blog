@@ -33,7 +33,7 @@
 </head>
 <body>
 <div  id="CloudLabel">
-    @foreach($tag as $key =>$val)
+    @foreach($tags as $key =>$val)
         <span>{{$val['tag_name']}}</span>&nbsp;
     @endforeach
 </div>
