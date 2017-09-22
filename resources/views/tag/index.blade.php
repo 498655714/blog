@@ -25,9 +25,9 @@
             'label label-inverse'
         ];
     ?>
-    @for($i=0;$i<count($tags);$i++)
-            <span class="{{$data[$i]}}">{{$tags[$i]['tag_name']}}</span>&nbsp;
-    @endfor
+    @foreach($tags as $key=> $val)
+        <span class="{{$data[array_rand($data)]}}">{{$val['tag_name']}}</span>&nbsp;
+    @endforeach
 </div>
 <div>
     <a href="#">添加标签</a>&nbsp;&nbsp;&nbsp;<a href="#">删除标签</a>
