@@ -596,7 +596,7 @@
 
             if (checkElement.is('.submenu') && checkElement.is(':visible')) {
                 checkElement.slideUp(animationSpeed, function() {
-                    checkElement.removeClass('open');
+                    checkElement.removeClass('active open');
                 });
                 checkElement.parent("li").removeClass("active");
             }
@@ -608,14 +608,14 @@
                 //Close all open menus within the parent
                 var ul = parent.find('ul:visible').slideUp(animationSpeed);
                 //Remove the menu-open class from the parent
-                ul.removeClass('open');
+                ul.removeClass('active open');
                 //Get the parent li
                 var parent_li = $this.parent("li");
 
                 //Open the target menu and add the menu-open class
                 checkElement.slideDown(animationSpeed, function() {
                     //Add the class active to the parent li
-                    checkElement.addClass('open');
+                    checkElement.addClass('active open');
                     parent.find('li.active').removeClass('active');
                     parent_li.addClass('active');
                 });
