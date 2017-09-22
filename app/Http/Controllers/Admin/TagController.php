@@ -30,14 +30,14 @@ class TagController extends CommonController{
             }
             if($rs){
                 $flag ='success';
-                $errors = ['message'=>'操作成功！'];
+                $errors = ['操作成功！'];
             }else{
                 $flag ='danger';
-                $errors = ['message'=>'操作失败！'];
+                $errors = ['操作失败！'];
             }
         }else{
-            $flag ='success';
-            $errors = ['danger'=>'数据不能为空！'];
+            $flag ='danger';
+            $errors = ['数据不能为空！'];
         }
         $tag = $tags->get()->toArray();
         return view('tag/index',['errors'=>$errors,'tags'=>$tag,'flag'=>$flag]);
