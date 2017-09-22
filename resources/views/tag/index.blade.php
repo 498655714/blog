@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>标签页面</title>
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/ace-fonts.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/ace.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/ace-rtl.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/ace-skins.min.css')}}" />
@@ -17,12 +20,11 @@
 <body>
 <div >
     <?php $data = [
-            'label',
-            'label label-success arrowed',
-            'label label-warning',
-            'label label-danger arrowed-in',
-            'label label-info arrowed-in-right arrowed',
-            'label label-inverse'
+            'label label-xlg',
+            'label label-xlg label-success arrowed',
+            'label label-xlg  label-warning',
+            'label label-xlg  label-danger arrowed-in',
+            'label label-xlg  label-info arrowed-in-right arrowed'
         ];
     ?>
     @foreach($tags as $key=> $val)
