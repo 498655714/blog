@@ -593,38 +593,14 @@
         $('ul[class="nav nav-list"]').on('click', 'li a', function(e) {
             var $this = $(this);
             var checkElement = $this.next();
-
-            if (checkElement.is('.submenu') && checkElement.is(':visible')) {
-                checkElement.slideUp(animationSpeed, function() {
-                    checkElement.removeClass('active open');
-                });
-                checkElement.parent("li").removeClass("active");
+            if(checkElement.hasClass('submenu')){
+                $this.parent("li").addClass('active open');
+            }else{
+                if($this.parent("ul").hasClass('submenu')){
+                    $this.parent("ul").parent('li').addClass('active open')
+                }
+                $this.parent("li").addClass('active');
             }
-
-            //If the menu is not visible
-            else if ((checkElement.is('.submenu')) && (!checkElement.is(':visible'))) {
-                //Get the parent menu
-                var parent = $this.parents('ul').first();
-                //Close all open menus within the parent
-                var ul = parent.find('ul:visible').slideUp(animationSpeed);
-                //Remove the menu-open class from the parent
-                ul.removeClass('active open');
-                //Get the parent li
-                var parent_li = $this.parent("li");
-
-                //Open the target menu and add the menu-open class
-                checkElement.slideDown(animationSpeed, function() {
-                    //Add the class active to the parent li
-                    checkElement.addClass('active open');
-                    parent.find('li.active').removeClass('active');
-                    parent_li.addClass('active');
-                });
-            }
-            //if this isn't a link, prevent the page from being redirected
-            if (checkElement.is('.submenu')) {
-                e.preventDefault();
-            }
-
 
         });
 
