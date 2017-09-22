@@ -20,9 +20,9 @@
         a:active {color:#ffffff}
     </style>
     <script type="text/javascript">
-        function updatetag(){
-            var tag_name = $(this).html();
-            var tag_id = $(this).attr('id');
+        function updatetag(tag){
+            var tag_name = $(tag).html();
+            var tag_id = $(tag).attr('id');
             alert(tag_name);
             alert(tag_id);
             $('#tag_name').val(tag_name);
@@ -72,7 +72,7 @@
                 ];
                 ?>
                 @foreach($tags as $key=> $val)
-                    <span  class="{{$data[array_rand($data)]}}"><a id="{{$val['tag_id']}}" href="javascript:;" onclick="updatetag()">{{$val['tag_name']}}</a></span>&nbsp;
+                    <span  class="{{$data[array_rand($data)]}}"><a id="{{$val['tag_id']}}" href="javascript:;" onclick="updatetag(this)">{{$val['tag_name']}}</a></span>&nbsp;
                     @if(!(($key+1)%9))
                         <br>
                     @endif
