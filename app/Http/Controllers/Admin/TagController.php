@@ -45,8 +45,8 @@ class TagController extends CommonController{
                 'message'=>'数据不能为空！'
             ];
         }
-
-        return view('tag/index',['data'=>$data]);
+        $tag = $tags->get()->toArray();
+        return view('tag/index',['data'=>$data,'tags'=>$tag]);
     }
 
 }
