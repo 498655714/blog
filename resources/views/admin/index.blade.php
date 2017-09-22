@@ -581,6 +581,7 @@
     function showtag(){
         layer.open({
             type: 2,
+            title: '标签库',
             area: ['700px', '450px'],
             fixed: false, //不固定
             maxmin: true,
@@ -588,14 +589,11 @@
         });
     };
     jQuery(function($) {
-        $('ul[class="nav nav-list"] > li').click(function(){
-            $('ul[class="nav nav-list"]').find("li[class='active']").removeClass('active');
-            $('ul[class="nav nav-list"] li').find("li[class='active']").removeClass('active');
-            $(this).addClass('active');
+
+        $('.nav .nav-list').on('click', 'li a', function(e) {
+            alert();
         });
-        $('ul[class="nav nav-list"] > li > ul > li').click(function(){
-            $(this).addClass('active');
-        });
+
         $('.easy-pie-chart.percentage').each(function(){
             var $box = $(this).closest('.infobox');
             var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
