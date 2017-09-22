@@ -595,12 +595,10 @@
             var checkElement = $this.next();
             $('ul[class="nav nav-list"] li').removeClass('active').removeClass('open');
             if(checkElement.hasClass('submenu')){
-                alert(111);
-                $this.parent("li").addClass('active open');
+                $this.parent("li").addClass('active');
             }else{
-                if($this.parent("ul").hasClass('submenu')){
-                    alert(222);
-                    $this.parent("ul").parent('li').addClass('active open')
+                if($this.parent('li').parent("ul").hasClass('submenu')){
+                    $this.parent('li').parent("ul").parent('li').addClass('active').addClass('open');
                 }
                 $this.parent("li").addClass('active');
             }
