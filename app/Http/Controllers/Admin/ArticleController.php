@@ -27,7 +27,7 @@ class ArticleController extends CommonController{
         $tag = new Tag();
         $tags = $tag->get()->toArray();
         $tags = $this->adjustArray($tags,'tag_id');
-        $data = $article->orderBy('art_id','desc')->paginate(15);;
+        $data = $article->orderBy('art_id','desc')->paginate(15);
         return view('article.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
@@ -55,7 +55,7 @@ class ArticleController extends CommonController{
         $category = new Category();
         $tag = new Tag();
         $tags = $tag->get()->toArray();
-        $cates = $category->get();
+        $cates = $category->get()->toArray();
         $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         return view('article.create',[
             'navigation'=>$navigation,
@@ -118,7 +118,7 @@ class ArticleController extends CommonController{
         $tags = $tag->get()->toArray();
         $url = 'article.create';
         $category = new Category();
-        $cates = $category->get();
+        $cates = $category->get()->toArray();
         $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         return view($url,[
             'navigation'=>$navigation,
@@ -151,7 +151,7 @@ class ArticleController extends CommonController{
         $category = new Category();
         $tag = new Tag();
         $tags = $tag->get()->toArray();
-        $cates = $category->get();
+        $cates = $category->get()->toArray();
         $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         $data = $article->where('art_id',$art_id)->get()->toArray();
         if(!empty($data[0]['art_tag']))
@@ -211,7 +211,7 @@ class ArticleController extends CommonController{
         $category = new Category();
         $tag = new Tag();
         $tags = $tag->get()->toArray();
-        $cates = $category->get();
+        $cates = $category->get()->toArray();
         $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         $url = 'article.edit';
         $input['art_id'] = $art_id;

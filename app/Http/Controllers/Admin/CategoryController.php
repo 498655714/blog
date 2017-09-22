@@ -25,7 +25,7 @@ class CategoryController extends CommonController{
         $category = new Category();
         $tag = new Tag();
         $tags = $tag->get()->toArray();
-        $data = $category->orderBy('cate_order','asc')->get();//->paginate(20);
+        $data = $category->orderBy('cate_order','asc')->get()->toArray();//->paginate(20);
         $data = $this->make_tree($data,'cate_id','cate_pid',0);
         return view('category.index',[
             'navigation'=>$navigation,
@@ -71,7 +71,7 @@ class CategoryController extends CommonController{
         $category = new Category();
         $tag = new Tag();
         $tags = $tag->get()->toArray();
-        $cates = $category->get();
+        $cates = $category->get()->toArray();
         $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         return view('category.create',[
             'navigation'=>$navigation,
@@ -108,7 +108,7 @@ class CategoryController extends CommonController{
         ];
 
         $category = new Category();
-        $cates = $category->get();
+        $cates = $category->get()->toArray();
         $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
@@ -160,7 +160,7 @@ class CategoryController extends CommonController{
         $category = new Category();
         $tag = new Tag();
         $tags = $tag->get()->toArray();
-        $cates = $category->get();
+        $cates = $category->get()->toArray();
         $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         $data = $category->where('cate_id',$cate_id)->get()->toArray();
         if(!empty($data[0]['cate_keywords']))
@@ -201,7 +201,7 @@ class CategoryController extends CommonController{
         ];
 
         $category = new Category();
-        $cates = $category->get();
+        $cates = $category->get()->toArray();
         $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
