@@ -10,12 +10,24 @@
     <link rel="stylesheet" href="{{asset('assets/css/ace-rtl.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/ace-skins.min.css')}}" />
     <script src="{{asset('assets/js/jquery-1.8.0.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/js/jquery-1.10.2.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/js/jquery-2.0.3.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/ace-elements.min.js')}}"></script>
     <script src="{{asset('assets/js/ace.min.js')}}"></script>
+    <style>
+        a {text-decoration:none;}
+        a:link {color:#000000;text-decoration:none;}
+        a:visited {color:#000000}
+        a:hover {text-decoration:underline}
+        a:active {color:#000000}
+    </style>
     <script type="text/javascript">
         function updatetag(){
-            $('#tag_name').val($(this).html());
-            $('#tag_id').val($(this).attr('id'));
+            alert(111);
+            var tag_name = $(this).html();
+            var tag_id = $(this).attr('id');
+            $('#tag_name').val(tag_name);
+            $('#tag_id').val(tag_id);
         }
         function submit_tag(){
             $.post(
