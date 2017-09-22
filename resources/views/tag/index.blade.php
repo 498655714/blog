@@ -26,7 +26,7 @@
         ];
     ?>
     @for($i=0;$i<count($tags);$i++)
-            <span class="{{$data[$i]}}">{{$val['tag_name']}}</span>&nbsp;
+            <span class="{{$data[$i]}}">{{$tags[$i]['tag_name']}}</span>&nbsp;
     @endfor
 </div>
 <div>
