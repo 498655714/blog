@@ -594,9 +594,14 @@
             var $this = $(this);
             var checkElement = $this.next();
             $('ul[class="nav nav-list"] li').removeClass('active').removeClass('open');
+            $(this).addClass('active');
             if (checkElement.is('.submenu')) {
-                checkElement.parent("li").addClass("active open");
-                checkElement.addClass(active);
+                checkElement.parent("li").addClass("open");
+                //checkElement.addClass(active);
+            }
+
+            if( $(this).parents('ul').is('.submenu')){
+                $(this).parents('ul').parent("li").addClass("active open");
             }
 
         });
