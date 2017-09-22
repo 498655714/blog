@@ -26,22 +26,15 @@
             $('#tag_name').val(tag_name);
             $('#tag_id').val(tag_id);
         }
-        function submit_tag(){
-            var  tag_name  = $('#tag_name').val();
-            var tag_id = $('#tag_id').val();
-            $.post(
-                    '{{url("admin/tag/edit")}}',
-                    {'_token':'{{csrf_token()}}','tag_name':tag_name,'tag_id':tag_id},
-                    function(data){
-                        if(data.status == 1){
-                            location.href =location.href;
-                            layer.msg(data.message,{icon: 6})
-                        }else{
-                            layer.msg(data.message,{icon: 5})
-                        }
-                    }
-            );
-        }
+        $(function(){
+            @if(isset($data['status']))
+                @if($data['status'] == 1)
+                    layer.msg(data.message,{icon: 6});
+                @else
+                    layer.msg(data.message,{icon: 5});
+                @endif
+            @endif
+        });
     </script>
 </head>
 <body>
@@ -50,11 +43,11 @@
         <div class="col-xs-12">
             <div class="space-6"></div>
             <div>
-                <form id="tags_form">
+                <form id="tags_form" action="{{url("admin/tag/edit")}}" method="post">
                     {{csrf_field()}}
                     <input id="tag_name" name="tag_name" placeholder="写要添加的标签"class="input-xlarge" type="text" >
                     <input id="tag_id" name="tag_id" type="hidden" >
-                    <button class="btn btn-sm btn-success" onclick="submit_tag()">
+                    <button class="btn btn-sm btn-success" onclick="submit()">
                         <i class="icon-save"></i>
                         保存
                     </button>

@@ -46,7 +46,7 @@ class TagController extends CommonController{
             ];
         }
 
-        return $data;
+        return view('tag/index',['data'=>$data]);
     }
 
 }
