@@ -72,6 +72,7 @@ class CategoryController extends CommonController{
         $tag = new Tag();
         $tags = $tag->get()->toArray();
         $cates = $category->get();
+        $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         return view('category.create',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
@@ -108,6 +109,7 @@ class CategoryController extends CommonController{
 
         $category = new Category();
         $cates = $category->get();
+        $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
             if(isset($input['tags'])){
@@ -159,6 +161,7 @@ class CategoryController extends CommonController{
         $tag = new Tag();
         $tags = $tag->get()->toArray();
         $cates = $category->get();
+        $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         $data = $category->where('cate_id',$cate_id)->get()->toArray();
         if(!empty($data[0]['cate_keywords']))
             $data[0]['cate_keywords'] = explode(',',$data[0]['cate_keywords']);
@@ -199,6 +202,7 @@ class CategoryController extends CommonController{
 
         $category = new Category();
         $cates = $category->get();
+        $cates = $this->make_tree($cates,'cate_id','cate_pid',0);
         $validator = Validator::make($input,$rules,$message);
         if($validator->passes()){
             if(isset($input['cate_keywords'])){
