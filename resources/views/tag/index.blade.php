@@ -14,6 +14,9 @@
     <script src="{{asset('assets/js/ace.min.js')}}"></script>
     <script type="text/javascript">
         $(function () {
+            $(span).click(function(){
+                alert($(this).html());
+            });
         });
     </script>
 </head>
@@ -21,6 +24,17 @@
 <div  class="page-content">
     <div class="row">
         <div class="col-xs-12">
+            <div class="space-6"></div>
+            <div>
+                <form id="">
+                    <input name="tag_name" placeholder="写要添加的标签"class="input-small" type="text" >
+                    <input name="tag_id" type="hidden" >
+                    <button class="btn btn-success">
+                        <i class="icon-save"></i>
+                        保存
+                    </button>
+                </form>
+            </div>
             <div class="space-6"></div>
             <div >
                 <?php $data = [
@@ -34,20 +48,12 @@
                 ?>
                 @foreach($tags as $key=> $val)
                     <span class="{{$data[array_rand($data)]}}">{{$val['tag_name']}}</span>&nbsp;
+                    @if(!($key%9))
+                        <br>
+                    @endif
                 @endforeach
             </div>
-            <div class="space-6"></div>
-            <div>
-                <button class="btn btn-success">
-                    <i class="icon-ok"></i>
-                    添加标签
-                </button>
-                &nbsp;&nbsp;&nbsp;
-                <button class="btn btn-danger">
-                    <i class="icon-reply"></i>
-                    删除标签
-                </button>
-            </div>
+
         </div>
     </div>
 </div>
