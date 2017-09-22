@@ -589,7 +589,6 @@
         });
     };
     jQuery(function($) {
-        var animationSpeed = 300;
         $('ul[class="nav nav-list"]').on('click', 'li a', function(e) {
             var $this = $(this);
             var checkElement = $this.next();
