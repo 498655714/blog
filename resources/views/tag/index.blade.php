@@ -47,7 +47,7 @@
                 ];
                 ?>
                 @foreach($tags as $key=> $val)
-                    <span class="{{$data[array_rand($data)]}}">{{$val['tag_name']}}</span>&nbsp;
+                    <a><span class="{{$data[array_rand($data)]}}">{{$val['tag_name']}}</span></a>&nbsp;
                     @if(!($key%9))
                         <br>
                     @endif
