@@ -28,7 +28,7 @@
         }
         function submit_tag(){
             $.post(
-                    '{{url("admin/tag/edit")}}',
+                    '{{url("edit")}}',
                     {'_token':'{{csrf_token()}}','tag_name':$('#tag_name').val(),'tag_id':$('#tag_id').val()},
                     function(data){
                         if(data.status == 1){
@@ -48,7 +48,7 @@
         <div class="col-xs-12">
             <div class="space-6"></div>
             <div>
-                <form id="tags_form" action="admin/tag/edit" method="post">
+                <form id="tags_form">
                     {{csrf_field()}}
                     <input id="tag_name" name="tag_name" placeholder="写要添加的标签"class="input-xlarge" type="text" >
                     <input id="tag_id" name="tag_id" type="hidden" >
