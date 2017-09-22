@@ -18,21 +18,39 @@
     </script>
 </head>
 <body>
-<div >
-    <?php $data = [
-            'label label-xlg',
-            'label label-xlg label-success arrowed',
-            'label label-xlg  label-warning',
-            'label label-xlg  label-danger arrowed-in',
-            'label label-xlg  label-info arrowed-in-right arrowed'
-        ];
-    ?>
-    @foreach($tags as $key=> $val)
-        <span class="{{$data[array_rand($data)]}}">{{$val['tag_name']}}</span>&nbsp;
-    @endforeach
+<div  class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="space-6"></div>
+            <div >
+                <?php $data = [
+                        'label label-xlg',
+                        'label label-xlg label-success arrowed',
+                        'label label-xlg  label-warning',
+                        'label label-xlg  label-danger arrowed-in',
+                        'label label-xlg  label-inverse arrowed-in',
+                        'label label-xlg  label-info arrowed-in-right arrowed'
+                ];
+                ?>
+                @foreach($tags as $key=> $val)
+                    <span class="{{$data[array_rand($data)]}}">{{$val['tag_name']}}</span>&nbsp;
+                @endforeach
+            </div>
+            <div class="space-6"></div>
+            <div>
+                <button class="btn btn-success">
+                    <i class="icon-ok"></i>
+                    添加标签
+                </button>
+                &nbsp;&nbsp;&nbsp;
+                <button class="btn btn-danger">
+                    <i class="icon-reply"></i>
+                    删除标签
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    <a href="#">添加标签</a>&nbsp;&nbsp;&nbsp;<a href="#">删除标签</a>
-</div>
+
 </body>
 </html>
