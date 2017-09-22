@@ -79,14 +79,19 @@ class ArticleController extends CommonController{
             unset($input['tags']);
         }
         $rules = [
-            'art_title'=>'required',
-            'art_description'=>'required',
-            'art_content'=>'required',
+            'art_title'=>'required|size:100',
+            'art_editor'=>'size:50',
+            'art_description'=>'required|size:255',
+            'art_content'=>'required|size:65535',
         ];
         $message = [
             'art_title.required'=>'文章名不能为空',
+            'art_title.size'=>'文章名过长',
+            'art_editor.size'=>'作者名过长',
             'art_description.required'=>'文章说明不能为空',
+            'art_description.size'=>'文章说明过长',
             'art_content.required'=>'文章内容不能为空',
+            'art_content.size'=>'文章内容过长',
         ];
 
         $validator = Validator::make($input,$rules,$message);
@@ -168,14 +173,19 @@ class ArticleController extends CommonController{
         $contenttitle_2 = '编辑';
         $input = Input::except('_token','_method');
         $rules = [
-            'art_title'=>'required',
-            'art_description'=>'required',
-            'art_content'=>'required',
+            'art_title'=>'required|size:100',
+            'art_editor'=>'size:50',
+            'art_description'=>'required|size:255',
+            'art_content'=>'required|size:65535',
         ];
         $message = [
             'art_title.required'=>'文章名不能为空',
+            'art_title.size'=>'文章名过长',
+            'art_editor.size'=>'作者名过长',
             'art_description.required'=>'文章说明不能为空',
+            'art_description.size'=>'文章说明过长',
             'art_content.required'=>'文章内容不能为空',
+            'art_content.size'=>'文章内容过长',
         ];
 
         $validator = Validator::make($input,$rules,$message);

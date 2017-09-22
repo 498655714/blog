@@ -35,35 +35,15 @@ class CategoryController extends CommonController{
             'tags'=>$tags
         ]);
     }
-    //递归根据pid2进行排序
-    public function make_tree($list,$id='id',$pid='pid',$root=0,$levels=0){
-        $tree = array();
-        foreach($list as $key=>$val){
-            if($val[$pid] == $root){
-                $list[$key]['_cate_name'] = $list[$key]['cate_name'];
-                $list[$key]['levels'] = $levels;
-                $tree[] = $list[$key];
-                unset($list[$key]);
-                if(! empty($list)){
-                    $child=$this->make_tree($list,$id,$pid,$val[$id],$levels+1);
-                    if(!empty($child)){
-                        foreach($child as $value){
-                            $str = '';
-                            for($i=0;$i<$value['levels'];$i++){
-                                $str .= '　';
-                            }
-                            $value['_cate_name'] = $str.'├─ '.$value['cate_name'];
-                            $tree[] = $value;
-                        }
-                    }
-                }
-            }
-        }
-        return $tree;
-    }
     //ajax异步请求修改分类排序
     public function vieworder(Request $request){
         $info = $request->all();
+        if(!is_numeric($info['cate_order'] ) || !is_int($info['cate_order'] || $info['cate_order'] < 0 || $info['cate_order'] >255)){
+            return $data =[
+                'status'=>3,
+                'message'=>'文章分类排序必须是0-255数字整数！'
+            ];
+        }
         $category = new Category();
         $res = $category->where(['cate_id'=>$info['cate_id']])->update(['cate_order'=>$info['cate_order']]);
         if($res){
@@ -111,14 +91,19 @@ class CategoryController extends CommonController{
         $contenttitle_2 = '添加';
         $input = Input::except('_token');
         $rules = [
-            'cate_name'=>'required',
-            'cate_title'=>'required',
-            'cate_order'=>'required',
+            'cate_name'=>'required|size:50',
+            'cate_title'=>'required|size:255',
+            'cate_description'=>'size:255',
+            'cate_order'=>'required|integer|between:0,255',
         ];
         $message = [
             'cate_name.required'=>'分类名不能为空',
+            'cate_name.size'=>'分类名过长',
             'cate_title.required'=>'分类说明不能为空',
+            'cate_description.size'=>'分类描述过长',
             'cate_order.required'=>'排序不能为空',
+            'cate_order.integer'=>'排序必须是整数',
+            'cate_order.between'=>'排序必须在0-255之间的整数',
         ];
 
         $category = new Category();
@@ -197,14 +182,19 @@ class CategoryController extends CommonController{
         $contenttitle_2 = '编辑';
         $input = Input::except('_token','_method');
         $rules = [
-            'cate_name'=>'required',
-            'cate_title'=>'required',
-            'cate_order'=>'required',
+            'cate_name'=>'required|size:50',
+            'cate_title'=>'required|size:255',
+            'cate_description'=>'size:255',
+            'cate_order'=>'required|integer|between:0,255',
         ];
         $message = [
             'cate_name.required'=>'分类名不能为空',
+            'cate_name.size'=>'分类名过长',
             'cate_title.required'=>'分类说明不能为空',
+            'cate_description.size'=>'分类描述过长',
             'cate_order.required'=>'排序不能为空',
+            'cate_order.integer'=>'排序必须是整数',
+            'cate_order.between'=>'排序必须在0-255之间的整数',
         ];
 
         $category = new Category();
