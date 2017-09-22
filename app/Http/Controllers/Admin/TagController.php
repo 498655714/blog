@@ -11,14 +11,14 @@ use Illuminate\Http\Request;
 use Validator;
 use  Illuminate\Support\Facades\Input;
 class TagController extends CommonController{
-    //ÁÐ³öËùÓÐ±êÇ©
+    //åˆ—å‡ºæ‰€æœ‰æ ‡ç­¾
     public function index(){
         $tags = new Tag;
         $tag = $tags->get()->toArray();
         return view('tag/index',['tags'=>$tag]);
     }
 
-    //Ìí¼Ó±êÇ©
+    //æ·»åŠ æ ‡ç­¾
     public function edit(){
         $input = Input::except('_token');
         $tags = new Tag;
@@ -30,14 +30,14 @@ class TagController extends CommonController{
             }
             if($rs){
                 $flag ='success';
-                $errors = ['²Ù×÷³É¹¦£¡'];
+                $errors = ['æ“ä½œæˆåŠŸï¼'];
             }else{
                 $flag ='danger';
-                $errors = ['²Ù×÷Ê§°Ü£¡'];
+                $errors = ['æ“ä½œå¤±è´¥ï¼'];
             }
         }else{
             $flag ='danger';
-            $errors = ['Êý¾Ý²»ÄÜÎª¿Õ£¡'];
+            $errors = ['æ•°æ®ä¸èƒ½ä¸ºç©ºï¼'];
         }
         $tag = $tags->get()->toArray();
         return view('tag/index',['errors'=>$errors,'tags'=>$tag,'flag'=>$flag]);

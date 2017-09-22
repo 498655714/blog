@@ -74,9 +74,6 @@
                 ?>
                 @foreach($tags as $key=> $val)
                     <span  class="{{$data[array_rand($data)]}}"><a id="{{$val['tag_id']}}" href="javascript:;" onclick="updatetag(this)">{{$val['tag_name']}}</a></span>&nbsp;
-                    @if(!(($key+1)%9))
-                        <br>
-                    @endif
                 @endforeach
             </div>
 
