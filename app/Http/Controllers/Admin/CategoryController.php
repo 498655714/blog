@@ -27,6 +27,7 @@ class CategoryController extends CommonController{
         $tags = $tag->get()->toArray();
         $data = $category->orderBy('cate_order','asc')->get()->toArray();//->paginate(20);
         $data = $this->make_tree($data,'cate_id','cate_pid',0);
+        dd($data);exit;
         return view('category.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
