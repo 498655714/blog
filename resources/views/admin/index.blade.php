@@ -593,10 +593,10 @@
         $('ul[class="nav nav-list"]').on('click', 'li a', function(e) {
             var $this = $(this);
             var checkElement = $this.next();
-            $('ul[class="nav nav-list"] li').removeClass('active').removeClass('open');
             if(checkElement.hasClass('submenu')){
-                $this.parent("li").addClass('active');
+                $this.parent("li").addClass('open');
             }else{
+                $('ul[class="nav nav-list"] li').removeClass('active').removeClass('open');
                 if($this.parent('li').parent("ul").hasClass('submenu')){
                     $this.parent('li').parent("ul").parent('li').addClass('active').addClass('open');
                 }
