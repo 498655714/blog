@@ -27,9 +27,13 @@
             $('#tag_id').val(tag_id);
         }
         function submit_tag(){
+            var  tag_name  = $('#tag_name').val();
+            var tag_id = $('#tag_id').val();
+            alert(tag_name);alert(tag_id);
+            return false;
             $.post(
-                    '{{url("edit")}}',
-                    {'_token':'{{csrf_token()}}','tag_name':$('#tag_name').val(),'tag_id':$('#tag_id').val()},
+                    '{{url("admin/tag/edit")}}',
+                    {'_token':'{{csrf_token()}}','tag_name':tag_name,'tag_id':tag_id},
                     function(data){
                         if(data.status == 1){
                             location.href =location.href;
