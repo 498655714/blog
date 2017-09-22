@@ -14,8 +14,10 @@
     <script src="{{asset('assets/js/ace.min.js')}}"></script>
     <script type="text/javascript">
         $(function () {
-            $(span).click(function(){
+            $('span').click(function(){
                 alert($(this).html());
+                $('#tag_name').val($(this).html());
+                $('#tag_id').val($(this).attr('id'));
             });
         });
     </script>
@@ -26,10 +28,10 @@
         <div class="col-xs-12">
             <div class="space-6"></div>
             <div>
-                <form id="">
-                    <input name="tag_name" placeholder="写要添加的标签"class="input-xlarge" type="text" >
-                    <input name="tag_id" type="hidden" >
-                    <button class="btn btn-sm btn-success">
+                <form id="tags_form" action="admin/tag/edit" method="post">
+                    <input id="tag_name" name="tag_name" placeholder="写要添加的标签"class="input-xlarge" type="text" >
+                    <input id="tag_id" name="tag_id" type="hidden" >
+                    <button class="btn btn-sm btn-success" onclick="submit">
                         <i class="icon-save"></i>
                         保存
                     </button>
@@ -47,7 +49,7 @@
                 ];
                 ?>
                 @foreach($tags as $key=> $val)
-                    <a><span class="{{$data[array_rand($data)]}}">{{$val['tag_name']}}</span></a>&nbsp;
+                    <span id="{{$val['tag_id']}}" class="{{$data[array_rand($data)]}}">{{$val['tag_name']}}</span>&nbsp;
                     @if(!(($key+1)%9))
                         <br>
                     @endif
