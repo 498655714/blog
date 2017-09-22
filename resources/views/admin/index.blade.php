@@ -593,6 +593,7 @@
         $('ul[class="nav nav-list"]').on('click', 'li a', function(e) {
             var $this = $(this);
             var checkElement = $this.next();
+            $('ul[class="nav nav-list"] li').removeClass('active').removeClass('open');
             if(checkElement.hasClass('submenu')){
                 $this.parent("li").addClass('active open');
             }else{
