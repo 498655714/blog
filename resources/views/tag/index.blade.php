@@ -27,9 +27,9 @@
             <div class="space-6"></div>
             <div>
                 <form id="">
-                    <input name="tag_name" placeholder="写要添加的标签"class="input-small" type="text" >
+                    <input name="tag_name" placeholder="写要添加的标签"class="input-xlarge" type="text" >
                     <input name="tag_id" type="hidden" >
-                    <button class="btn btn-success">
+                    <button class="btn btn-sm btn-success">
                         <i class="icon-save"></i>
                         保存
                     </button>
@@ -48,7 +48,7 @@
                 ?>
                 @foreach($tags as $key=> $val)
                     <a><span class="{{$data[array_rand($data)]}}">{{$val['tag_name']}}</span></a>&nbsp;
-                    @if(!($key%9))
+                    @if(!(($key+1)%9))
                         <br>
                     @endif
                 @endforeach

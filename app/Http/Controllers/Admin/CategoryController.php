@@ -27,7 +27,6 @@ class CategoryController extends CommonController{
         $tags = $tag->get()->toArray();
         $data = $category->orderBy('cate_order','asc')->get()->toArray();//->paginate(20);
         $data = $this->make_tree($data,'cate_id','cate_pid',0);
-        dd($data);exit;
         return view('category.index',[
             'navigation'=>$navigation,
             'contenttitle_1'=>$contenttitle_1,
@@ -93,16 +92,16 @@ class CategoryController extends CommonController{
         $contenttitle_2 = '添加';
         $input = Input::except('_token');
         $rules = [
-            'cate_name'=>'required|size:50',
-            'cate_title'=>'required|size:255',
-            'cate_description'=>'size:255',
+            'cate_name'=>'required|max:50',
+            'cate_title'=>'required|max:255',
+            'cate_description'=>'max:255',
             'cate_order'=>'required|integer|between:0,255',
         ];
         $message = [
             'cate_name.required'=>'分类名不能为空',
-            'cate_name.size'=>'分类名过长',
+            'cate_name.max'=>'分类名过长',
             'cate_title.required'=>'分类说明不能为空',
-            'cate_description.size'=>'分类描述过长',
+            'cate_description.max'=>'分类描述过长',
             'cate_order.required'=>'排序不能为空',
             'cate_order.integer'=>'排序必须是整数',
             'cate_order.between'=>'排序必须在0-255之间的整数',
@@ -186,16 +185,16 @@ class CategoryController extends CommonController{
         $contenttitle_2 = '编辑';
         $input = Input::except('_token','_method');
         $rules = [
-            'cate_name'=>'required|size:50',
-            'cate_title'=>'required|size:255',
-            'cate_description'=>'size:255',
+            'cate_name'=>'required|max:50',
+            'cate_title'=>'required|max:255',
+            'cate_description'=>'max:255',
             'cate_order'=>'required|integer|between:0,255',
         ];
         $message = [
             'cate_name.required'=>'分类名不能为空',
-            'cate_name.size'=>'分类名过长',
+            'cate_name.max'=>'分类名过长',
             'cate_title.required'=>'分类说明不能为空',
-            'cate_description.size'=>'分类描述过长',
+            'cate_description.max'=>'分类描述过长',
             'cate_order.required'=>'排序不能为空',
             'cate_order.integer'=>'排序必须是整数',
             'cate_order.between'=>'排序必须在0-255之间的整数',

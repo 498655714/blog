@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 class CommonController extends Controller
 {
 
-    //递归根据pid2进行排序
+    //閫掑綊鏍规嵁pid2杩涜鎺掑簭
     public function make_tree($list,$id='id',$pid='pid',$root=0,$levels=0){
         $tree = array();
         foreach($list as $key=>$val){
@@ -22,9 +22,9 @@ class CommonController extends Controller
                         foreach($child as $value){
                             $str = '';
                             for($i=0;$i<$value['levels'];$i++){
-                                $str .= '　';
+                                $str .= '銆�';
                             }
-                            $value['_cate_name'] = $str.'├─ '.$value['cate_name'];
+                            $value['_cate_name'] = $str.'鈹溾攢 '.$value['cate_name'];
                             $tree[] = $value;
                         }
                     }
