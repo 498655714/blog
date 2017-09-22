@@ -593,11 +593,10 @@
         $('ul[class="nav nav-list"]').on('click', 'li a', function(e) {
             var $this = $(this);
             var checkElement = $this.next();
+            $('ul[class="nav nav-list"] li').removeClass('active').removeClass('open');
             if (checkElement.is('.submenu')) {
-                checkElement.slideUp(animationSpeed, function() {
-                    checkElement.removeClass('active open');
-                });
-                //checkElement.parent("li").removeClass("active");
+                checkElement.parent("li").addClass("active open");
+                checkElement.addClass(active);
             }
 
         });
