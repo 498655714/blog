@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/ace.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/ace-rtl.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/ace-skins.min.css')}}" />
-    <script src="{{asset('assets/js/jquery-2.0.3.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/js/jquery-1.8.0.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/ace-elements.min.js')}}"></script>
     <script src="{{asset('assets/js/ace.min.js')}}"></script>
     <script type="text/javascript">
