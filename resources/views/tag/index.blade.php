@@ -26,21 +26,29 @@
             $('#tag_name').val(tag_name);
             $('#tag_id').val(tag_id);
         }
-        $(function(){
-            @if(isset($data['status']))
-                @if($data['status'] == 1)
-                    layer.msg(data.message,{icon: 6});
-                @else
-                    layer.msg(data.message,{icon: 5});
-                @endif
-            @endif
-        });
     </script>
 </head>
 <body>
 <div  class="page-content">
     <div class="row">
         <div class="col-xs-12">
+            @if(count($errors)>0)
+                <div class="alert alert-block alert-{{$flag}}">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <i class="icon-remove"></i>
+                    </button>
+                    @if($flag == 'success')
+                        <span class="label label-success arrowed">正确</span>
+                    @else
+                        <span class="label label-danger arrowed-in">错误</span>
+                    @endif
+                    <strong class="red">
+                        @foreach($errors as $error)
+                            <span>{{$error}}</span>
+                        @endforeach
+                    </strong>
+                </div>
+            @endif
             <div class="space-6"></div>
             <div>
                 <form id="tags_form" action="{{url("admin/tag/edit")}}" method="post">

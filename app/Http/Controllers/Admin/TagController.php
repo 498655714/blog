@@ -29,24 +29,18 @@ class TagController extends CommonController{
                 $rs = $tags->create($input);
             }
             if($rs){
-                $data = [
-                    'status'=>1,
-                    'message'=>'操作成功！'
-                ];
+                $flag ='success';
+                $errors = ['message'=>'操作成功！'];
             }else{
-                $data = [
-                    'status'=>2,
-                    'message'=>'操作失败！'
-                ];
+                $flag ='danger';
+                $errors = ['message'=>'操作失败！'];
             }
         }else{
-            $data = [
-                'status'=>3,
-                'message'=>'数据不能为空！'
-            ];
+            $flag ='success';
+            $errors = ['danger'=>'数据不能为空！'];
         }
         $tag = $tags->get()->toArray();
-        return view('tag/index',['data'=>$data,'tags'=>$tag]);
+        return view('tag/index',['errors'=>$errors,'tags'=>$tag,'flag'=>$flag]);
     }
 
 }
