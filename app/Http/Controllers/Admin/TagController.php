@@ -22,22 +22,30 @@ class TagController extends CommonController{
     public function edit(){
         $input = Input::except('_token');
         $tags = new Tag;
-        if(isset($input['tag_id']) && !empty($input['tag_id'])){
-            $rs = $tags->where('tag_id',$input['tag_id'])->update($input);
+        if(!empty($input)){
+            if(isset($input['tag_id']) && !empty($input['tag_id'])){
+                $rs = $tags->where('tag_id',$input['tag_id'])->update($input);
+            }else{
+                $rs = $tags->create($input);
+            }
+            if($rs){
+                $data = [
+                    'status'=>1,
+                    'message'=>'操作成功！'
+                ];
+            }else{
+                $data = [
+                    'status'=>2,
+                    'message'=>'操作失败！'
+                ];
+            }
         }else{
-            $rs = $tags->create($input);
-        }
-        if($rs){
             $data = [
-                'status'=>1,
-                'message'=>'操作成功！'
-            ];
-        }else{
-            $data = [
-                'status'=>2,
-                'message'=>'操作失败！'
+                'status'=>3,
+                'message'=>'数据不能为空！'
             ];
         }
+
         return $data;
     }
 
