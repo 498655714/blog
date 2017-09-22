@@ -13,13 +13,24 @@
     <script src="{{asset('assets/js/ace-elements.min.js')}}"></script>
     <script src="{{asset('assets/js/ace.min.js')}}"></script>
     <script type="text/javascript">
-        $(function () {
-            $('span').click(function(){
-                alert($(this).html());
-                $('#tag_name').val($(this).html());
-                $('#tag_id').val($(this).attr('id'));
-            });
-        });
+        function updatetag(){
+            $('#tag_name').val($(this).html());
+            $('#tag_id').val($(this).attr('id'));
+        }
+        function submit_tag(){
+            $.post(
+                    '{{url("admin/tag/edit")}}',
+                    {'_token':'{{csrf_token()}}','tag_name':$('#tag_name'),'tag_id':$('#tag_id')},
+                    function(data){
+                        if(data.status == 1){
+                            location.href =location.href;
+                            layer.msg(data.message,{icon: 6})
+                        }else{
+                            layer.msg(data.message,{icon: 5})
+                        }
+                    }
+            );
+        }
     </script>
 </head>
 <body>
@@ -29,9 +40,10 @@
             <div class="space-6"></div>
             <div>
                 <form id="tags_form" action="admin/tag/edit" method="post">
+                    {{csrf_field()}}
                     <input id="tag_name" name="tag_name" placeholder="写要添加的标签"class="input-xlarge" type="text" >
                     <input id="tag_id" name="tag_id" type="hidden" >
-                    <button class="btn btn-sm btn-success" onclick="submit">
+                    <button class="btn btn-sm btn-success" onclick="submit_tag()">
                         <i class="icon-save"></i>
                         保存
                     </button>
@@ -49,7 +61,7 @@
                 ];
                 ?>
                 @foreach($tags as $key=> $val)
-                    <span id="{{$val['tag_id']}}" class="{{$data[array_rand($data)]}}">{{$val['tag_name']}}</span>&nbsp;
+                    <span  class="{{$data[array_rand($data)]}}"><a id="{{$val['tag_id']}}" href="javascript:;" onclick="updatetag()">{{$val['tag_name']}}</a></span>&nbsp;
                     @if(!(($key+1)%9))
                         <br>
                     @endif

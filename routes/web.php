@@ -25,6 +25,7 @@ Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=
     Route::post('cate/vieworder', 'CategoryController@vieworder');//修改排序
     Route::post('article/imgtoup', 'ArticleController@imgtoup');//图片上传异步
     Route::get('tag/index', 'TagController@index');//标签页面
+    Route::post('tag/edit', 'TagController@edit');//标签页面
 
     //资源路由
     Route::resource('category','CategoryController');

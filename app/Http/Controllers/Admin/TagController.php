@@ -19,12 +19,26 @@ class TagController extends CommonController{
     }
 
     //添加标签
-    public function create(){
+    public function edit(){
+        $input = Input::except('_token');
         $tags = new Tag;
+        if(isset($input['tag_id']) && !empty($input['tag_id'])){
+            $rs = $tags->where('tag_id',$input['tag_id'])->update($input);
+        }else{
+            $rs = $tags->create($input);
+        }
+        if($rs){
+            $data = [
+                'status'=>1,
+                'message'=>'操作成功！'
+            ];
+        }else{
+            $data = [
+                'status'=>2,
+                'message'=>'操作失败！'
+            ];
+        }
+        return $data;
     }
 
-    //删除标签
-    public function delete(){
-        $tags = new Tag;
-    }
 }
