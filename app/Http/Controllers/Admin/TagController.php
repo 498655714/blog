@@ -20,9 +20,8 @@ class TagController extends CommonController{
 
     //Ìí¼Ó±êÇ©
     public function edit(){
-        //$input = Input::except('_token');
-        //$tags = new Tag;
-        dd(1111);exit;
+        $input = Input::except('_token');
+        $tags = new Tag;
         if(!empty($input)){
             if(isset($input['tag_id']) && !empty($input['tag_id'])){
                 $rs = $tags->where('tag_id',$input['tag_id'])->update($input);
