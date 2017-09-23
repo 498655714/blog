@@ -21,6 +21,10 @@ class IndexController extends CommonController{
         $tags = Tag::get()->toArray();
         $tag_array = $this->adjustArray($tags,'tag_id');
         $hot_art = Article::orderBy('art_view','desc')->limit(5)->get(['art_id','art_title','art_description','art_thumb','art_view'])->toArray();
+        foreach($hot_art as $key=>$val){
+            $hot_art[$key]['art_title'] = $this->cut_str($val['art_title'],28);
+            $hot_art[$key]['art_description'] = $this->cut_str($val['art_description'],56);
+        }
         $arr['tags'] = $tag_array;
         $arr['hot_art'] = $hot_art;
 
