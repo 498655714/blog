@@ -70,7 +70,7 @@
                 <footer class="article-footer">
                     <div class="article-footer-l">
                         <i class="iconfont icon-tags"></i>
-                        @foreach($art_tag as $tag_key=>$tag_val)
+                        @foreach($art_val['art_tag'] as $tag_key=>$tag_val)
                             &nbsp;&nbsp;<a class="article-tag" data-toggle="tooltip" data-placement="top" title="bootstrap">
                                 {{$tag_val['tag_name']}}
                             </a>&nbsp;&nbsp;
