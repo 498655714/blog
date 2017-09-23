@@ -20,9 +20,12 @@
             </div>
 
             <div class="articleinfo-copy hidden-xs">
-                <p>本文标签：@if(isset($articles['art_tag']) && is_array($articles['art_tag']))
+                <p><i class="iconfont icon-tags"></i>本文标签：@if(isset($articles['art_tag']) && is_array($articles['art_tag']))
                                 @foreach($articles['art_tag'] as $key=>$val)
-                                <a>{{$val['tag_name']}}</a>
+                            &nbsp;&nbsp;<a class="article-tag" data-toggle="tooltip" data-placement="top"
+                                           title="{{$val['tag_name']}}">
+                                {{$val['tag_name']}}
+                            </a>&nbsp;&nbsp;
                                 @endforeach
                             @endif
                 </p>
@@ -39,7 +42,7 @@
                 window._bd_share_config={"common":{"bdSnsKey":{}, "bdText":"", "bdMini":"2", "bdMiniList":false, "bdPic":"", "bdStyle":"1", "bdSize":"32"}, "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
             </script>
             <div class="articleinfo-up">
-                <p>上一篇：@if($next_art)
+                <p>上一篇：@if($pre_art)
                     <a title='{{$pre_art->art_title}}' href="{{url('main/detail/'.$pre_art->art_id)}}">&nbsp;{{$pre_art->art_title}}</a>@else 没有了 @endif
                 </p>
             </div>

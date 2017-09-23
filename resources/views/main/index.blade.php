@@ -29,7 +29,7 @@
                         @if(!empty($art_val['art_tag']) && is_array($art_val['art_tag']))
                             @foreach($art_val['art_tag'] as $tag_key=>$tag_val)
                                 &nbsp;&nbsp;<a class="article-tag" data-toggle="tooltip" data-placement="top"
-                                               title="{{$tag_val['tag_name']}}">
+                                                   title="{{$tag_val['tag_name']}}">
                                     {{$tag_val['tag_name']}}
                                 </a>&nbsp;&nbsp;
                                 @if(!(($tag_key+1)%4))<br>@endif

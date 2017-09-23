@@ -159,7 +159,7 @@
         </div>
         <div class="row bottom">
             <div class="col-md-6 col-sm-5 bottom-left">
-                © 2017 Neal小宝博客 & 版权所有
+                © 2017 Neal小宝博客
             </div>
             <div class="col-md-6 col-sm-7 bottom-right hidden-xs">
                 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
