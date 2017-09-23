@@ -39,13 +39,13 @@
                 window._bd_share_config={"common":{"bdSnsKey":{}, "bdText":"", "bdMini":"2", "bdMiniList":false, "bdPic":"", "bdStyle":"1", "bdSize":"32"}, "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
             </script>
             <div class="articleinfo-up">
-                <p>上一篇：
-                    <a title='青春博客 v3.0 补丁' href="/article-160.html">&nbsp;青春博客 v3.0 补丁...</a>
+                <p>上一篇：@if($next_art)
+                    <a title='{{$pre_art->art_title}}' href="{{url('main/detail/'.$pre_art->art_id)}}">&nbsp;{{$pre_art->art_title}}</a>@else 没有了 @endif
                 </p>
             </div>
             <div class="articleinfo-down">
-                <p>下一篇：
-                    <a title='Mysql按月份统计和按时段统计SQL' href="/article-162.html">&nbsp;Mysql按月份统计和按时段统计SQL...</a>
+                <p>下一篇：@if($next_art)
+                    <a title='{{$next_art->art_title}}' href="{{url('main/detail/'.$next_art->art_id)}}">&nbsp;{{$next_art->art_title}}</a>@else 没有了 @endif
                 </p>
             </div>
             <hr />

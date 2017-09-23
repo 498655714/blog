@@ -66,14 +66,16 @@ class IndexController extends CommonController{
             $article->where('art_id',$art_id)->get()->toArray();
             $pre_art = Article::find($this->getPreArticleId($art_id));
             $next_art = Article::find($this->getNextArticleId($art_id));
-            dd($pre_art);
-            dd($next_art);
-            exit;
             $cate_name = Category::where('cate_id',$articles[0]['cate_id'])->get(['cate_id','cate_name'])->toArray();
             $articles[0]['cate_name'] = $cate_name[0]['cate_name'];
             $articles[0]['art_tag'] = $tag_array[$articles[0]['art_tag']];
             $articles[0]['created_at'] = date('Y年 m月 d日 H:i',strtotime($articles[0]['created_at']));
-            return view('main.detail',['articles'=>$articles[0],'tags'=>$tag_array,'hot_art'=>$hot_art]);
+            return view('main.detail',['articles'=>$articles[0],
+                'tags'=>$tag_array,
+                'hot_art'=>$hot_art,
+                'pre_art'=>$pre_art,
+                'next_art'=>$next_art,
+            ]);
         }
 
     }
