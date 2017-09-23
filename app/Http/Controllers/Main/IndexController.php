@@ -59,6 +59,7 @@ class IndexController extends CommonController{
         $info = $this->getinfo();
         $tag_array = $info['tags'];
         $hot_art = $info['hot_art'];
+        $arr = array();
         $articles = $article->where('art_id',$art_id)->get()->toArray();
         if(empty($articles[0])){
             return view('main.404page');
@@ -68,8 +69,14 @@ class IndexController extends CommonController{
             $next_art = Article::find($this->getNextArticleId($art_id));
             $cate_name = Category::where('cate_id',$articles[0]['cate_id'])->get(['cate_id','cate_name'])->toArray();
             $articles[0]['cate_name'] = $cate_name[0]['cate_name'];
-            $articles[0]['art_tag'] = $tag_array[$articles[0]['art_tag']];
-            $articles[0]['created_at'] = date('Y年 m月 d日 H:i',strtotime($articles[0]['created_at']));
+            if($articles[0]['art_tag']){
+                $cun_tags = explode(',',$articles[0]['art_tag']);
+                foreach($cun_tags as $cun_key=>$cun_val){
+                    $arr[$cun_key] = $tag_array[$cun_val];
+                }
+            }
+            $articles[0]['art_tag'] = $arr;
+            $articles[0]['created_at'] = date('Y-m-d H:i',strtotime($articles[0]['created_at']));
             return view('main.detail',['articles'=>$articles[0],
                 'tags'=>$tag_array,
                 'hot_art'=>$hot_art,
