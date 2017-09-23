@@ -15,6 +15,13 @@ use App\Model\Tag;
 class IndexController extends CommonController{
     //博客首页
     public function getindex(){
+        $tags = Tag::get()->toArray();
+        $tag_array = $this->adjustArray($tags,'tag_id');
+        return view('main.index',['tags'=>$tag_array]);
+    }
+
+    //博客首页内容区
+    public function gethome(){
         $article = new Article();
         $tags = Tag::get()->toArray();
         $tag_array = $this->adjustArray($tags,'tag_id');
@@ -28,7 +35,7 @@ class IndexController extends CommonController{
                 $articles[$key]['art_tag'] = $arr;
             }
         }
-        return view('main.index',['articles'=>$articles,'tags'=>$tag_array]);
+        return view('main.home',['articles'=>$articles]);
     }
 
 }
