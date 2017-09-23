@@ -32,6 +32,7 @@ class IndexController extends CommonController{
         $info = $this->getinfo();
         $tag_array = $info['tags'];
         $hot_art = $info['hot_art'];
+        dd($hot_art);exit;
         $arr = array();
         $articles = $article->orderBy('art_id','desc')->limit(5)->get()->toArray();
         foreach($articles as $key=>$val){
