@@ -23,12 +23,11 @@ class IndexController extends CommonController{
             if(!empty($val['art_tag'])){
                 $cun_tags = explode(',',$val['art_tag']);
                 foreach($cun_tags as $cun_key=>$cun_val){
-                    $arr = $tag_array[$cun_val];
+                    $arr[] = $tag_array[$cun_val];
                 }
                 $articles[$key]['art_tag'] = $arr;
             }
         }
-        dd($articles);exit;
         return view('main.index',['articles'=>$articles,'tags'=>$tag_array]);
     }
 
