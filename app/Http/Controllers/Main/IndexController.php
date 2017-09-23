@@ -64,8 +64,8 @@ class IndexController extends CommonController{
             return view('main.404page');
         }else{
             $article->where('art_id',$art_id)->get()->toArray();
-            $pre_art = Article::find($this->getPreArticleId($art_id))->toArray();
-            $next_art = Article::find($this->getNextArticleId($art_id))->toArray();
+            $pre_art = Article::find($this->getPreArticleId($art_id));
+            $next_art = Article::find($this->getNextArticleId($art_id));
             dd($pre_art);
             dd($next_art);
             exit;
