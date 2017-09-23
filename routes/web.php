@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('admin/login');
 });
-//首页路由定义中间件
+//后端路由定义中间件
 Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=>'Admin'],function(){
 
     Route::get('index', 'IndexController@getindex');//首页
@@ -25,14 +25,19 @@ Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=
     Route::post('cate/vieworder', 'CategoryController@vieworder');//修改排序
     Route::post('article/imgtoup', 'ArticleController@imgtoup');//图片上传异步
     Route::get('tag/index', 'TagController@index');//标签页面
-    Route::post('tag/edit', 'TagController@edit');//标签页面
+    Route::post('tag/edit', 'TagController@edit');//标签编辑和增加
 
     //资源路由
-    Route::resource('category','CategoryController');
-    Route::resource('article','ArticleController');
+    Route::resource('category','CategoryController');   //分类
+    Route::resource('article','ArticleController');     //文章
 
 });
 
+//前端路由
+Route::group(['middleware'=>['web','main'],'prefix'=>'main','namespace'=>'Main'],function(){
+
+    Route::get('index','IndexController@getindex'); //博客首页
+});
 
 // 登录路由...
 Route::get('admin/login', 'Admin\AuthController@getLogin');
