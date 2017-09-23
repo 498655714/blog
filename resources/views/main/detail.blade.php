@@ -1,6 +1,5 @@
 ﻿@extends('main.layout')
 @section('content')
-@endsection
     <ol class="breadcrumb sider-margin">
         <li><a href="{{url('main/index')}}">网站首页</a></li>
         <li class="active">所属分类&nbsp;|&nbsp;{{$articles['cate_name']}}</li>
