@@ -156,10 +156,6 @@
 						<i class="iconfont icon-author"></i>&nbsp;作者：&nbsp;nealjiao                    </span>
                 </p>
             </div>
-            <div class="sider-follow hidden-xs sider-margin">
-                <a href="https://github.com/loveteemo" target="_blank"><i class="iconfont icon-github"></i></a>
-                <a><i class="iconfont icon-weixin" id="weixin"></i></a>
-            </div>
         </div>
         <div class="row bottom">
             <div class="col-md-6 col-sm-5 bottom-left">

@@ -60,9 +60,40 @@ class IndexController extends CommonController{
         $tag_array = $info['tags'];
         $hot_art = $info['hot_art'];
         $articles = $article->where('art_id',$art_id)->get()->toArray();
-        $cate_name = Category::where('cate_id',$articles[0]['cate_id'])->get(['cate_id','cate_name'])->toArray();
-        $articles[0]['cate_name'] = $cate_name[0]['cate_name'];
-        return view('main.detail',['articles'=>$articles[0],'tags'=>$tag_array,'hot_art'=>$hot_art]);
+        if(empty($articles[0])){
+            return view('main.404page');
+        }else{
+            $article->where('art_id',$art_id)->get()->toArray();
+            $pre_art = Article::find($this->getPreArticleId($art_id));
+            $next_art = Article::find($this->getNextArticleId($art_id));
+            dd($pre_art);
+            dd($next_art);
+            exit;
+            $cate_name = Category::where('cate_id',$articles[0]['cate_id'])->get(['cate_id','cate_name'])->toArray();
+            $articles[0]['cate_name'] = $cate_name[0]['cate_name'];
+            $articles[0]['art_tag'] = $tag_array[$articles[0]['art_tag']];
+            $articles[0]['created_at'] = date('Y年 m月 d日 H:i',strtotime($articles[0]['created_at']));
+            return view('main.detail',['articles'=>$articles[0],'tags'=>$tag_array,'hot_art'=>$hot_art]);
+        }
+
+    }
+
+    //下一篇文章
+    protected function getNextArticleId($current_id)
+    {
+        return Article::where('art_id', '>', $current_id)->min('art_id');
+
+    }
+
+    //上一篇文章
+    protected function getPreArticleId($current_id)
+    {
+        return Article::where('art_id', '<', $current_id)->max('art_id');
+
+    }
+    //错误页面
+    public function geterror(){
+        return view('main.404page');
     }
 
 
