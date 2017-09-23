@@ -37,7 +37,7 @@ Route::group(['middleware'=>['web','admin.login'],'prefix'=>'admin','namespace'=
 Route::group(['middleware'=>['web','main'],'prefix'=>'main','namespace'=>'Main'],function(){
 
     Route::get('index','IndexController@getindex'); //博客首页
-    Route::get('detail/(art_id)','IndexController@getdetail'); //博客首页内容页
+    Route::get('detail/{art_id}','IndexController@getdetail'); //博客首页内容页
 });
 
 // 登录路由...
