@@ -26,10 +26,10 @@ class IndexController extends CommonController{
                 foreach($cun_tags as $cun_key=>$cun_val){
                     $arr[$cun_key] = $tag_array[$cun_val];
                 }
-
+                $articles[$key]['art_tag'] = $arr;
+                unset($arr);
             }
-            unset($articles[$key]['art_tag']);
-            $articles[$key]['art_tag'] = $arr;
+
         }
         return view('main.index',['articles'=>$articles,'tags'=>$tag_array]);
     }

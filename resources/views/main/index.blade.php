@@ -1,7 +1,7 @@
 ﻿@extends('main.layout')
 
 @section('content')
-<div class="col-md-8 row-right index">
+<div class="col-md-8 row-left index">
     @foreach($articles as $art_key=>$art_val)
         <article>
             <h5>
