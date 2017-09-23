@@ -28,6 +28,7 @@ class IndexController extends CommonController{
                 $articles[$key]['art_tag'] = $arr;
             }
         }
+        dd($articles);exit;
         return view('main.index',['articles'=>$articles,'tags'=>$tag_array]);
     }
 
