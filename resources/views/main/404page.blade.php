@@ -8,7 +8,7 @@
 <body>
 	<div class="notice_page">
 		<div class="notice_404_p"></div>
-		<div class="home_page"><a class="notice_retun" href="javascript:history.go(-1);">返回上一页</a><a class="notice_home" href="url('main/index')">返回首页</a></div>
+		<div class="home_page"><a class="notice_retun" href="javascript:history.go(-1);">返回上一页</a><a class="notice_home" href="{{url('main/index')}}">返回首页</a></div>
 	</div>
 
 </body>

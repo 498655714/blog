@@ -111,7 +111,7 @@
                 <?php $data = ['danger sider-tag-end', 'default', 'primary', 'success', 'info', 'warning'] ?>
                 <ul class="sider-tag-ul">
                     @foreach($tags as $tag_key=>$tag_val)
-                        <li class="label label-xlg label-{{$data[array_rand($data)]}}"><a href="{{url('main/index/searchByTag').$tag_val['tag_id']}}">{{$tag_val['tag_name']}}</a></li>
+                        <li class="label label-xlg label-{{$data[array_rand($data)]}}"><a href="{{url('main/searchByTag'.$tag_val['tag_id'])}}">{{$tag_val['tag_name']}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -120,11 +120,11 @@
                 <ul class="sider-rand-ul">
                     @foreach($hot_art as $hot_key=>$hot_val)
                     <li>
-                        <a href="{{url('main/detail/').$hot_val['art_id']}}" title="{{$hot_val['art_title']}}" class="sider-rand-img image-light">
+                        <a href="{{url('main/detail/'.$hot_val['art_id'])}}" title="{{$hot_val['art_title']}}" class="sider-rand-img image-light">
                             <img src="/{{$hot_val['art_thumb']}}" class="article-img" alt="{{$hot_val['art_title']}}" title="{{$hot_val['art_title']}}"/>
                         </a>
 
-                        <div class="sider-rand-title"><a href="{{url('main/detail/').$hot_val['art_id']}}">{{$hot_val['art_title']}}</a></div>
+                        <div class="sider-rand-title"><a href="{{url('main/detail/'.$hot_val['art_id'])}}">{{$hot_val['art_title']}}</a></div>
                         <div class="sider-rand-remark">{{$hot_val['art_description']}}</div>
                     </li>
                     @endforeach
