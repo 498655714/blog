@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Model\Article;
 use App\Model\Category;
 use App\Model\Tag;
+use  Illuminate\Support\Facades\Input;
 class IndexController extends CommonController{
 
     //取得公共部分需要的信息
@@ -22,8 +23,8 @@ class IndexController extends CommonController{
         $tag_array = $this->adjustArray($tags,'tag_id');
         $hot_art = Article::orderBy('art_view','desc')->limit(5)->get(['art_id','art_title','art_description','art_thumb','art_view'])->toArray();
         foreach($hot_art as $key=>$val){
-            $hot_art[$key]['art_title'] = $this->cut_str($val['art_title'],10);
-            $hot_art[$key]['art_description'] = $this->cut_str($val['art_description'],10);
+            $hot_art[$key]['art_title'] = $this->cut_str($val['art_title'],14);
+            $hot_art[$key]['art_description'] = $this->cut_str($val['art_description'],28);
         }
         $arr['tags'] = $tag_array;
         $arr['hot_art'] = $hot_art;
@@ -50,6 +51,18 @@ class IndexController extends CommonController{
 
         }
         return view('main.index',['articles'=>$articles,'tags'=>$tag_array,'hot_art'=>$hot_art]);
+    }
+
+    //博客内容页
+    public function getdetail($art_id){
+        $article = new Article();
+        $info = $this->getinfo();
+        $tag_array = $info['tags'];
+        $hot_art = $info['hot_art'];
+        $articles = $article->where('art_id',$art_id)->get()->toArray();
+        $cate_name = Category::where('cate_id',$articles[0]['cate_id'])->get('cate_id','cate_name')->toArray();
+        $articles[0]['cate_name'] = $cate_name[0]['cate_name'];
+        return view('main.detail',['articles'=>$articles[0],'tags'=>$tag_array,'hot_art'=>$hot_art]);
     }
 
 

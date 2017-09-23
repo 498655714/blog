@@ -141,8 +141,6 @@
     <div class="container foot">
         <div class="row foot-margin">
             <div class="col-md-3 ">
-                <h4>程序相关</h4>
-
                 <p class="foot-box">
                     <i class="iconfont icon-program"></i>&nbsp;程序：&nbsp;Neal小宝博客                    <span
                             class="foot-box-r">
@@ -159,7 +157,6 @@
             <div class="sider-follow hidden-xs sider-margin">
                 <a href="https://github.com/loveteemo" target="_blank"><i class="iconfont icon-github"></i></a>
                 <a><i class="iconfont icon-weixin" id="weixin"></i></a>
-                <a href="http://weibo.com/iteemo" target="_blank"><i class="iconfont icon-weibo"></i></a>
             </div>
         </div>
         <div class="row bottom">

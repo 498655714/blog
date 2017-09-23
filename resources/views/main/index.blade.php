@@ -7,7 +7,7 @@
             <h5>
                 <span class="original">[ {{$art_val['art_type']}} ]</span>
                 <i class="iconfont icon-recommend tui"></i>
-                <a href="article-156.html">{{$art_val['art_title']}}</a>
+                <a href="{{url('main/detail/'.$art_val['art_id'])}}">{{$art_val['art_title']}}</a>
             </h5>
 
             <div class="clearfix">
@@ -17,11 +17,11 @@
 
                         <div class="article-css3_caption">
                             <p class="article-css3_caption_p">{{$art_val['art_title']}}</p>
-                            <a class="article-css3_caption_a" href="article-156.html" target="_blank"></a>
+                            <a class="article-css3_caption_a" href="{{url('main/detail/'.$art_val['art_id'])}}" target="_blank"></a>
                         </div>
                     </div>
                     {{$art_val['art_description']}}
-                    <a href="article-156.html" class="article-look">继续阅读</a>
+                    <a href="{{url('main/detail/'.$art_val['art_id'])}}" class="article-look">继续阅读</a>
                 </div>
                 <footer class="article-footer">
                     <div class="article-footer-l">
