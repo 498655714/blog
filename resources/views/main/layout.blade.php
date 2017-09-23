@@ -147,13 +147,15 @@
 						<i class="iconfont icon-version"></i>&nbsp;版本：&nbsp;Beta 1.0                    </span>
                 </p>
 
+            </div>
+
+            <div class="col-md-3 ">
                 <p class="foot-box">
                     <i class="iconfont icon-framework"></i>&nbsp;框架：&nbsp;Laravel5.5                    <span
                             class="foot-box-r">
 						<i class="iconfont icon-author"></i>&nbsp;作者：&nbsp;nealjiao                    </span>
                 </p>
             </div>
-
             <div class="sider-follow hidden-xs sider-margin">
                 <a href="https://github.com/loveteemo" target="_blank"><i class="iconfont icon-github"></i></a>
                 <a><i class="iconfont icon-weixin" id="weixin"></i></a>

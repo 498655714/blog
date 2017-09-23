@@ -13,7 +13,7 @@
             <p>作者：{{$articles['art_editor']}}  阅读：（{{$articles['art_view']}}）创建时间：{{$articles['created_at']}}</p>
             <hr>
             <div class="about">
-                {{$articles['art_content']}}
+                {!! $articles['art_content'] !!}
             </div>
         </div>
     </div>
