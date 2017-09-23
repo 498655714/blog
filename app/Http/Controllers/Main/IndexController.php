@@ -13,11 +13,25 @@ use App\Model\Article;
 use App\Model\Category;
 use App\Model\Tag;
 class IndexController extends CommonController{
+
+    //取得公共部分需要的信息
+    public function getinfo(){
+        $arr = array();//存贮公共信息
+        //取得所有标签
+        $tags = Tag::get()->toArray();
+        $tag_array = $this->adjustArray($tags,'tag_id');
+        $hot_art = Article::orderBy(['art_view'=>'desc','art_id'=>'desc'])->limit(5)->get(['art_id','art_title','art_description','art_thumb'])->toArray();
+        $arr['tags'] = $tag_array;
+        $arr['hot_art'] = $hot_art;
+
+        return $arr;
+    }
     //博客首页
     public function getindex(){
         $article = new Article();
-        $tags = Tag::get()->toArray();
-        $tag_array = $this->adjustArray($tags,'tag_id');
+        $info = $this->getinfo();
+        $tag_array = $info['tags'];
+        $hot_art = $info['hot_art'];
         $arr = array();
         $articles = $article->orderBy('art_id','desc')->limit(5)->get()->toArray();
         foreach($articles as $key=>$val){
@@ -31,7 +45,7 @@ class IndexController extends CommonController{
             }
 
         }
-        return view('main.index',['articles'=>$articles,'tags'=>$tag_array]);
+        return view('main.index',['articles'=>$articles,'tags'=>$tag_array,'hot_art'=>$hot_art]);
     }
 
 

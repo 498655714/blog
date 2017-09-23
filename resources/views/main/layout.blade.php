@@ -94,7 +94,7 @@
             <div class="sider-margin sider-box">
                 <div class="sider-search">
                     <div class="input-group sider-search-input">
-                        <form action="/search.html" method="get" class="form-search">
+                        <form action="{{url('main/search')}}" method="post" class="form-search">
                             <input type="text" class="form-control sider-search-input" placeholder="请输入关键词" name="key">
                             <span class="input-group-btn">
 	            	            <button class="btn btn-default btn-search" type="submit"><i
@@ -116,158 +116,20 @@
                 </ul>
             </div>
             <div class="sider-box">
-                <h4><i class="iconfont icon-shuffle"></i>&nbsp;&nbsp;热点文章3个</h4>
+                <h4><i class="iconfont icon-hit"></i>&nbsp;&nbsp;热点文章</h4>
                 <ul class="sider-rand-ul">
+                    @foreach($hot_art as $hot_key=>$hot_val)
                     <li>
-                        <a href="article-52.html" title="搭建简易的SVN服务" class="sider-rand-img image-light">
-                            <img src="picture/default.jpg" class="article-img" alt="搭建简易的SVN服务" title="搭建简易的SVN服务"/>
+                        <a href="{{url('main/detail/').$hot_val['art_id']}}" title="{{$hot_val['art_title']}}" class="sider-rand-img image-light">
+                            <img src="/{{$hot_val['art_thumb']}}" class="article-img" alt="{{$hot_val['art_title']}}" title="{{$hot_val['art_title']}}"/>
                         </a>
 
-                        <div class="sider-rand-title"><a href="article-52.html">搭建简易的SVN服务...</a></div>
-                        <div class="sider-rand-remark">由于在之前的公司习惯的SVN代码管理，而新公司这边的环境尚未部署，技术...</div>
+                        <div class="sider-rand-title"><a href="{{url('main/detail/').$hot_val['art_id']}}">{{$hot_val['art_title']}}</a></div>
+                        <div class="sider-rand-remark">{{$hot_val['art_description']}}</div>
                     </li>
-
+                    @endforeach
                 </ul>
             </div>
-            <div class="sider-box">
-                <h4><i class="iconfont icon-review"></i>&nbsp;&nbsp;最新互动</h4>
-
-                <div class="tab" id="tab">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#art" data-toggle="tab">最新评论</a></li>
-                        <li><a href="#contents" data-toggle="tab">最新留言</a></li>
-                        <li><a href="#hot" data-toggle="tab">最多点击</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="sider-box">
-                <div class="tab-content">
-                    <div class="tab-pane fade in active" id="art">
-                        <ul class="sider-content-ul">
-                            <li>
-                                <img src="picture/5596eac5a670452d82f79e4233a9b360.gif" class="img-circle img-45"/>
-
-                                <div class="sider-content-name"><i class="iconfont icon-review"></i>&nbsp;&nbsp;哈蜜瓜
-                                </div>
-                                <div class="sider-content-remark">
-                                    &nbsp;&nbsp;<a href="article-27.html#31" title="123.....">123...</a>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="picture/e1c7d86d7f67436caf49f481c97931e4.gif" class="img-circle img-45"/>
-
-                                <div class="sider-content-name"><i class="iconfont icon-review"></i>&nbsp;&nbsp;羊先生
-                                </div>
-                                <div class="sider-content-remark">
-                                    &nbsp;&nbsp;<a href="article-156.html#30" title="dsf&nbsp;.....">dsf&nbsp;...</a>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="picture/ffea1c28374448f69ce6fa48f0c4e2f0.gif" class="img-circle img-45"/>
-
-                                <div class="sider-content-name"><i class="iconfont icon-review"></i>&nbsp;&nbsp;SD</div>
-                                <div class="sider-content-remark">
-                                    &nbsp;&nbsp;<a href="article-149.html#29" title="&lt;!DOCTYPE html&g.....">&lt;!DOCTYPE
-                                        html&g...</a>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="picture/58fc8963bea2412bbddd7db598ddf21f.gif" class="img-circle img-45"/>
-
-                                <div class="sider-content-name"><i class="iconfont icon-review"></i>&nbsp;&nbsp;‭</div>
-                                <div class="sider-content-remark">
-                                    &nbsp;&nbsp;<a href="download-155.html#27" title="图片竟然没出来啊 本来自定义一个表情的.....">图片竟然没出来啊
-                                        本来自定义一个表情的...</a>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="picture/527065a5e63e4d018097e180b67187b4.gif" class="img-circle img-45"/>
-
-                                <div class="sider-content-name"><i class="iconfont icon-review"></i>&nbsp;&nbsp;雨过天晴boy
-                                </div>
-                                <div class="sider-content-remark">
-                                    &nbsp;&nbsp;<a href="article-150.html#25" title=".....">...</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade" id="contents">
-                        <ul class="sider-content-ul">
-                            <li>
-                                <img src="picture/58fc8963bea2412bbddd7db598ddf21f.gif" class="img-circle img-45"/>
-
-                                <div class="sider-content-name"><i class="iconfont icon-review"></i>&nbsp;&nbsp;‭</div>
-                                <div class="sider-content-remark">
-                                    &nbsp;&nbsp;<a href="comment.html#32" title=".....">...</a>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="picture/bef33dd06acd4aab95645eddf7581984.gif" class="img-circle img-45"/>
-
-                                <div class="sider-content-name"><i class="iconfont icon-review"></i>&nbsp;&nbsp;♔佛爷♔
-                                </div>
-                                <div class="sider-content-remark">
-                                    &nbsp;&nbsp;<a href="comment.html#28" title="师傅.....">师傅...</a>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="picture/b2738c9980854b81a9dadca9be2ce34e.gif" class="img-circle img-45"/>
-
-                                <div class="sider-content-name"><i class="iconfont icon-review"></i>&nbsp;&nbsp;873567832
-                                </div>
-                                <div class="sider-content-remark">
-                                    &nbsp;&nbsp;<a href="comment.html#23" title="来看看.....">来看看...</a>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="picture/3f86baae49fc48de84b1651c39d57d32.gif" class="img-circle img-45"/>
-
-                                <div class="sider-content-name"><i class="iconfont icon-review"></i>&nbsp;&nbsp;卡布奇诺的秘密
-                                </div>
-                                <div class="sider-content-remark">
-                                    &nbsp;&nbsp;<a href="comment.html#21" title="我来瞎转转。。- -.....">我来瞎转转。。- -...</a>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="picture/4bcf1ca0c1934b99b4bac9523e58356f.gif" class="img-circle img-45"/>
-
-                                <div class="sider-content-name"><i class="iconfont icon-review"></i>&nbsp;&nbsp;404 Not
-                                    Found
-                                </div>
-                                <div class="sider-content-remark">
-                                    &nbsp;&nbsp;<a href="comment.html#17" title="，来访.....">，来访...</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade" id="hot">
-                        <ul class="sider-hot-ul">
-                            <li><i class="iconfont icon-hit"></i>&nbsp;&nbsp;<a href="article-27.html">JQ获取兄弟元素的值</a>(7994)
-                            </li>
-                            <li><i class="iconfont icon-hit"></i>&nbsp;&nbsp;<a href="article-5.html">青春博客 Beta V1.8
-                                    测试版</a>(7769)
-                            </li>
-                            <li><i class="iconfont icon-hit"></i>&nbsp;&nbsp;<a href="article-14.html">青春博客 Beta V1.7
-                                    测试版</a>(4379)
-                            </li>
-                            <li><i class="iconfont icon-hit"></i>&nbsp;&nbsp;<a href="article-15.html">ThinkPHP 的分页BUG
-                                    解决方法</a>(3968)
-                            </li>
-                            <li><i class="iconfont icon-hit"></i>&nbsp;&nbsp;<a
-                                        href="article-68.html">ThinkPHP的易忽视点小结</a>(3899)
-                            </li>
-                            <li><i class="iconfont icon-hit"></i>&nbsp;&nbsp;<a
-                                        href="article-16.html">Yii1.1.16入门级CMS</a>(3470)
-                            </li>
-                            <li><i class="iconfont icon-hit"></i>&nbsp;&nbsp;<a href="article-20.html">后台模板源文件下载</a>(3389)
-                            </li>
-                            <li><i class="iconfont icon-hit"></i>&nbsp;&nbsp;<a href="article-63.html">美化ThinkPHP模板</a>(2988)
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
         </div>
         <!--侧边栏结束-->
 
@@ -293,31 +155,7 @@
 						<i class="iconfont icon-author"></i>&nbsp;作者：&nbsp;nealjiao                    </span>
                 </p>
             </div>
-            <div class="col-md-3 hidden-xs">
-                <h4>程序统计</h4>
 
-                <p class="foot-box">
-                    文章：&nbsp;154 篇
-                    <span class="foot-box-r">
-                        评论：&nbsp;18 条
-                    </span>
-                </p>
-
-                <p class="foot-box">
-                    建站：&nbsp;1166 天
-                    <span class="foot-box-r">
-                        留言：&nbsp;10 条
-                    </span>
-                </p>
-
-                <p class="foot-box">
-                    访问：&nbsp;5990743 次
-                    <span class="foot-box-r">
-                        友链：&nbsp;2 条
-                    </span>
-                </p>
-
-            </div>
             <div class="sider-follow hidden-xs sider-margin">
                 <a href="https://github.com/loveteemo" target="_blank"><i class="iconfont icon-github"></i></a>
                 <a><i class="iconfont icon-weixin" id="weixin"></i></a>
