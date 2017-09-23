@@ -103,18 +103,16 @@
                         </form>
                     </div>
                 </div>
-                <div class="sider-follow hidden-xs sider-margin">
-                    <a href="https://github.com/loveteemo" target="_blank"><i class="iconfont icon-github"></i></a>
-                    <a><i class="iconfont icon-weixin" id="weixin"></i></a>
-                    <a href="http://weibo.com/iteemo" target="_blank"><i class="iconfont icon-weibo"></i></a>
-                </div>
+
                 <div class="sider-follow-hr hidden-xs"></div>
             </div>
             <div class="sider-margin sider-box">
                 <h4><i class="iconfont icon-tags"></i>&nbsp;&nbsp;标签库</h4>
                 <?php $data =['danger sider-tag-end','default','primary','success','info','warning'] ?>
                 <ul class="sider-tag-ul">
-                    <li class="label label-{{$data[array_rand($data)]}} "><a href="article-27.html">兄弟元素</a></li>
+                    @foreach($tags as $tag_key=>$tag_val)
+                        <li class="label label-{{$data[array_rand($data)]}} "><a href="{{url('main/index/searchByTag').$tag_val['tag_id']}}">{{$tag_val['tag_name']}}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="sider-box">
@@ -340,7 +338,11 @@
                     <i class="iconfont icon-comment"></i>&nbsp;<a href="article-88.html" title="支付宝交易接口申请">支付宝交易接口申请</a>
                 </p>
             </div>
-
+            <div  class="col-md-3 hidden-xs">
+                <a href="https://github.com/loveteemo" target="_blank"><i class="iconfont icon-github"></i></a>
+                <a><i class="iconfont icon-weixin" id="weixin"></i></a>
+                <a href="http://weibo.com/iteemo" target="_blank"><i class="iconfont icon-weibo"></i></a>
+            </div>
         </div>
         <div class="row bottom">
             <div class="col-md-6 col-sm-5 bottom-left">
