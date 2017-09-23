@@ -60,6 +60,7 @@ class IndexController extends CommonController{
         $tag_array = $info['tags'];
         $hot_art = $info['hot_art'];
         $articles = $article->where('art_id',$art_id)->get()->toArray();
+        dd($articles);exit;
         $cate_name = Category::where('cate_id',$articles[0]['cate_id'])->get('cate_id','cate_name')->toArray();
         $articles[0]['cate_name'] = $cate_name[0]['cate_name'];
         return view('main.detail',['articles'=>$articles[0],'tags'=>$tag_array,'hot_art'=>$hot_art]);
