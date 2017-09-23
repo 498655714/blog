@@ -83,13 +83,8 @@
     <!--头部结束-->
 
     <div class="row aerousel">
-
-        <!--内容开始-->
-        @yield('content')
-        <!--内容结束-->
-
         <!--侧边栏开始-->
-        <div class="col-md-4 row-right index">
+        <div class="col-md-4 row-left index">
 
             <div class="sider-margin sider-box">
                 <div class="sider-search">
@@ -111,7 +106,7 @@
                 <?php $data = ['danger sider-tag-end', 'default', 'primary', 'success', 'info', 'warning'] ?>
                 <ul class="sider-tag-ul">
                     @foreach($tags as $tag_key=>$tag_val)
-                        <li class="label label-{{$data[array_rand($data)]}} "><a
+                        <li class="label label-{{$data[array_rand($data)]}} label-lg"><a
                                     href="{{url('main/index/searchByTag').$tag_val['tag_id']}}">{{$tag_val['tag_name']}}</a>
                         </li>
                     @endforeach
@@ -272,6 +267,10 @@
 
         </div>
         <!--侧边栏结束-->
+
+        <!--内容开始-->
+        @yield('content')
+        <!--内容结束-->
     </div>
 </div>
 
