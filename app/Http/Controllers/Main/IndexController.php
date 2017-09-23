@@ -28,6 +28,7 @@ class IndexController extends CommonController{
                 }
 
             }
+            unset($articles[$key]['art_tag']);
             $articles[$key]['art_tag'] = $arr;
         }
         return view('main.index',['articles'=>$articles,'tags'=>$tag_array]);

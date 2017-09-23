@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 
 class CommonController extends Controller
 {
-
     //修改数组
     public function adjustArray($array,$array_val){
         $arr = array();
