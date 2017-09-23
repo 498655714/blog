@@ -33,4 +33,13 @@ class CommonController extends Controller
         }
         return $tree;
     }
+
+    //修改数组
+    public function adjustArray($array,$array_val){
+        $arr = array();
+        foreach($array as $key => $val){
+            $arr[$val[$array_val]] = $val;
+        }
+        return $arr;
+    }
 }

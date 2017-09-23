@@ -37,13 +37,7 @@ class ArticleController extends CommonController{
         ]);
     }
 
-    public function adjustArray($array,$array_val){
-        $arr = array();
-        foreach($array as $key => $val){
-            $arr[$val[$array_val]] = $val;
-        }
-        return $arr;
-    }
+
     //增加文章页面
     //路径 /admin/article/create
     // 路由名称article.create
