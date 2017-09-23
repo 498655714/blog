@@ -317,28 +317,7 @@
                 </p>
 
             </div>
-
-            <div class="col-md-3 hidden-xs">
-                <h4>推荐文章</h4>
-
-                <p class="foot-box-art">
-                    <i class="iconfont icon-comment"></i>&nbsp;<a href="article-12.html"
-                                                                  title="PHP中private和public还有protected的区别">PHP中private和public还有protected的区别</a>
-                </p>
-
-                <p class="foot-box-art">
-                    <i class="iconfont icon-comment"></i>&nbsp;<a href="article-26.html" title="博客整合缩略图功能">博客整合缩略图功能</a>
-                </p>
-
-                <p class="foot-box-art">
-                    <i class="iconfont icon-comment"></i>&nbsp;<a href="article-46.html" title="1.8版整合fancybox相册">1.8版整合fancybox相册</a>
-                </p>
-
-                <p class="foot-box-art">
-                    <i class="iconfont icon-comment"></i>&nbsp;<a href="article-88.html" title="支付宝交易接口申请">支付宝交易接口申请</a>
-                </p>
-            </div>
-            <div  class="col-md-3 hidden-xs">
+            <div class="sider-follow hidden-xs sider-margin">
                 <a href="https://github.com/loveteemo" target="_blank"><i class="iconfont icon-github"></i></a>
                 <a><i class="iconfont icon-weixin" id="weixin"></i></a>
                 <a href="http://weibo.com/iteemo" target="_blank"><i class="iconfont icon-weibo"></i></a>
