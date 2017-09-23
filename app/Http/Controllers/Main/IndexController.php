@@ -20,7 +20,7 @@ class IndexController extends CommonController{
         //取得所有标签
         $tags = Tag::get()->toArray();
         $tag_array = $this->adjustArray($tags,'tag_id');
-        $hot_art = Article::orderBy('art_view','desc')->limit(5)->get(['art_id','art_title','art_description','art_thumb'])->toArray();
+        $hot_art = Article::orderBy('art_view','desc')->limit(5)->get(['art_id','art_title','art_description','art_thumb','art_view'])->toArray();
         $arr['tags'] = $tag_array;
         $arr['hot_art'] = $hot_art;
 
@@ -32,7 +32,6 @@ class IndexController extends CommonController{
         $info = $this->getinfo();
         $tag_array = $info['tags'];
         $hot_art = $info['hot_art'];
-        dd($hot_art);exit;
         $arr = array();
         $articles = $article->orderBy('art_id','desc')->limit(5)->get()->toArray();
         foreach($articles as $key=>$val){
