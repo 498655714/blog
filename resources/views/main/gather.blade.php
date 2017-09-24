@@ -18,7 +18,7 @@
                 <div class="clearfix">
                     <p class="article-remark">
                         <a class="article-img-a image-light" href="{{url('main/detail/'.$art_val['art_id'])}}">
-                            <img src="/{{$art_val['art_thumb']}}" class="article-img" alt="{{$art_val['art_title']}}"
+                            <img src="/{{$art_val['art_thumb']}}" class="article-img" style="width:257px;height: 168px; " alt="{{$art_val['art_title']}}"
                                  title="{{$art_val['art_title']}}"/>
                         </a>
                         {{$art_val['art_description']}}
