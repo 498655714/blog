@@ -42,7 +42,7 @@
             </article>
         @endforeach
         <div class="more">
-            <span class="loadingmore"><a id="loadmore">加载更多</a></span>
+            {{$articles->links()}}
         </div>
 
     </div>
