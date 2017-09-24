@@ -42,7 +42,10 @@
             </article>
         @endforeach
         <div class="more">
-            {{$articles->links()}}
+            <div class="col-md-4"></div>
+            <div col-md-4>
+                {{$articles->links()}}
+            </div>
         </div>
 
     </div>
