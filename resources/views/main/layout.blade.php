@@ -54,25 +54,11 @@
                 <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="menu-active"><a href="{{url('main/index')}}">首页</a></li>
-                        <li class=""><a href="about.html">关于</a></li>
-                        <li class="dropdown ">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
-                               role="button" aria-expanded="false">分类&nbsp;&nbsp;<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="class-1.html"><i class="icon-ok-sign"></i> LNMP</a></li>
-                                <li class="divider"></li>
-                                <li><a href="class-5.html"><i class="icon-ok-sign"></i> PHP</a></li>
-                                <li class="divider"></li>
-                                <li><a href="class-3.html"><i class="icon-ok-sign"></i> Linux</a></li>
-                                <li class="divider"></li>
-                                <li><a href="class-4.html"><i class="icon-ok-sign"></i> Mysql</a></li>
-                                <li class="divider"></li>
-                            </ul>
-                        </li>
-                        <li class=""><a href="links.html">邻居</a></li>
-                        <li class=""><a href="comment.html">留言</a></li>
-                        <li class=""><a href="downloads.html">资源</a></li>
-                        <li class=""><a href="tools.html">工具</a></li>
+                        <li class=""><a href="{{url('main/list/3')}}">LNMP</a></li>
+                        <li class=""><a href="{{url('main/list/2')}}">PHP</a></li>
+                        <li class=""><a href="{{url('main/list/7')}}">Linux</a></li>
+                        <li class=""><a href="{{url('main/list/8')}}">Mysql</a></li>
+                        <li class=""><a href="{{url('main/list/4')}}">Git</a></li>
                     </ul>
                     <div class="menu-bar"></div>
                     <div class="menu-clean"></div>
