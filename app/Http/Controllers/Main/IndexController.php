@@ -123,6 +123,35 @@ class IndexController extends CommonController
         return view('main.gather', ['articles' => $articles, 'tags' => $tag_array, 'hot_art' => $hot_art, 'cate' => $cate, 'flag' => $flag]);
     }
 
+    //列表页
+    public function searchByTag($tag_id)
+    {
+        $article = new Article();
+        $flag = '标签';
+        $info = $this->getinfo();
+        $tag_array = $info['tags'];
+        $hot_art = $info['hot_art'];
+        $arr = array();
+        $articles = $article->where('art_tag','like','%'.$tag_id.'%')->orderBy('art_id', 'desc')->paginate(5);
+        if (!empty($articles)) {
+            foreach ($articles as $key => $val) {
+                if (!empty($val['art_tag'])) {
+                    $cun_tags = explode(',', $val['art_tag']);
+                    foreach ($cun_tags as $cun_key => $cun_val) {
+                        $arr[$cun_key] = $tag_array[$cun_val];
+                    }
+                    $articles[$key]['art_tag'] = $arr;
+                    unset($arr);
+                }
+
+            }
+            $tag = $tag_array[$tag_id];
+        } else {
+            return view('main.404page');
+        }
+        return view('main.listfortag', ['articles' => $articles, 'tags' => $tag_array, 'hot_art' => $hot_art, 'tag' => $tag, 'flag' => $flag]);
+    }
+
     //下一篇文章
     protected function getNextArticleId($current_id)
     {

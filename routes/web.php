@@ -40,6 +40,7 @@ Route::group(['middleware'=>['web','main'],'prefix'=>'main','namespace'=>'Main']
     Route::get('detail/{art_id}','IndexController@getdetail');      //博客首页内容页
     Route::get('errorpage','IndexController@geterror');             //博客首页内容页
     Route::get('list/{cate_id}','IndexController@getlist');         //博客列表页(根据分类查)
+    Route::get('searchByTag/{tag_id}','IndexController@searchByTag');//博客列表页(根据标签查)
 });
 
 // 登录路由...

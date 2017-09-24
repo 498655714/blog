@@ -2,7 +2,7 @@
 @section('content')
     <ol class="breadcrumb sider-margin">
         <li><a href="{{url('main/index')}}">网站首页</a></li>
-        <li class="active">{{$flag}}&nbsp;|&nbsp;{{$cate->cate_name}}</li>
+        <li class="active">{{$flag}}&nbsp;|&nbsp;{{$tag['tag_name']}}</li>
     </ol>
 
 
