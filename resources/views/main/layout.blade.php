@@ -59,6 +59,7 @@
                         <li class=""><a href="{{url('main/list/7')}}">Linux</a></li>
                         <li class=""><a href="{{url('main/list/8')}}">Mysql</a></li>
                         <li class=""><a href="{{url('main/list/4')}}">Git</a></li>
+                        <li class=""><a href="{{url('main/about')}}">关于</a></li>
                     </ul>
                     <div class="menu-bar"></div>
                     <div class="menu-clean"></div>

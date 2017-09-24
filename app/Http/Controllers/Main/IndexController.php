@@ -103,7 +103,7 @@ class IndexController extends CommonController
         $tag_array = $info['tags'];
         $hot_art = $info['hot_art'];
         $arr = array();
-        $articles = $article->where('cate_id', $cate_id)->orderBy('art_id', 'desc')->limit(5)->get()->toArray();
+        $articles = $article->where('cate_id', $cate_id)->orderBy('art_id', 'desc')->paginate(5);
         if (!empty($articles)) {
             foreach ($articles as $key => $val) {
                 if (!empty($val['art_tag'])) {
