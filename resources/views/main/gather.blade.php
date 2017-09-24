@@ -42,8 +42,8 @@
             </article>
         @endforeach
         <div class="more">
-            <div class="col-md-4"></div>
-            <div col-md-4>
+            <div class="col-md-6"></div>
+            <div>
                 {{$articles->links()}}
             </div>
         </div>
