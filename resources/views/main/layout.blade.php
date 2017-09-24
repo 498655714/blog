@@ -111,7 +111,7 @@
                 <?php $data = ['danger sider-tag-end', 'default', 'primary', 'success', 'info', 'warning'] ?>
                 <ul class="sider-tag-ul">
                     @foreach($tags as $tag_key=>$tag_val)
-                        <li class="label label-xlg label-{{$data[array_rand($data)]}}"><a href="{{url('main/searchByTag'.$tag_val['tag_id'])}}">{{$tag_val['tag_name']}}</a></li>
+                        <li class="label label-xlg label-{{$data[array_rand($data)]}}"><a href="{{url('main/searchByTag/'.$tag_val['tag_id'])}}">{{$tag_val['tag_name']}}</a></li>
                     @endforeach
                 </ul>
             </div>
